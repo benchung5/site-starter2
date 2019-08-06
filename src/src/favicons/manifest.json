@@ -1,0 +1,23 @@
+{
+  "name": "App Name",
+  "short_name": "App",
+  "lang": "en-US",
+  "start_url": "/?utm_source=homescreen",
+  "display": "standalone",
+  "theme_color": "#e1306c",
+  "background_color": "#e1306c",
+  "optional_permissions": ["clipboardRead", "clipboardWrite"]
+  "icons": [{
+        "src": "apple-touch-icon.png",
+        "sizes": "120x120",
+        "type": "image/png"
+      }, {
+        "src": "favicon-32x32.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      }, {
+        "src": "favicon-16x16.png",
+        "sizes": "16x16",
+        "type": "image/png"
+  }]
+}

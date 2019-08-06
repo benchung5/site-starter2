@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>facebook - FontAwesome</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M15.3846154,0.144230769 C15.0600962,0.0961538462 13.9423077,0 12.6442308,0 C9.92788462,0 8.06490385,1.65865385 8.06490385,4.69951923 L8.06490385,7.31971154 L5,7.31971154 L5,10.8774038 L8.06490385,10.8774038 L8.06490385,20 L11.7427885,20 L11.7427885,10.8774038 L14.7956731,10.8774038 L15.2644231,7.31971154 L11.7427885,7.31971154 L11.7427885,5.04807692 C11.7427885,4.02644231 12.0192308,3.31730769 13.4975962,3.31730769 L15.3846154,3.31730769 L15.3846154,0.144230769 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="_Settings/Elements/Icon/Social/Facebook" transform="translate(-5.000000, 0.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="facebook---FontAwesome" fill="#FFFFFF" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

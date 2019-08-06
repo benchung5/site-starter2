@@ -1,0 +1,9 @@
+# Rule 1
+User-agent: *
+Disallow: /admin/
+
+# Rule 2
+User-agent: *
+Allow: /
+
+Sitemap: https://naturewithus.com/sitemap.xml

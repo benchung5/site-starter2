@@ -1,0 +1,155 @@
+/* ==========================================================================
+map
+========================================================================== */
+
+
+.main-container {
+  position: relative;
+}
+
+.mapboxgl-popup-content {
+  padding: 0.5em!important;
+}
+
+.popup-content {
+  display: flex;
+  .left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .popup-thumb {
+      background-size: cover;
+      background-position: center;
+      width: 60px;
+      height: 60px;
+    }
+  }
+  .right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 95px;
+    .info {
+      &.title {
+        font-weight: 500;
+        font-family: $title-font;
+        font-size: 1.2em;
+      }
+      padding-left: 0.5em;
+      font-family: $body-font;
+      line-height: 1.3em;
+    }
+  }
+
+}
+
+.marker-popup {
+  position: absolute;
+  z-index: 5 !important;
+  .mapboxgl-popup-tip {
+    border: 0;
+  }
+}
+
+.animate-marker {
+  //animation
+  animation-name: marker-jump;
+  animation-duration: 0.4s;
+  animation-iteration-count: 2;
+  animation-delay: 0s;
+  transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+}
+
+/* ==========================================================================
+zoom control
+========================================================================== */
+
+.zoom-control {
+
+}
+
+/* ==========================================================================
+extends
+========================================================================== */
+
+.art-marker {
+  width: 47px;
+  height: 47px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  &.mural {
+    background-image: url(../img/icons/marker-yellow.svg);
+  }
+  &.monument {
+    background-image: url(../img/icons/marker-pink.svg);
+  }
+  &.totem {
+    background-image: url(../img/icons/marker-green.svg);
+  }
+  &.sculpture {
+    background-image: url(../img/icons/marker-turqoise.svg);
+  }
+  &.statue {
+    background-image: url(../img/icons/marker-navy.svg);
+  }
+  &.installation {
+    background-image: url(../img/icons/marker-purple.svg);
+  }
+}
+
+/* ==========================================================================
+map buttons
+========================================================================== */
+
+.map-button {
+  position: fixed;
+  z-index: 4;
+  background: #fff;
+  box-shadow: $light-shadow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @extend %circle-icon;
+}
+
+.location-btn {
+  bottom: 76px;
+  left: 20px;
+  background-image: url(../img/icons/map-location.svg);
+  background-size: 19px 19px;
+  width: 35px;
+  height: 35px;
+}
+
+.map-style-btn {
+  width: 35px;
+  height: 35px;
+  bottom: 20px;
+  left: 20px;
+  background-image: url(../img/icons/map-satellite.svg);
+  background-size: 17px 24px;
+  &.street {
+    background-image: url(../img/icons/map-street.svg);
+    background-size: 19px 25px;
+  }
+}
+
+.side-menu-btn {
+  top: 20px;
+  left: 20px;
+  background-color: $pink;
+  background-image: url(../img/icons/menu.svg);
+  background-size: 25px 14px;
+  width: 52px;
+  height: 52px;
+}
+
+.list-menu-btn {
+  bottom: 20px;
+  right: 20px;
+  background-image: url(../img/icons/view-list-active.svg);
+  background-size: 25px 14px;
+  width: 52px;
+  height: 52px;
+}

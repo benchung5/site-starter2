@@ -1,0 +1,153 @@
+/* ==========================================================================
+nav
+========================================================================== */
+
+.nav-wrapper {
+    position: absolute;
+    z-index: 2;
+    bottom: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .nav{
+        display: flex;
+      .dot {
+        display:block;
+            background-color: rgba(255,255,255, 0.5);
+            border: 1px solid #fff;
+            margin:8px;
+            border-radius:50%;
+            width:12px;
+            height:12px;
+            cursor:pointer;
+            color:#fff;
+            text-decoration:none;
+        position:relative;
+      }  
+    }
+}
+
+.nav-wrapper .nav .dot.active {
+  transition:all 200ms ease; 
+  background-color: rgba(255,255,255, 1);
+} 
+
+//only hover highlight on non mobile
+.desktop .nav-wrapper .nav .dot:hover {
+  transition:all 200ms ease; opacity:1;
+} 
+
+.swipe-area {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* ==========================================================================
+slider styles
+========================================================================== */
+
+.slider-wrapper {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+  .slide
+  {
+    height: 100%;
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.pt-perspective {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.pt-page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  // using opacity instead of visibility
+  // so it hides properly when article hides
+  // visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+//make the current two transitionning pages visible
+.pt-page-current,
+.no-js .pt-page {
+  // visibility: visible;
+  opacity: 1;
+}
+
+.no-js body {
+  overflow: auto;
+}
+
+//animations------------/
+
+//put slide on top (no animation)
+.pt-page-ontop {
+  z-index: 999;
+}
+
+//leave page left/right
+.pt-page-moveToLeft {
+  animation: moveToLeft .6s ease both;
+}
+.pt-page-moveToRight {
+  animation: moveToRight .6s ease both;
+}
+@keyframes moveToLeft {
+  from { }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes moveToRight {
+  from { }
+  to { transform: translateX(100%); }
+}
+
+//fade in
+.pt-page-fadeIn {
+  animation: fadeIn .7s ease both;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+}
+
+//enter page from left/right
+.pt-page-inFromLeft {
+  animation: inFromLeft .6s ease both;
+}
+.pt-page-inFromRight {
+  animation: inFromRight .6s ease both;
+}
+@keyframes inFromLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+@keyframes inFromRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+
+
+
+

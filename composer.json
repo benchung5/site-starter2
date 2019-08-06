@@ -1,0 +1,13 @@
+{
+	"autoload": {
+		"psr-4": {
+			"Controllers\\": "controllers",
+			"Config\\": "config",
+			"Lib\\": "lib"
+		}
+	},
+
+    "require": {
+		"intervention/image": "^2.4"
+	}
+}

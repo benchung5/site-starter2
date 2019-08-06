@@ -1,0 +1,8 @@
+src/node_modules
+src/npm-debug.log
+vendor
+composer.phar
+log
+.htaccess
+lib/db.php
+secret.txt
