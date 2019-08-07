@@ -26,6 +26,7 @@ const fooSlider = function() {
       }
     },
 
+
     //check for non null values in array
     otherThanNull: function(myArray) {
       var isValid = myArray.some(function (item) {
@@ -64,31 +65,27 @@ const fooSlider = function() {
     },
 
     setPositions: function() {
+      //loop through all boxes every time setPositions is called
+      //move all boxes into correct position...
       for (var i = 0; i < this.boxes.length; i++) {
-        //move if it's the current one, move it to zero
-        if (i === this.current){
-          //init with first slide at initial position
+        //move if it's the current one, move it to zero from wherever it is
+        if(i === this.current) {
           this.animateIn(this.boxes[i]);
-          $(this.boxes[this.current]).addClass('current');
         }
-        //else move the prev/next boxes into correct position...
+        //if loopback and it's going back to the first slide animate the prev slide as if going forward
+        if(this.isLoopBack && (this.current === 0) && (i === (this.boxes.length - 1))) {
+          //move prev box to above
+          this.animate(this.boxes[i], i, 'prev');
+        }
         //if prev
-        if(i < this.current) {
-          //move prev boxes to above
-          //only move if its previously current
-          if($(this.boxes[i]).hasClass('current')) {
-            this.animatePrev(this.boxes[i]);
-            $(this.boxes[i]).removeClass('current');
-          }
+        else if(i < this.current) {
+          //move prev box to above
+          this.animate(this.boxes[i], i, 'prev');
         }
         //if next
-        if(i > this.current) {
+        else if(i > this.current) {
           //move next boxes to below
-          //only move if its previousely current
-          if($(this.boxes[i]).hasClass('current')) {
-           this.animateNext(this.boxes[i]);
-           $(this.boxes[i]).removeClass('current');
-         }
+          this.animate(this.boxes[i], i, 'next');
         }
       }   
     },
@@ -111,44 +108,57 @@ const fooSlider = function() {
     },
 
     move: function(direction) {
-      if(this.otherThanNull(this.boxes)) {
+      if(this.canSlide  && this.otherThanNull(this.boxes)) {
         //increment current
         if (direction === "prev" && this.current > 0) {
           this.current--;
-        } else if (direction === "next" && (this.current < (this.boxes.length - 1))) {
-          this.current++;
-        }
+        } else if (direction === "next") {
+          if (this.current < (this.boxes.length - 1)) {
+            this.current++;
+          } else if (this.isLoopBack) {
+            //loop back to first slide if reached the end
+            this.current = 0;
+          }
+        } 
         this.setPositions();
       }
     },
 
-    animatePrev: function(el) {
-      TweenLite.to(el, this.slideSpeed , { 
-          transform: "translate(0, " + (-this.moveAmount) + "px)",
-          autoAlpha: 0,
-          // zIndex: 0,
-          ease: Power2.easeInOut,
-          onComplete: this.onAnimInComplete.bind(this),
-       });
-    },
+    animate: function(el, index, direction) {
+      var moveAmount = null;
+      if(direction === 'prev') {
+        moveAmount = -this.moveAmount;
+      } else if(direction === 'next') {
+        moveAmount = this.moveAmount;
+      }
 
-    animateNext: function(el) {
-      TweenLite.to(el, this.slideSpeed , { 
-          transform: "translate(0, " + (this.moveAmount) + "px)",
-          autoAlpha: 0,
-          // zIndex: 0,
-          ease: Power2.easeInOut,
-          onComplete: this.onAnimInComplete.bind(this),
-       });
+      //*only move box if its previously current
+      if($(this.boxes[index]).hasClass('current')) {
+        //lock slider while animating
+        this.canSlide = false;
+
+        TweenLite.to(el, this.slideSpeed, { 
+            transform: "translate(0, " + moveAmount + "px)",
+            autoAlpha: 0,
+            // zIndex: 0,
+            ease: Power2.easeInOut,
+            onComplete: this.onAnimInComplete.bind(this),
+         });
+        $(this.boxes[index]).removeClass('current');
+      }
     },
 
     animateIn: function (el) {
-      TweenLite.fromTo(el, this.slideSpeed , 
+      TweenLite.fromTo(el, this.slideSpeed, 
         this.animations[this.animStyle].from, this.animations[this.animStyle].to, this.onAnimInComplete);
+      $(this.boxes[this.current]).addClass('current');
     },
 
     onAnimInComplete: function() {
       //transition complete
+      //unlock slider
+      this.canSlide = true;
+      //callback function
       if(this.onAnimComlete) {
         this.onAnimComlete();
       }
@@ -179,7 +189,9 @@ const fooSlider = function() {
         inst.slideSpeed = options.slideSpeed || 0.5;
         inst.animStyle = options.animStyle || 'carousel';
         inst.onAnimComlete = options.onAnimComplete;
+        inst.isLoopBack = options.isLoopBack;
         inst.current = 0;
+        inst.canSlide = true;
         inst.boxes = [].slice.call(document.querySelectorAll(".fooslider .slide"));
         inst.container = document.querySelector('.fooslider');
 
@@ -193,7 +205,7 @@ const fooSlider = function() {
           inst.initControls();
         }//if bo
         else {
-          //console.warn('there is no slimple slider');
+          //console.warn('there is no foo slider');
         }
         return inst;
     },
@@ -202,7 +214,8 @@ const fooSlider = function() {
   var mySlider = FooSlider.init({
     slideSpeed: 1,
     animStyle: 'fadeIn',
-    onAnimComplete: onSlideComplete
+    onAnimComplete: onSlideComplete,
+    isLoopBack: true
     //animStyle: 'carousel',
   });
 

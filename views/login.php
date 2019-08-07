@@ -26,7 +26,7 @@ use Lib\Utils;
 						<input type="hidden" class="form-control" name="key" value=''>
 					</div>
 
-					<a onclick="onFormSubmit()" class="btn btn-primary">Sign in</a>
+					<a onclick="onFormSubmit()" class="button">Sign in</a>
 				</form>
 
 				<div id="login-error" class="error-text"> 

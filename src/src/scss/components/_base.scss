@@ -3080,3 +3080,17 @@ section:nth-child(odd) {
   top: 0; left: 0; bottom: 0; right: 0;
 }
 
+/* ==========================================================================
+login page
+========================================================================== */
+
+#loginform {
+  .button {
+    margin-top: 2rem;
+  }
+  margin-bottom: 2rem;
+}
+
+#login-error {
+  margin-bottom: 2rem;
+}
