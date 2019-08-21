@@ -8,7 +8,6 @@ class Articles extends Controller
 	public function __construct() 
 	{
 		$this->articles = $this->load_model('articles_model');
-
 		parent::__construct();
 	}
 
@@ -17,15 +16,16 @@ class Articles extends Controller
 		$this->render('articles', null, 'Articles', 'Search articles on Niagara trees. Topics include trees in Niagara, native trees, sustainable tree care, designing with trees and tree biology.');
 	}
 
-	public function view($slug = null)
+	public function view($category, $title)
 	{
-		$view_data = [];
+		$article = $this->articles->get(['category' => $category, 'slug' => $title]);
 
-		if ($slug) {
-			$article = $this->articles->get(['slug' => $slug]);
+		if ($article) {
+			$view_data = [];
 			$view_data['article'] = $article;
+			$this->render('view', $view_data, $article->name);
+		} else {
+			$this->render('404');
 		}
-
-		$this->render('view', $view_data, $view_data['article']->name);
 	}
 }
