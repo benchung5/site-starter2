@@ -13,19 +13,29 @@ class Trees_model extends Model
 
 	public function get($opts = [])
 	{
-		$this->db->table('trees')->select('*');
+		$this->db->table('trees t')->select('*');
 
 		if (isset($opts['id'])) {
-			$this->db->where('id', '=', $opts['id']);
+			$this->db->where('t.id', '=', $opts['id']);
 		}
 
 		if (isset($opts['slug'])) {
-			$this->db->where('slug', '=', $opts['slug']);
+			$this->db->where('t.slug', '=', $opts['slug']);
+		}
+
+		if (isset($opts['category'])) {
+			// _category_slug and _category_id are not to be used in the result
+			// they're only named so they don't overwrite the tree id and slug
+			// since we want to select * for trees
+			$this->db->innerJoin('trees_category tc', 'tc.id', 't.trees_category_id');
+			$this->db->select('t.*, tc.slug AS _category_slug, tc.id AS _category_id');
+			$this->db->where('tc.slug', '=' , $opts['category']);
 		}
 
 		$result = $this->db->get();
 
 		if ($result) {
+
 			// get images
 			$this->files_trees = $this->load_model('files_trees_model');
 			$result->images = $this->files_trees->get_all_by_ref_id($result->id);
@@ -66,7 +76,7 @@ class Trees_model extends Model
 
 			// categories
 			$result->trees_category = $this->db->table('trees_category')
-				->select('id, name')
+				->select('id, slug, name')
 				->where('id', $result->trees_category_id)
 				->get();
 
@@ -177,7 +187,6 @@ class Trees_model extends Model
 			// 	->where('tccf.tree_id', $result->id)
 			// 	->innerJoin('conifer_cone_features ccf', 'ccf.id', 'tccf.conifer_cone_feature_id')
 			// 	->getAll();
-
 
 			return $result;
 		}
@@ -362,7 +371,7 @@ class Trees_model extends Model
 	{
 		$this->db->table('trees t');
 
-		// category
+		// only in category
 		if (isset($opts['trees_category'])) {
 			if (count($opts['trees_category']) > 0) {
 				$this->db->in('t.trees_category_id', $opts['trees_category']);
@@ -372,7 +381,7 @@ class Trees_model extends Model
 			}
 		}
 
-		//zone
+		// only in zones
 		if (isset($opts['zones'])) {
 			if (count($opts['zones']) > 0) {
 				//$this->db->in('t.zone_id', $opts['zones']);
@@ -383,7 +392,7 @@ class Trees_model extends Model
 			}
 		}
 
-		// include origins
+		// only in origins
 		if (isset($opts['origins'])) {
 			if (count($opts['origins']) > 0) {
 				$this->db
@@ -431,11 +440,13 @@ class Trees_model extends Model
 				$this->db->limit($opts['offset'], $opts['limit']);
 			}
 
-			// include images
+			// include images and category
 			$this->db
 				->select('GROUP_CONCAT(ft.name ORDER BY ft.sort_order, ft.name) AS images')
 				->select('GROUP_CONCAT(ft.description ORDER BY ft.sort_order, ft.name) AS image_descriptions')
+				->select('GROUP_CONCAT(DISTINCT c.slug) AS category')
 				->leftJoin('files_trees ft', 'ft.ref_id', 't.id')
+				->leftJoin('trees_category c', 't.trees_category_id', 'c.id')
 				->groupBy('t.id');
 
 			$result = $this->db->orderBy('common_name')->getAll();

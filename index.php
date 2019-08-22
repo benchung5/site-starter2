@@ -20,7 +20,7 @@ if (file_exists($controller)) {
 	$contr = new $controller_class_name;
 
 	// if it's an article view, handle differently because of category slug
-	if (($segments['controller'] == 'articles') && $segments['action'] && isset($segments['params'][0]) && (!isset($segments['controller_dir']))) {
+	if (($segments['controller'] == 'articles' || $segments['controller'] == 'plants') && $segments['action'] && isset($segments['params'][0]) && (!isset($segments['controller_dir']))) {
 		call_user_func_array([$contr, 'view'], [$segments['action'], $segments['params'][0]]);
 	} else 	if (method_exists($contr, $segments['action'])) {
 		call_user_func_array([$contr, $segments['action']], $segments['params']);

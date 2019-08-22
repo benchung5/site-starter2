@@ -31,10 +31,6 @@ class Articles_model extends Model
 
 		$result = $this->db->get();
 
-		//Utils::dbug($this->db->getQuery());
-
-		Utils::dbug($result);
-
 		if ($result) {
 			// get images
 			$result->images = $this->db->table('files')
@@ -45,7 +41,7 @@ class Articles_model extends Model
 
 			// get categories
 			$result->categories = $this->db->table('article_categories ac')
-				->select('c.id, c.name')
+				->select('c.id, c.slug, c.name')
 				->where('article_id', $result->id)
 				->innerJoin('categories c', 'c.id', 'ac.category_id')
 				->getAll();
@@ -174,7 +170,7 @@ class Articles_model extends Model
 				}
 			}
 
-			//include images
+			//include images and categories
 			$this->db
 				->select('GROUP_CONCAT(f.name ORDER BY f.sort_order, f.name) AS images')
 				->select('GROUP_CONCAT(f.description ORDER BY f.sort_order, f.name) AS image_descriptions')
