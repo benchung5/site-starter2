@@ -82,7 +82,8 @@ extends
 //flexbox vertical align
 %fb-v-align {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 %kill-outline {
@@ -211,11 +212,14 @@ html, body {
    //prevent scroll on iphone
    height: 100%;
    width: 100%;
+   font-family: Architects Daughter;
+   line-height: 1.3em;
+   font-size:1.2em;
+   color: #fff;
    // @include font-smoothing;
 }
 
 p { 
-  font-size:1.1em;
   margin-bottom: 2em;
   //line-height: 2.1em;
 }
@@ -331,6 +335,10 @@ helper classes
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.fb-v-align {
+  @extend %fb-v-align;
 }
 
 .bold-base {
@@ -779,6 +787,37 @@ $transition: .3s; // increase this to see the transformations in
     }
   }
 }
+
+/* ==========================================================================
+how it began
+========================================================================== */
+
+#how-it-began {
+  background: #000;
+  // height: 100vh;
+  .inner-text { 
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    // @extend %fb-v-align;
+    #how, #it, #all, #began, #body1, #body2, #body3 {
+      opacity: 0;
+    }
+  }
+  #keep-scrolling {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    .inner {
+      .arrow {
+        display: inline-block;
+        transform: translateY(0);
+        margin: 0 0.5em;
+      }
+    }
+  }
+}
+
+
 
 /* ==========================================================================
 home page
@@ -3021,43 +3060,43 @@ fooslider
 test stuff
 ========================================================================== */
 
-section {
-  padding: 3em;
-  height: 100vh;
-  position: relative;
-  box-sizing: border-box;
+// section {
+//   padding: 3em;
+//   height: 100vh;
+//   position: relative;
+//   box-sizing: border-box;
   
-  blockquote {
-    font-size: 2.3em;
-    width: 30%;
-    margin-top: 17%;
-    position: absolute;
+//   blockquote {
+//     font-size: 2.3em;
+//     width: 30%;
+//     margin-top: 17%;
+//     position: absolute;
     
-    span {
-      width: 100%;
-      background: red;
-      display: block;
-      height: 5px;
-      margin-top: 20px;
-    }
-  }
+//     span {
+//       width: 100%;
+//       background: red;
+//       display: block;
+//       height: 5px;
+//       margin-top: 20px;
+//     }
+//   }
   
-  img {
-    position: absolute;
-  }
+//   img {
+//     position: absolute;
+//   }
   
-  img:nth-of-type(1) {
-    width: 40%;
-    right: 0;
-    top: 20%;
-  }
-  img:nth-of-type(2) {
-    width: 25%;
-    right: 40%;
-    top: 29%;
-    margin-top: 15%;
-  }
-}
+//   img:nth-of-type(1) {
+//     width: 40%;
+//     right: 0;
+//     top: 20%;
+//   }
+//   img:nth-of-type(2) {
+//     width: 25%;
+//     right: 40%;
+//     top: 29%;
+//     margin-top: 15%;
+//   }
+// }
 section:nth-child(odd) {
   background: #f1f1f1;
 }

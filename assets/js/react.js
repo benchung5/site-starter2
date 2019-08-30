@@ -1083,14 +1083,14 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 module.exports = {
    "development": {
-      SERVER_URL: "http://localhost/api",
-      ROOT_URL: "http://localhost",
+      SERVER_URL: "/api",
+      ROOT_URL: "/",
       ARTICLES_UPLOADS_PATH: '/uploads/articles/',
       TREES_UPLOADS_PATH: '/uploads/trees/'
    },
    "production": {
-      SERVER_URL: "https:workshopelves.com/api",
-      ROOT_URL: "https:workshopelves.com/",
+      SERVER_URL: "/api",
+      ROOT_URL: "/",
       ARTICLES_UPLOADS_PATH: '/uploads/articles/',
       TREES_UPLOADS_PATH: '/uploads/trees/'
    },
@@ -65706,9 +65706,10 @@ var GridView = function (_Component) {
         // <div className="img-info"></div>
         value: function renderItems() {
             return this.props.results.articles.map(function (item) {
+                console.log(item);
                 return _react2.default.createElement(
                     'a',
-                    { href: '/articles/view/' + item.slug, className: 'product-card', alt: item.name, key: item.id, 'data-slug': item.slug },
+                    { href: '/articles/' + item.categories.split(',')[0] + '/' + item.slug, className: 'product-card', alt: item.name, key: item.id, 'data-slug': item.slug },
                     _react2.default.createElement(
                         'div',
                         { className: 'inner' },
@@ -65718,9 +65719,9 @@ var GridView = function (_Component) {
                             item.images ? _react2.default.createElement(
                                 'picture',
                                 null,
-                                _react2.default.createElement('source', { srcSet: ROOT_URL + ARTICLES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium'), media: '(max-width: 1275px)' }),
-                                _react2.default.createElement('source', { srcSet: ROOT_URL + ARTICLES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium') }),
-                                _react2.default.createElement('img', { alt: item.image_descriptions.split(',')[0], src: ROOT_URL + ARTICLES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium') })
+                                _react2.default.createElement('source', { srcSet: ARTICLES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium'), media: '(max-width: 1275px)' }),
+                                _react2.default.createElement('source', { srcSet: ARTICLES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium') }),
+                                _react2.default.createElement('img', { alt: item.image_descriptions.split(',')[0], src: ARTICLES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium') })
                             ) : _react2.default.createElement(
                                 'picture',
                                 null,
@@ -65747,7 +65748,7 @@ var GridView = function (_Component) {
         //     <a href={`#${item.slug}`} alt={item.name} className={`left active installation`} onClick={this.onItemClick.bind(this, item.slug)} data-slug={item.slug}>
         //         <div className="icon"></div>
         //         { item.images ?
-        //         <div className='list-item-thumb' style={{ backgroundImage: `url(${ROOT_URL + UPLOADS_PATH + imgName(item.images.split(',')[0], 'small')})` }} ></div>
+        //         <div className='list-item-thumb' style={{ backgroundImage: `url(${UPLOADS_PATH + imgName(item.images.split(',')[0], 'small')})` }} ></div>
         //         :
         //         <div className='list-item-thumb' style={{ backgroundImage: `url(${ROOT_URL}/assets/img/placeholder-images/placeholder-img-sml.jpg)` }} ></div>
         //         }
@@ -66267,7 +66268,7 @@ var GridView = function (_Component) {
             return this.props.results.trees.map(function (item) {
                 return _react2.default.createElement(
                     'a',
-                    { href: '/plants/view/' + item.slug, className: 'product-card', alt: item.common_name, key: item.id, 'data-slug': item.slug },
+                    { href: '/plants/' + item.category + '/' + item.slug, className: 'product-card', alt: item.common_name, key: item.id, 'data-slug': item.slug },
                     _react2.default.createElement(
                         'div',
                         { className: 'inner' },
@@ -66277,9 +66278,9 @@ var GridView = function (_Component) {
                             item.images ? _react2.default.createElement(
                                 'picture',
                                 null,
-                                _react2.default.createElement('source', { srcSet: ROOT_URL + TREES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium'), media: '(max-width: 1275px)' }),
-                                _react2.default.createElement('source', { srcSet: ROOT_URL + TREES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium') }),
-                                _react2.default.createElement('img', { alt: item.image_descriptions.split(',')[0], src: ROOT_URL + TREES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium') })
+                                _react2.default.createElement('source', { srcSet: TREES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium'), media: '(max-width: 1275px)' }),
+                                _react2.default.createElement('source', { srcSet: TREES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium') }),
+                                _react2.default.createElement('img', { alt: item.image_descriptions.split(',')[0], src: TREES_UPLOADS_PATH + (0, _stringUtils.imgName)(item.images.split(',')[0], 'medium') })
                             ) : _react2.default.createElement(
                                 'picture',
                                 null,
@@ -66306,7 +66307,7 @@ var GridView = function (_Component) {
         //     <a href={`#${item.slug}`} alt={item.name} className={`left active installation`} onClick={this.onItemClick.bind(this, item.slug)} data-slug={item.slug}>
         //         <div className="icon"></div>
         //         { item.images ?
-        //         <div className='list-item-thumb' style={{ backgroundImage: `url(${ROOT_URL + UPLOADS_PATH + imgName(item.images.split(',')[0], 'small')})` }} ></div>
+        //         <div className='list-item-thumb' style={{ backgroundImage: `url(${UPLOADS_PATH + imgName(item.images.split(',')[0], 'small')})` }} ></div>
         //         :
         //         <div className='list-item-thumb' style={{ backgroundImage: `url(${ROOT_URL}/assets/img/placeholder-images/placeholder-img-sml.jpg)` }} ></div>
         //         }

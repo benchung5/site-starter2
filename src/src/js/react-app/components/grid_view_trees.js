@@ -24,9 +24,9 @@ class GridView extends Component {
                     <div className="image">
                         { item.images ?
                         <picture>
-                            <source srcSet={ROOT_URL + TREES_UPLOADS_PATH + imgName(item.images.split(',')[0], 'medium')} media="(max-width: 1275px)"/>
-                            <source srcSet={ROOT_URL + TREES_UPLOADS_PATH + imgName(item.images.split(',')[0], 'medium')}/>
-                            <img alt={item.image_descriptions.split(',')[0]} src={ROOT_URL + TREES_UPLOADS_PATH + imgName(item.images.split(',')[0], 'medium')}/> 
+                            <source srcSet={TREES_UPLOADS_PATH + imgName(item.images.split(',')[0], 'medium')} media="(max-width: 1275px)"/>
+                            <source srcSet={TREES_UPLOADS_PATH + imgName(item.images.split(',')[0], 'medium')}/>
+                            <img alt={item.image_descriptions.split(',')[0]} src={TREES_UPLOADS_PATH + imgName(item.images.split(',')[0], 'medium')}/> 
                         </picture>
                         :
                         <picture>
@@ -49,7 +49,7 @@ class GridView extends Component {
     //     <a href={`#${item.slug}`} alt={item.name} className={`left active installation`} onClick={this.onItemClick.bind(this, item.slug)} data-slug={item.slug}>
     //         <div className="icon"></div>
     //         { item.images ?
-    //         <div className='list-item-thumb' style={{ backgroundImage: `url(${ROOT_URL + UPLOADS_PATH + imgName(item.images.split(',')[0], 'small')})` }} ></div>
+    //         <div className='list-item-thumb' style={{ backgroundImage: `url(${UPLOADS_PATH + imgName(item.images.split(',')[0], 'small')})` }} ></div>
     //         :
     //         <div className='list-item-thumb' style={{ backgroundImage: `url(${ROOT_URL}/assets/img/placeholder-images/placeholder-img-sml.jpg)` }} ></div>
     //         }

@@ -12,6 +12,7 @@ $dark-shadow: 2px 2px 2px #000;
 $light-shadow: 0 2px 5px rgba(0,0,0,0.15);
 $corner-roundness: 10px;
 $title-font: "Lato";
+$body-font: "Architects Daughter";
 $secondary-title-font: "Open Sans", arial;
 $title-font-color: #535353;
 $light-font-color: #535353;
@@ -142,7 +143,7 @@ pagination
 
 $global-font-size: 100%;
 //$global-width: rem-calc(1200);
-$global-width: 1800px;
+$global-width: 1000px;
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #970E24,

@@ -60,7 +60,7 @@ use Lib\Meta;
 
   <style>
     .preload {
-      background-color: rgba(255,255,255,1);
+      background-color: rgba(15,51,96,1);
       transition: opacity 0.5s;
       position: fixed;
       width: 100vw;
@@ -73,14 +73,82 @@ use Lib\Meta;
       align-items: center;
       justify-content: center;
     }
+
     .preload.loaded {
       /*slight delay (.1s) to ensure smooth*/
       animation: fadeOut .15s ease .1s both;
+/*      animation: scaleOut 4s ease 0.1 forwards;*/
+
     }
+
+    #snowflake-loader {
+      height: 108px;
+      width: 108px;
+      background: url(/assets/img/snowflake.svg) center center no-repeat;
+      transform-origin: 50% 50% 0;
+      opacity: 0;
+      /*transform: scale(0.8);*/
+
+/*      animation: fadein 2s ease 0.5s forwards, spin 4s linear infinite, scale 3s ease 0s forwards;
+      -webkit-animation: fadein 2s ease 0.5s forwards, spin 4s linear infinite, scale 3s ease 0s forwards;
+      -moz-animation: fadein 2s ease 0.5s forwards, spin 4s linear infinite, scale 3s ease 0s forwards;
+      -ms-animation: fadein 2s ease 0.5s forwards, spin 4s linear infinite, scale 3s ease 0s forwards;
+      -o-animation: fadein 2s ease 0.5s forwards, spin 4s linear infinite, scale 3s ease 0s forwards;*/
+
+      animation: fadein 2s ease 0.5s forwards, spin 4s linear infinite;
+      -webkit-animation: fadein 2s ease 0.5s forwards, spin 4s linear infinite;
+      -moz-animation: fadein 2s ease 0.5s forwards, spin 4s linear infinite;
+      -ms-animation: fadein 2s ease 0.5s forwards, spin 4s linear infinite;
+      -o-animation: fadein 2s ease 0.5s forwards, spin 4s linear infinite;
+      
+    }
+
+
     @keyframes fadeOut {
       from { opacity: 1; visibility: visible; }
       to { opacity: 0; visibility: hidden; }
     }
+
+/*    @keyframes scaleOut {
+      to { transform: translateY(-500px); }
+    }*/
+
+    @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+    @-moz-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+    @-webkit-keyframes fadein {
+/*        from { opacity: 0; }
+        to   { opacity: 1; }*/
+        100% { -webkit-transform: rotate(360deg); }
+    }
+    @-ms-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+    @-o-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+    @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+    
+
+/*    @keyframes scale { 
+      to { transform: scale(1); }
+     }
+    @-moz-@keyframes scale { 
+       to { -moz-transform: scale(1); }
+      }
+    @-webkit-keyframes scale { 
+       to { -webkit-transform: scale(1); }
+      }*/
   </style>
 
   <!-- Head scripts -->
@@ -120,7 +188,7 @@ use Lib\Meta;
   <!-- preload screen (put above everything) -->
   <?php 
   if ($segments['controller'] == 'index') {
-    echo '<div class="preload"></div>';
+    echo '<div class="preload"><div id="snowflake-loader"></div></div>';
   }
   ?>
 

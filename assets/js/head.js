@@ -26,7 +26,7 @@ var minimumWaitReached = false;
 setTimeout(function() {
 	minimumWaitReached = true;
 	showPage();
-}, 3000);
+}, 2000);
 
 function showPage() {
 	if(minimumWaitReached) {

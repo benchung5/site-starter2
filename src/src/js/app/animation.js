@@ -16,8 +16,8 @@ const animation = function() {
 
 	const scene = new ScrollMagic.Scene({
 	  triggerElement: ".sticky",
-	            triggerHook: "onLeave",
-	            duration: "100%"
+      triggerHook: "onLeave",
+      duration: "100%"
 	})
 	.setPin(".sticky")
 	.setTween(tl)
@@ -38,6 +38,45 @@ const animation = function() {
 	  triggerElement: "blockquote"
 	})
 	.setTween(tl2)
+	.addTo(controller);
+
+	/* ==========================================================================
+	how it all began
+	========================================================================== */
+
+	window.addEventListener("contentLoaded", function(event) {
+		setTimeout(function() {
+			// how it all began text
+			var tl_hiab = new TimelineMax();
+			tl_hiab.to('#how', 0.5, {opacity: 1});
+			tl_hiab.to('#it', 0.5, {opacity: 1}, "=-0.3");
+			tl_hiab.to('#all', 0.5, {opacity: 1}, "=-0.3");
+			tl_hiab.to('#began', 0.5, {opacity: 1}, "=-0.3");
+		}, 500);
+	});
+
+	// scroll powered body text
+	var tl_hiab_body = new TimelineMax();
+	tl_hiab_body.to('#body1', 0.5, {opacity: 1});
+	tl_hiab_body.to('#body2', 0.5, {opacity: 1}, "2");
+	tl_hiab_body.to('#body3', 0.5, {opacity: 1}, "4");
+
+	const scene_hiab_body = new ScrollMagic.Scene({
+	  triggerElement: "#how-it-began",
+	  triggerHook: "onLeave",
+	  duration: "100%"
+	})
+	.setTween(tl_hiab_body)
+	.addTo(controller);
+
+	//keep scrolling
+	var tl_hiab_ks = new TimelineMax();
+	tl_hiab_ks.to('#keep-scrolling .arrow', 0.8, {y: 10, repeat: -1, yoyo:true, ease: Power1.easeInOut});
+
+	const scene_hiab_ks = new ScrollMagic.Scene({
+	  triggerElement: "#body3",
+	})
+	.setTween(tl_hiab_ks)
 	.addTo(controller);
 }
 
