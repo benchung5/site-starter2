@@ -850,7 +850,9 @@ how it began
         position: absolute;
         z-index: -1;
         background-image: url(/assets/img/filmstrip.jpg);
-        height: 640px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
         width: 100%;
       }
     }

@@ -1648,6 +1648,18 @@ var animation = function animation() {
 	var scene_hiab_ks = new _ScrollMagic2.default.Scene({
 		triggerElement: "#body3"
 	}).setTween(tl_hiab_ks).addTo(controller);
+
+	/* ==========================================================================
+ how it all began
+ ========================================================================== */
+
+	// scroll powered 35 yrs
+	var tl_35yrs = new TimelineMax({ repeat: -1 });
+	tl_35yrs.to('#thirty-five-yrs #filmstrip', 15, { backgroundPosition: "-1000px 0px", ease: Linear.easeNone });
+
+	var scene_tl_35yrs = new _ScrollMagic2.default.Scene({
+		triggerElement: "#body3"
+	}).setTween(tl_35yrs).addTo(controller);
 };
 
 exports.default = animation;
