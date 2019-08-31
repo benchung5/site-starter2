@@ -90,6 +90,16 @@ $this->insert('featured', $view_data );
                 </div>
             </div>
         </section>
+        <section id="thirty-five-yrs">
+            <div class="container">
+                <div class="top-box"></div>
+                <div id="thirty-five-yrs-svg">
+                    <div id="svg"></div>
+                    <div id="filmstrip"></div>
+                </div>
+                <div class="bottom-box"></div>
+            </div>
+        </section>
 
         <section id="hero">
             test text...
