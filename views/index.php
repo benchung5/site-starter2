@@ -58,7 +58,13 @@ $this->insert('featured', $view_data );
 </script>
 
 <div class="home-page site-wrapper">
+    <div id="keep-scrolling">
+        <div class="inner">keep scrolling<div class="arrow">&darr;</div>         
+        </div>
+    </div>
+<!--     <div id="snow"></div> -->
     <div class="content-wrapper">
+
         <section id="how-it-began">
             <div class="row">
                 <div class="small-12 columns align-parent">
@@ -69,7 +75,10 @@ $this->insert('featured', $view_data );
                         <p>
                         <span id="body1">On December 24 th , 1983, my children asked me to tell them a bedtime Christmas
                         story; one they had never heard before. I thought for a moment, then began
-                        telling them the story about one of Santa&#39;s little elves. After about a minute, they interrupted me and asked me what his name was. Not knowing myself, I wasn’t sure what to tell them, so I ignored it and proceeded to tell them the story, while at the same time, trying to think of a name. Moments later they asked me again what his name was. Well I had to come up with something quick!</span> <span id="body2">I paused and
+                        telling them the story about one of Santa&#39;s little elves. After about a minute, they interrupted me and asked me what his name was. Not knowing myself, I wasn’t sure what to tell them, so I ignored it and proceeded to tell them the story, while at the same time, trying to think of a name. Moments later they asked me again what his name was. Well I had to come up with something quick!</span>
+                        </p>
+                        <p> 
+                        <span id="body2">I paused and
                         thought for a moment and glanced out the window. I noticed it was beginning to
                         snow, so I responded and said… “Snowflake”. “His name is Snowflake”! They all giggled as they thought it was a cool name. They asked me why his name was
                         Snowflake? Once again, I had to come up with something quick to address their
@@ -83,13 +92,10 @@ $this->insert('featured', $view_data );
                         the story of Snowflake’s Christmas was told for the very first time and when the Workshop Elves were born. Over the years the story has been read to tens of thousands of children and has become a Christmas tradition for families in many homes.</span>
                         </p>
                     </div>
-                    <div id="keep-scrolling">
-                        <div class="inner">keep scrolling<div class="arrow">&darr;</div>         
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
+
         <section id="thirty-five-yrs">
             <div class="container">
                 <div class="top-box"></div>
@@ -101,26 +107,29 @@ $this->insert('featured', $view_data );
             </div>
         </section>
 
-        <section id="hero">
-            test text...
+        <section id="snowflakes-christmas">
+            <div class="row expanded">
+                <div class="small-12 large-6 columns left">
+                    <div id="title">
+                        <div id="snowflake-container">
+                          <div class="blur-highlight"></div>
+                          <div id="snowflake"></div>  
+                        </div>
+                        <div id="snowflakes"></div>
+                        <div id="christmas"></div>
+                    </div>
+                </div>
+                <div class="small-12 large-6 columns right">
+                    <div id="snowking"></div>
+                </div>
+            </div>
+            <div id="smoke"></div>
+        </section>
+        <section style="height: 2000px">
         </section>
 
-        <section>
-        <!-- test section begin -->
-        <h1>Scroll down</h1>
-        </section>
 
-        <section class="sticky">
-          <blockquote>"You should totally subscribe to my channel now"<span></span></blockquote>
-          <img id="office" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2621168/office1.png">
-          <img id="building" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2621168/sky.jpg">
-          <div id="box"></div>
-        </section>
 
-        <section>
-          <h1>Scroll up</h1>
-        </section>
-        <!-- test section end -->
 
     </div><!-- /content wrapper -->
 

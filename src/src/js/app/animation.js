@@ -7,39 +7,6 @@ import 'debug.addIndicators';
 const animation = function() {	
 	const controller = new ScrollMagic.Controller();
 
-	// scroll powered
-	var tl = new TimelineMax({onUpdate:updatePercentage});
-	tl.from('blockquote', .5, {x:200, opacity: 0});
-	tl.from('span', 1, { width: 0}, "=-.5");
-	tl.from('#office', 1, {x:-200, opacity: 0,ease: Power4.easeInOut}, "=-1");
-	tl.from('#building', 1, {x:200, opacity: 0, ease: Power4.easeInOut}, "=-.7");
-
-	const scene = new ScrollMagic.Scene({
-	  triggerElement: ".sticky",
-      triggerHook: "onLeave",
-      duration: "100%"
-	})
-	.setPin(".sticky")
-	.setTween(tl)
-	.addTo(controller);
-
-	function updatePercentage() {
-	  //percent.innerHTML = (tl.progress() *100 ).toFixed();
-	  tl.progress();
-	  //console.log(tl.progress());
-	}
-
-	// tween powered
-	var tl2 = new TimelineMax();
-	tl2.from("#box", 1, {opacity: 0, scale: 0});
-	tl2.to("#box", .5, {left: "20%", scale: 1.3, borderColor: 'white', borderWidth: 12, boxShadow: '1px 1px 0px 0px rgba(0,0,0,0.09)'})
-
-	const scene2 = new ScrollMagic.Scene({
-	  triggerElement: "blockquote"
-	})
-	.setTween(tl2)
-	.addTo(controller);
-
 	/* ==========================================================================
 	how it all began
 	========================================================================== */
@@ -52,31 +19,25 @@ const animation = function() {
 			tl_hiab.to('#it', 0.5, {opacity: 1}, "=-0.3");
 			tl_hiab.to('#all', 0.5, {opacity: 1}, "=-0.3");
 			tl_hiab.to('#began', 0.5, {opacity: 1}, "=-0.3");
+			tl_hiab.to('#body1', 2, {opacity: 1}, "=-0.3");
+			// tl_hiab.to('#keep-scrolling', 0.5, {opacity: 1}, "=-0.3");
+			// tl_hiab.to('#keep-scrolling .arrow', 0.8, {y: 10, repeat: -1, yoyo:true, ease: Power1.easeInOut});
+			// tl_hiab.to('#keep-scrolling', 0.5, {opacity: 0});
 		}, 500);
 	});
 
 	// scroll powered body text
 	var tl_hiab_body = new TimelineMax();
-	tl_hiab_body.to('#body1', 0.5, {opacity: 1});
-	tl_hiab_body.to('#body2', 0.5, {opacity: 1}, "2");
-	tl_hiab_body.to('#body3', 0.5, {opacity: 1}, "4");
+	tl_hiab_body.to('#body2', 2, {opacity: 1});
+	tl_hiab_body.to('#body3', 2, {opacity: 1}, "=-1");
 
 	const scene_hiab_body = new ScrollMagic.Scene({
 	  triggerElement: "#how-it-began",
 	  triggerHook: "onLeave",
 	  duration: "100%"
 	})
+	//.setPin(".sticky")
 	.setTween(tl_hiab_body)
-	.addTo(controller);
-
-	//keep scrolling
-	var tl_hiab_ks = new TimelineMax();
-	tl_hiab_ks.to('#keep-scrolling .arrow', 0.8, {y: 10, repeat: -1, yoyo:true, ease: Power1.easeInOut});
-
-	const scene_hiab_ks = new ScrollMagic.Scene({
-	  triggerElement: "#body3",
-	})
-	.setTween(tl_hiab_ks)
 	.addTo(controller);
 
 	/* ==========================================================================
@@ -94,6 +55,25 @@ const animation = function() {
 	.setTween(tl_35yrs)
 	.addTo(controller);
 
+	/* ==========================================================================
+	snowflakes christmas
+	========================================================================== */
+
+	var tl_sfc = new TimelineMax();
+	tl_sfc.to('#snowflake-container', 10, {y: 0, opacity: 1, rotation: 360});
+	tl_sfc.to('#snowking', 5, {x: 0, opacity: 1}, '=-5');
+	tl_sfc.to('#snowflakes', 10, {x: 0, opacity: 1}), '=-40';
+	tl_sfc.to('#christmas', 10, {x: 0, opacity: 1}, '=-5');
+	tl_sfc.to('#smoke', 10, {y: -20}, '=-5');
+	
+	
+	const scene_tl_sfc = new ScrollMagic.Scene({
+		triggerElement: '#snowflakes-christmas',
+		triggerHook: "onLeavee",
+		duration: "200%"
+	})
+	.setTween(tl_sfc)
+	.addTo(controller);
 }
 
 

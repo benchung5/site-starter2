@@ -16,7 +16,6 @@ mixins
 //horizontal align absolute positioned items
 @mixin h-align-absolute($width) {
   position: absolute;
-  width: $width;
   left:50%;
   margin-left: #{-($width/2)};
 }
@@ -560,6 +559,7 @@ page layout
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  position: relative;
 }
 
 .content-wrapper {
@@ -789,11 +789,46 @@ $transition: .3s; // increase this to see the transformations in
 }
 
 /* ==========================================================================
+home wrapper
+========================================================================== */
+
+#keep-scrolling {
+  box-shadow: 0px 0 45px 28px #000;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 1rem 0;
+  background: #000;
+  z-index: 3;
+  .inner {
+    .arrow {
+      display: inline-block;
+      transform: translateY(0);
+      margin: 0 0.5em;
+    }
+  }
+}
+
+#snow {
+  position: fixed;
+  z-index: 1;
+  background-image: url(/assets/img/snow.png);
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
+  // background-size: cover;
+}
+
+/* ==========================================================================
 how it began
 ========================================================================== */
 
 #how-it-began {
   background: #000;
+  position: relative;
   // height: 100vh;
   .inner-text { 
     padding-top: 3rem;
@@ -801,18 +836,6 @@ how it began
     // @extend %fb-v-align;
     #how, #it, #all, #began, #body1, #body2, #body3 {
       opacity: 0;
-    }
-  }
-  #keep-scrolling {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    .inner {
-      .arrow {
-        display: inline-block;
-        transform: translateY(0);
-        margin: 0 0.5em;
-      }
     }
   }
 }
@@ -827,9 +850,15 @@ how it began
     flex-direction: column;
     .top-box, .bottom-box {
       background: #000;
+    }
+    .top-box {
+      height: 50px;
+    }
+    .bottom-box {
       height: 150px;
     }
     #thirty-five-yrs-svg {
+      background: #000;
       position: relative;
       width: 100%;
       height: 500px;
@@ -838,7 +867,7 @@ how it began
       }
       #svg {
         position: absolute;
-        z-index: 1;
+        z-index: 2;
         background-image: url(/assets/img/35-years-in-the-making.svg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -848,7 +877,7 @@ how it began
       }
       #filmstrip {
         position: absolute;
-        z-index: -1;
+        z-index: 1;
         background-image: url(/assets/img/filmstrip.jpg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -856,6 +885,106 @@ how it began
         width: 100%;
       }
     }
+  }
+}
+
+/* ==========================================================================
+snowflakes christmas
+========================================================================== */
+
+.blur-highlight {
+  border-radius: 50%;
+  display: inline-block;
+  background-color: white;
+  width: 1px;
+  height: 1px;
+  box-shadow: 0 0 33px 21px white;
+}
+
+#snowflakes-christmas {
+  background-image: url(/assets/img/intro-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  .left {
+    display: flex;
+    justify-content: center;
+    #title {
+      height: 200px;
+      width: 401px;
+      margin-top: 350px;
+      position: relative;
+      #snowflake-container {
+        opacity: 0;
+        transform: translateY(-500px);
+        position: absolute;
+        top: -20px;
+        left: 74px;
+        width: 100px;
+        height: 100px;
+        .blur-highlight {
+          @include v-align-absolute(1px);
+          @include h-align-absolute(1px);
+        }
+        #snowflake {
+          background-image: url(/assets/img/snowflake.svg);
+          background-repeat: no-repeat;
+          background-size: 35px;
+          width: 35px;
+          height: 35px;
+          @include v-align-absolute(35px);
+          @include h-align-absolute(35px);
+        }
+      }
+      #snowflakes {
+        opacity: 0;
+        position: absolute;
+        width: 407px;
+        height: 173px;
+        background-image: url(/assets/img/snowflakes.png);
+        transform: translateX(-50px);
+      }
+      #christmas {
+        opacity: 0;
+        position: absolute;
+        top: 96px;
+        left: 61px;
+        width: 336px;
+        height: 121px;
+        position: absolute;
+        background-image: url(/assets/img/christmas.png);
+        transform: translateX(-50px);
+      }
+    }
+  }
+  .right {
+    position: relative;
+    overflow: hidden;
+    padding-left: 0;
+    #snowking {
+      transform: translateX(20px);
+      opacity: 0;
+      background-image: url(/assets/img/snow-king.png);
+      background-repeat: no-repeat;
+      width: 637px;
+      height: 896px;
+      margin-top: 4rem;
+    }
+    @include breakpoint(large down) {
+      padding-left: 1.875rem;
+    }
+  }
+  #smoke {
+    position: absolute;
+    transform: translateY(250px);
+    background-image: url(/assets/img/smoke.png);
+    background-repeat: no-repeat;
+    width: 992px;
+    height: 558px;
+    right: -300px;
+    bottom: -270px;
   }
 }
 
@@ -3095,69 +3224,6 @@ fooslider
 
 .fs-next {
   right: 0;
-}
-
-/* ==========================================================================
-test stuff
-========================================================================== */
-
-// section {
-//   padding: 3em;
-//   height: 100vh;
-//   position: relative;
-//   box-sizing: border-box;
-  
-//   blockquote {
-//     font-size: 2.3em;
-//     width: 30%;
-//     margin-top: 17%;
-//     position: absolute;
-    
-//     span {
-//       width: 100%;
-//       background: red;
-//       display: block;
-//       height: 5px;
-//       margin-top: 20px;
-//     }
-//   }
-  
-//   img {
-//     position: absolute;
-//   }
-  
-//   img:nth-of-type(1) {
-//     width: 40%;
-//     right: 0;
-//     top: 20%;
-//   }
-//   img:nth-of-type(2) {
-//     width: 25%;
-//     right: 40%;
-//     top: 29%;
-//     margin-top: 15%;
-//   }
-// }
-section:nth-child(odd) {
-  background: #f1f1f1;
-}
-.sticky {
-  background: white !important;
-}
-
-.percentage {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-
-#box {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  border: 5px solid lightgray;
-  margin: auto;
-  top: 0; left: 0; bottom: 0; right: 0;
 }
 
 /* ==========================================================================
