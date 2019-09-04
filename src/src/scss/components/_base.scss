@@ -789,34 +789,15 @@ $transition: .3s; // increase this to see the transformations in
 }
 
 /* ==========================================================================
-home wrapper
+content wrapper
 ========================================================================== */
 
-#keep-scrolling {
-  box-shadow: 0px 0 45px 28px #000;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  opacity: 0;
-  display: flex;
-  justify-content: center;
-  padding: 0 0 1rem 0;
-  background: #000;
-  z-index: 3;
-  .inner {
-    .arrow {
-      display: inline-block;
-      transform: translateY(0);
-      margin: 0 0.5em;
-    }
-  }
-}
-
-#snow {
+#falling-snow {
   position: fixed;
   z-index: 1;
-  background-image: url(/assets/img/snow.png);
+  background-image: url(/assets/img/falling-snow.png);
   background-repeat: repeat;
+  background-size: 400px;
   width: 100%;
   height: 100%;
   // background-size: cover;
@@ -827,16 +808,39 @@ how it began
 ========================================================================== */
 
 #how-it-began {
+  z-index: 2;
+  #top-intro {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    #keep-scrolling {
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      padding: 0 0 1rem 0;
+      z-index: 3;
+      font-size: 0.75em;
+      .inner {
+        .arrow {
+          display: inline-block;
+          transform: translateY(0);
+          margin: 0 0.5em;
+        }
+      }
+    }
+
+  }
   background: #000;
   position: relative;
-  // height: 100vh;
-  .inner-text { 
-    padding-top: 3rem;
-    padding-bottom: 1rem;
-    // @extend %fb-v-align;
-    #how, #it, #all, #began, #body1, #body2, #body3 {
-      opacity: 0;
-    }
+  #how, #it, #all, #began, #body1, #body2, #body3 {
+    opacity: 0;
+  }
+  #body1 {
+    margin-top: 60px;
   }
 }
 
@@ -845,11 +849,14 @@ how it began
 ========================================================================== */
 
 #thirty-five-yrs {
+  background: #000;
   .container {
     display: flex;
     flex-direction: column;
     .top-box, .bottom-box {
       background: #000;
+      position: relative;
+      z-index: 2;
     }
     .top-box {
       height: 50px;
@@ -867,7 +874,7 @@ how it began
       }
       #svg {
         position: absolute;
-        z-index: 2;
+        z-index: 3;
         background-image: url(/assets/img/35-years-in-the-making.svg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -877,7 +884,7 @@ how it began
       }
       #filmstrip {
         position: absolute;
-        z-index: 1;
+        z-index: 0;
         background-image: url(/assets/img/filmstrip.jpg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -902,17 +909,22 @@ snowflakes christmas
 }
 
 #snowflakes-christmas {
-  background-image: url(/assets/img/intro-bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
   width: 100%;
-  position: relative;
   overflow: hidden;
+  position: relative;
+  .sc-bg {
+    background-image: url(/assets/img/intro-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
   .left {
     display: flex;
     justify-content: center;
     #title {
-      height: 200px;
+      height: 300px;
       width: 401px;
       margin-top: 350px;
       position: relative;
@@ -920,8 +932,9 @@ snowflakes christmas
         opacity: 0;
         transform: translateY(-500px);
         position: absolute;
-        top: -20px;
-        left: 74px;
+        z-index: 2;
+        top: -26px;
+        left: 81px;
         width: 100px;
         height: 100px;
         .blur-highlight {
@@ -931,9 +944,9 @@ snowflakes christmas
         #snowflake {
           background-image: url(/assets/img/snowflake.svg);
           background-repeat: no-repeat;
-          background-size: 35px;
-          width: 35px;
-          height: 35px;
+          background-size: 50px;
+          width: 50px;
+          height: 50px;
           @include v-align-absolute(35px);
           @include h-align-absolute(35px);
         }
@@ -941,6 +954,7 @@ snowflakes christmas
       #snowflakes {
         opacity: 0;
         position: absolute;
+        z-index: 2;
         width: 407px;
         height: 173px;
         background-image: url(/assets/img/snowflakes.png);
@@ -949,6 +963,7 @@ snowflakes christmas
       #christmas {
         opacity: 0;
         position: absolute;
+        z-index: 2;
         top: 96px;
         left: 61px;
         width: 336px;
@@ -957,6 +972,17 @@ snowflakes christmas
         background-image: url(/assets/img/christmas.png);
         transform: translateX(-50px);
       }
+      #imagine-this {
+        opacity: 0;
+        transform: translateY(40px);
+        position: absolute;
+        z-index: 2;
+        top: 261px;
+        left: 39px;
+        width: 276px;
+        height: 77px;
+        background-image: url(/assets/img/imagin-this-productions.png);
+      }
     }
   }
   .right {
@@ -964,6 +990,8 @@ snowflakes christmas
     overflow: hidden;
     padding-left: 0;
     #snowking {
+      position: relative;
+      z-index: 2;
       transform: translateX(20px);
       opacity: 0;
       background-image: url(/assets/img/snow-king.png);
@@ -978,6 +1006,7 @@ snowflakes christmas
   }
   #smoke {
     position: absolute;
+    z-index: 2;
     transform: translateY(250px);
     background-image: url(/assets/img/smoke.png);
     background-repeat: no-repeat;

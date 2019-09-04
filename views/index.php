@@ -58,40 +58,39 @@ $this->insert('featured', $view_data );
 </script>
 
 <div class="home-page site-wrapper">
-    <div id="keep-scrolling">
-        <div class="inner">keep scrolling<div class="arrow">&darr;</div>         
-        </div>
-    </div>
-<!--     <div id="snow"></div> -->
     <div class="content-wrapper">
-
+        <div id="falling-snow"></div>
         <section id="how-it-began">
             <div class="row">
                 <div class="small-12 columns align-parent">
-                    <div class="inner-text" > 
-                        <p>
+                    <div id="top-intro">
+                        <div>
                             <span id="how">How</span> <span id="it">it</span> <span id="all">all</span> <span id="began">began…</span>
-                        </p>
-                        <p>
-                        <span id="body1">On December 24 th , 1983, my children asked me to tell them a bedtime Christmas
-                        story; one they had never heard before. I thought for a moment, then began
-                        telling them the story about one of Santa&#39;s little elves. After about a minute, they interrupted me and asked me what his name was. Not knowing myself, I wasn’t sure what to tell them, so I ignored it and proceeded to tell them the story, while at the same time, trying to think of a name. Moments later they asked me again what his name was. Well I had to come up with something quick!</span>
-                        </p>
-                        <p> 
-                        <span id="body2">I paused and
-                        thought for a moment and glanced out the window. I noticed it was beginning to
-                        snow, so I responded and said… “Snowflake”. “His name is Snowflake”! They all giggled as they thought it was a cool name. They asked me why his name was
-                        Snowflake? Once again, I had to come up with something quick to address their
-                        curiosity. I told them that Santa had given him that name because Snowflake
-                        collected snowflake’s as a hobby, and he had the world’s largest collection of
-                        snowflakes. They just thought that was awesome!</span>
-                        </p>
-                        <p>
-                        <span id="body3">
-                        It was that special and magical moment on Christmas Eve so many years ago, that
-                        the story of Snowflake’s Christmas was told for the very first time and when the Workshop Elves were born. Over the years the story has been read to tens of thousands of children and has become a Christmas tradition for families in many homes.</span>
-                        </p>
+                        </div>
+                        <div id="keep-scrolling">
+                            <div class="inner">keep scrolling<div class="arrow">&darr;</div>         
+                            </div>
+                        </div>
                     </div>
+                    <p>
+                    <span id="body1">On December 24 th , 1983, my children asked me to tell them a bedtime Christmas
+                    story; one they had never heard before. I thought for a moment, then began
+                    telling them the story about one of Santa&#39;s little elves. After about a minute, they interrupted me and asked me what his name was. Not knowing myself, I wasn’t sure what to tell them, so I ignored it and proceeded to tell them the story, while at the same time, trying to think of a name. Moments later they asked me again what his name was. Well I had to come up with something quick!</span>
+                    </p>
+                    <p> 
+                    <span id="body2">I paused and
+                    thought for a moment and glanced out the window. I noticed it was beginning to
+                    snow, so I responded and said… “Snowflake”. “His name is Snowflake”! They all giggled as they thought it was a cool name. They asked me why his name was
+                    Snowflake? Once again, I had to come up with something quick to address their
+                    curiosity. I told them that Santa had given him that name because Snowflake
+                    collected snowflake’s as a hobby, and he had the world’s largest collection of
+                    snowflakes. They just thought that was awesome!</span>
+                    </p>
+                    <p>
+                    <span id="body3">
+                    It was that special and magical moment on Christmas Eve so many years ago, that
+                    the story of Snowflake’s Christmas was told for the very first time and when the Workshop Elves were born. Over the years the story has been read to tens of thousands of children and has become a Christmas tradition for families in many homes.</span>
+                    </p>
                 </div>
             </div>
         </section>
@@ -107,7 +106,11 @@ $this->insert('featured', $view_data );
             </div>
         </section>
 
+        
+
         <section id="snowflakes-christmas">
+            <div class="sc-bg"></div>
+            
             <div class="row expanded">
                 <div class="small-12 large-6 columns left">
                     <div id="title">
@@ -117,6 +120,7 @@ $this->insert('featured', $view_data );
                         </div>
                         <div id="snowflakes"></div>
                         <div id="christmas"></div>
+                        <div id="imagine-this"></div>
                     </div>
                 </div>
                 <div class="small-12 large-6 columns right">

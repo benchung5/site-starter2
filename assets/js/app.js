@@ -1584,7 +1584,30 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // alias's for these are defined in simpleWebpackConfig in gulpfile
 var animation = function animation() {
+	//force go back to top of page on page reload
+	// window.onbeforeunload = function () {
+	//   window.scrollTo(0, 0);
+	// }
+
 	var controller = new _ScrollMagic2.default.Controller();
+
+	// // how it all began text
+	// var tl_hiab = new TimelineMax();
+	// // tl_hiab.to('#how', 0.5, {opacity: 1});
+	// // tl_hiab.to('#it', 0.5, {opacity: 1}, "=-0.3");
+	// // tl_hiab.to('#all', 0.5, {opacity: 1}, "=-0.3");
+	// // tl_hiab.to('#began', 0.5, {opacity: 1}, "=-0.3");
+	// //tl_hiab.to('#keep-scrolling .arrow', 0.8, {y: 10, repeat: -1, yoyo:true, ease: Power1.easeInOut});
+	// tl_hiab.to('#keep-scrolling', 1, {y: 10, ease: Power4.easeOut});
+
+	// const scene_tl_hiab = new ScrollMagic.Scene({
+	//   triggerElement: "#top-intro",
+	//   triggerHook: "onLeave",
+	//   duration: "100%"
+	// })
+	// // .setPin("#top-intro")
+	// .setTween(tl_hiab)
+	// .addTo(controller);
 
 	/* ==========================================================================
  how it all began
@@ -1598,21 +1621,21 @@ var animation = function animation() {
 			tl_hiab.to('#it', 0.5, { opacity: 1 }, "=-0.3");
 			tl_hiab.to('#all', 0.5, { opacity: 1 }, "=-0.3");
 			tl_hiab.to('#began', 0.5, { opacity: 1 }, "=-0.3");
-			tl_hiab.to('#body1', 2, { opacity: 1 }, "=-0.3");
-			// tl_hiab.to('#keep-scrolling', 0.5, {opacity: 1}, "=-0.3");
-			// tl_hiab.to('#keep-scrolling .arrow', 0.8, {y: 10, repeat: -1, yoyo:true, ease: Power1.easeInOut});
-			// tl_hiab.to('#keep-scrolling', 0.5, {opacity: 0});
+			//tl_hiab.to('#keep-scrolling .arrow', 0.8, {y: 10, repeat: -1, yoyo:true, ease: Power1.easeInOut});
+			tl_hiab.to('#keep-scrolling', 1, { opacity: 1 });
 		}, 500);
 	});
 
 	// scroll powered body text
 	var tl_hiab_body = new TimelineMax();
-	tl_hiab_body.to('#body2', 2, { opacity: 1 });
+	tl_hiab_body.to('#keep-scrolling', 1, { opacity: 0 });
+	tl_hiab_body.to('#body1', 2, { opacity: 1 });
+	tl_hiab_body.to('#body2', 2, { opacity: 1 }, "=-1");
 	tl_hiab_body.to('#body3', 2, { opacity: 1 }, "=-1");
 
 	var scene_hiab_body = new _ScrollMagic2.default.Scene({
-		triggerElement: "#how-it-began",
-		triggerHook: "onLeave",
+		triggerElement: "#body1",
+		triggerHook: "onCenter",
 		duration: "100%"
 	})
 	//.setPin(".sticky")
@@ -1637,14 +1660,16 @@ var animation = function animation() {
 	var tl_sfc = new TimelineMax();
 	tl_sfc.to('#snowflake-container', 10, { y: 0, opacity: 1, rotation: 360 });
 	tl_sfc.to('#snowking', 5, { x: 0, opacity: 1 }, '=-5');
-	tl_sfc.to('#snowflakes', 10, { x: 0, opacity: 1 }), '=-40';
+	tl_sfc.to('#snowflakes', 10, { x: 0, opacity: 1 }, '=-5');
 	tl_sfc.to('#christmas', 10, { x: 0, opacity: 1 }, '=-5');
-	tl_sfc.to('#smoke', 10, { y: -20 }, '=-5');
+	tl_sfc.to('#imagine-this', 10, { y: 0, opacity: 1 }, '=-5');
+	tl_sfc.to('#smoke', 30, { y: -20 }, '=-10');
 
 	var scene_tl_sfc = new _ScrollMagic2.default.Scene({
-		triggerElement: '#snowflakes-christmas',
-		triggerHook: "onLeavee",
-		duration: "200%"
+		triggerElement: '#thirty-five-yrs .bottom-box',
+		triggerHook: "onLeave",
+		duration: "180%",
+		offset: -40
 	}).setTween(tl_sfc).addTo(controller);
 };
 
