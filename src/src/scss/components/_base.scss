@@ -850,20 +850,10 @@ how it began
 
 #thirty-five-yrs {
   background: #000;
+  overflow: hidden;
   .container {
     display: flex;
     flex-direction: column;
-    .top-box, .bottom-box {
-      background: #000;
-      position: relative;
-      z-index: 2;
-    }
-    .top-box {
-      height: 50px;
-    }
-    .bottom-box {
-      height: 150px;
-    }
     #thirty-five-yrs-svg {
       background: #000;
       position: relative;
@@ -871,6 +861,20 @@ how it began
       height: 500px;
       @include breakpoint(medium down) {
         height: 400px;
+      }
+      #years-in-the-making {
+        transform: scale(0.2);
+        transform-origin: center 200px;
+        position: absolute;
+        z-index: 4;
+        background-image: url(/assets/img/years-in-the-making.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        width: 263px;
+        height: 34px;
+        bottom: -100px;
+        @include h-align-absolute(263px);
       }
       #svg {
         position: absolute;

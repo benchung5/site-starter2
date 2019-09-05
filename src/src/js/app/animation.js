@@ -10,7 +10,7 @@ const animation = function() {
 	//   window.scrollTo(0, 0);
 	// }
 
-	const controller = new ScrollMagic.Controller();
+	const controller = new ScrollMagic.Controller({addIndicators: true});
 
 	// // how it all began text
 	// var tl_hiab = new TimelineMax();
@@ -64,7 +64,7 @@ const animation = function() {
 	.addTo(controller);
 
 	/* ==========================================================================
-	how it all began
+	35 years in the making
 	========================================================================== */
 
 	// scroll powered 35 yrs
@@ -76,6 +76,19 @@ const animation = function() {
 	  triggerElement: "#body3",
 	})
 	.setTween(tl_35yrs)
+	.addTo(controller);
+
+	// ==============
+
+	var tl_itm = new TimelineMax();
+	tl_itm.to('#years-in-the-making', 5, {scale: 2});	
+	
+	const scene_tl_itm = new ScrollMagic.Scene({
+		triggerElement: '#thirty-five-yrs',
+		triggerHook: "onCenter",
+		duration: "100%",
+	})
+	.setTween(tl_itm)
 	.addTo(controller);
 
 	/* ==========================================================================
@@ -92,10 +105,9 @@ const animation = function() {
 	
 	
 	const scene_tl_sfc = new ScrollMagic.Scene({
-		triggerElement: '#thirty-five-yrs .bottom-box',
-		triggerHook: "onLeave",
+		triggerElement: '#snowflakes-christmas',
+		triggerHook: "onCenter",
 		duration: "180%",
-		offset: -40
 	})
 	.setTween(tl_sfc)
 	.addTo(controller);

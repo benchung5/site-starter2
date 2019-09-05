@@ -97,12 +97,11 @@ $this->insert('featured', $view_data );
 
         <section id="thirty-five-yrs">
             <div class="container">
-                <div class="top-box"></div>
                 <div id="thirty-five-yrs-svg">
+                    <div id="years-in-the-making"></div>
                     <div id="svg"></div>
                     <div id="filmstrip"></div>
                 </div>
-                <div class="bottom-box"></div>
             </div>
         </section>
 
