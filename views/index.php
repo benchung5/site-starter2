@@ -59,6 +59,7 @@ $this->insert('featured', $view_data );
 
 <div class="home-page site-wrapper">
     <div class="content-wrapper">
+
         <div id="falling-snow"></div>
         <section id="how-it-began">
             <div class="row">
@@ -68,8 +69,8 @@ $this->insert('featured', $view_data );
                             <span id="how">How</span> <span id="it">it</span> <span id="all">all</span> <span id="began">began…</span>
                         </div>
                         <div id="keep-scrolling">
-                            <div class="inner">keep scrolling<div class="arrow">&darr;</div>         
-                            </div>
+                            <div class="inner">keep scrolling<img class="arrow"></div>         
+                           
                         </div>
                     </div>
                     <p>
@@ -96,20 +97,15 @@ $this->insert('featured', $view_data );
         </section>
 
         <section id="thirty-five-yrs">
-            <div class="container">
-                <div id="thirty-five-yrs-svg">
-                    <div id="years-in-the-making"></div>
-                    <div id="svg"></div>
-                    <div id="filmstrip"></div>
-                </div>
+            <div id="thirty-five-yrs-svg">
+                <div id="years-in-the-making"></div>
+                <div id="svg"></div>
+                <div id="filmstrip"></div>
             </div>
         </section>
 
-        
-
         <section id="snowflakes-christmas">
             <div class="sc-bg"></div>
-            
             <div class="row expanded">
                 <div class="small-12 large-6 columns left">
                     <div id="title">
@@ -123,12 +119,23 @@ $this->insert('featured', $view_data );
                     </div>
                 </div>
                 <div class="small-12 large-6 columns right">
-                    <div id="snowking"></div>
+                    <img id="snowking" src="/assets/img/snow-king.png" />
+                    <div id="smoke"></div>
                 </div>
             </div>
-            <div id="smoke"></div>
         </section>
-        <section style="height: 2000px">
+        <section id="dear-santa">
+            <div class="row expanded">
+                <div class="small-12 large-6 columns left">
+                    <img id="dear-santa-envelope" src="/assets/img/santa-letter.png"/>
+                </div>
+                <div class="small-12 large-6 columns right">
+                    <div id="dear-santa-text">
+                        <h2>Lorem ipsum</h2>
+                        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
 
