@@ -826,15 +826,14 @@ how it began
       font-size: 0.75em;
       .inner {
         .arrow {
-          fill: #fff;
           background-image: url(/assets/img/arrow-down.svg);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           display: inline-block;
           transform: translateY(0);
           margin: 0 0.5em;
           width: 20px;
-          height: 40px;
+          height: 20px;
         }
       }
     }
@@ -929,6 +928,15 @@ snowflakes christmas
   width: 100%;
   overflow: hidden;
   position: relative;
+  .blue-blur {
+    position: absolute;
+    bottom: -10px;
+    width: 200%;
+    background-color: #0f3461;
+    box-shadow: 0 0 60px 60px #0f3461;
+    height: 40px;
+    z-index: 2;
+  }
   .row {
     overflow: hidden;
   }
@@ -1031,13 +1039,13 @@ snowflakes christmas
     }
     #smoke {
       position: absolute;
-      z-index: 2;
+      z-index: 1;
       transform: translateY(250px);
       background-image: url(/assets/img/smoke.png);
       background-repeat: no-repeat;
       width: 992px;
       height: 558px;
-      bottom: -270px;
+      bottom: 0;
       left: 0;
     }
   }
@@ -1070,20 +1078,79 @@ dear santa
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
+  overflow: hidden;
   @include breakpoint(medium down) {
     min-height: 800px;
   }
+  .icicles-container {
+    width: 1200px;
+    @include h-align-absolute(1200px);
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    .icicles-one {
+      position: absolute;
+      width: 600px;
+      max-width: 100%;
+      z-index: 5;
+      top: -40px;
+      right: -96px;
+    }
+    .icicles-two {
+      position: absolute;
+      width: 700px;
+      max-width: 100%;
+      z-index: 3;
+      top: -90px;
+      left: -88px;
+    }
+    .icicles-four {
+      position: absolute;
+      width: 700px;
+      max-width: 100%;
+      z-index: 4;
+      top: -60px;
+      left: 382px;
+    }
+    .icicles-three {
+      position: absolute;
+      transform: scaleX(-1);
+      opacity: 0.5;
+      width: 560px;
+      max-width: 100%;
+      z-index: 2;
+      top: -50px;
+      right: 50%;
+    }
+    .icicles-five {
+      transform: scaleX(-1);
+      position: absolute;
+      width: 600px;
+      height: 200px;
+      max-width: 100%;
+      z-index: 5;
+      top: -40px;
+      left: -200px;
+    }
+  }
+
   .left, .right{
     display: flex;
     justify-content: center;
   }
   #dear-santa-envelope {
     width: 100%;
+    opacity: 0;
+    transform: translateY(-50px);
   }
   #dear-santa-text {
     max-width: 380px;
     @include breakpoint(medium down) {
       text-align: center;
+    }
+    h2, p {
+      opacity: 0;
+      transform: translateX(50px);
     }
     h2 {
       font-size: 4rem;

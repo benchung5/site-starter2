@@ -1621,7 +1621,7 @@ var animation = function animation() {
 			tl_hiab.to('#it', 0.5, { opacity: 1 }, "=-0.3");
 			tl_hiab.to('#all', 0.5, { opacity: 1 }, "=-0.3");
 			tl_hiab.to('#began', 0.5, { opacity: 1 }, "=-0.3");
-			//tl_hiab.to('#keep-scrolling .arrow', 0.8, {y: 10, repeat: -1, yoyo:true, ease: Power1.easeInOut});
+			tl_hiab.to('#keep-scrolling .arrow', 0.8, { y: 10, repeat: -1, yoyo: true, ease: Power1.easeInOut });
 			tl_hiab.to('#keep-scrolling', 1, { opacity: 1 });
 		}, 500);
 	});
@@ -1681,6 +1681,43 @@ var animation = function animation() {
 		triggerHook: "onCenter",
 		duration: "180%"
 	}).setTween(tl_sfc).addTo(controller);
+
+	/* ==========================================================================
+ dear santa
+ ========================================================================== */
+
+	var tl_ds = new TimelineMax();
+
+	tl_ds.to('#dear-santa-envelope', 1, { opacity: 1 });
+	tl_ds.to('#dear-santa-text h2', 0.5, { x: 0, opacity: 1 }, '=-0.7');
+	tl_ds.to('#dear-santa-text p', 1, { x: 0, opacity: 1 }, '=-0.3');
+	tl_ds.to('#dear-santa-envelope', 2, { y: 500 }, 1, '=-1');
+
+	var scene_tl_ds = new _ScrollMagic2.default.Scene({
+		triggerElement: '#dear-santa',
+		triggerHook: "onEnter",
+		duration: "300%",
+		offset: 60
+	}).setTween(tl_ds).addTo(controller);
+
+	/* ==========================================================================
+ icicles
+ ========================================================================== */
+
+	var tl_ic = new TimelineMax();
+
+	tl_ic.to('.icicles-one', 5, { y: -30 });
+	tl_ic.to('.icicles-five', 5, { y: -30 }, "=-5");
+	tl_ic.to('.icicles-four', 5, { y: -30 }, "=-5");
+	tl_ic.to('.icicles-two', 5, { y: 30 }, "=-5");
+	tl_ic.to('.icicles-two', 5, { y: 30 }, "=-5");
+	tl_ic.to('.icicles-three', 5, { y: 30 }, "=-5");
+
+	var scene_tl_ic = new _ScrollMagic2.default.Scene({
+		triggerElement: '#dear-santa',
+		triggerHook: "onEnter",
+		duration: "200%"
+	}).setTween(tl_ic).addTo(controller);
 };
 
 exports.default = animation;

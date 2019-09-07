@@ -69,8 +69,7 @@ $this->insert('featured', $view_data );
                             <span id="how">How</span> <span id="it">it</span> <span id="all">all</span> <span id="began">began…</span>
                         </div>
                         <div id="keep-scrolling">
-                            <div class="inner">keep scrolling<img class="arrow"></div>         
-                           
+                            <div class="inner">keep scrolling<div class="arrow"></div></div>        
                         </div>
                     </div>
                     <p>
@@ -123,8 +122,16 @@ $this->insert('featured', $view_data );
                     <div id="smoke"></div>
                 </div>
             </div>
+            <div class="blue-blur"></div>
         </section>
         <section id="dear-santa">
+            <div class="icicles-container">
+                <img class="icicles-one" src="/assets/img/icicles2.svg" />
+                <img class="icicles-five" src="/assets/img/icicles2.svg" />
+                <img class="icicles-four" src="/assets/img/icicles4.svg" />
+                <img class="icicles-two" src="/assets/img/icicles3.svg" />
+                <img class="icicles-three" src="/assets/img/icicles3.svg" />
+            </div>
             <div class="row expanded">
                 <div class="small-12 large-6 columns left">
                     <img id="dear-santa-envelope" src="/assets/img/santa-letter.png"/>
