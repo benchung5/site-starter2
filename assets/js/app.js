@@ -1718,6 +1718,23 @@ var animation = function animation() {
 		triggerHook: "onEnter",
 		duration: "200%"
 	}).setTween(tl_ic).addTo(controller);
+
+	/* ==========================================================================
+ north pole
+ ========================================================================== */
+
+	var tl_np = new TimelineMax();
+
+	tl_np.to('#north-pole-envelope', 4, { opacity: 1 });
+	tl_np.to('#north-pole-envelope', 5, { y: 0 }, "=-4");
+	tl_np.to('#north-pole-sign', 4, { x: 0, opacity: 1 }, "=-4");
+
+	var scene_tl_np = new _ScrollMagic2.default.Scene({
+		triggerElement: '#north-pole',
+		triggerHook: "onCenter",
+		duration: "120%",
+		offset: -40
+	}).setTween(tl_np).addTo(controller);
 };
 
 exports.default = animation;

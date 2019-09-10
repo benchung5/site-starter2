@@ -125,21 +125,35 @@ $this->insert('featured', $view_data );
             <div class="blue-blur"></div>
         </section>
         <section id="dear-santa">
-            <div class="icicles-container">
-                <img class="icicles-one" src="/assets/img/icicles2.svg" />
-                <img class="icicles-five" src="/assets/img/icicles2.svg" />
-                <img class="icicles-four" src="/assets/img/icicles4.svg" />
-                <img class="icicles-two" src="/assets/img/icicles3.svg" />
-                <img class="icicles-three" src="/assets/img/icicles3.svg" />
-            </div>
-            <div class="row expanded">
-                <div class="small-12 large-6 columns left">
-                    <img id="dear-santa-envelope" src="/assets/img/santa-letter.png"/>
+            <div class="inner">
+                <div class="icicles-container">
+                    <img class="icicles-one" src="/assets/img/icicles2.svg" />
+                    <img class="icicles-five" src="/assets/img/icicles2.svg" />
+                    <img class="icicles-four" src="/assets/img/icicles4.svg" />
+                    <img class="icicles-two" src="/assets/img/icicles3.svg" />
+                    <img class="icicles-three" src="/assets/img/icicles3.svg" />
                 </div>
-                <div class="small-12 large-6 columns right">
-                    <div id="dear-santa-text">
-                        <h2>Lorem ipsum</h2>
-                        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="row expanded">
+                    <div class="small-12 large-6 columns left">
+                        <img id="dear-santa-envelope" src="/assets/img/santa-letter.png"/>
+                    </div>
+                    <div class="small-12 large-6 columns right">
+                        <div id="dear-santa-text">
+                            <h2>Lorem ipsum</h2>
+                            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="north-pole">
+            <div class="inner">
+                <div class="row expanded">
+                    <div class="small-12 large-6 columns left">
+                        <img id="north-pole-sign" src="/assets/img/north-pole-sign.svg"/>
+                    </div>
+                    <div class="small-12 large-6 columns right">
+                        <img id="north-pole-envelope" src="/assets/img/north-pole-letter.png"/>
                     </div>
                 </div>
             </div>

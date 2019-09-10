@@ -1068,99 +1068,162 @@ dear santa
 ========================================================================== */
 
 #dear-santa {
-  min-height: 1024px;
-  z-index: 1;
-  width: 100%;
-  position: relative;
-  background-image: url(../img/snowy-town.jpg);
-  background-size: contain;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  @include breakpoint(medium down) {
-    min-height: 800px;
-  }
-  .icicles-container {
-    width: 1200px;
-    @include h-align-absolute(1200px);
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    .icicles-one {
-      position: absolute;
-      width: 600px;
-      max-width: 100%;
-      z-index: 5;
-      top: -40px;
-      right: -96px;
-    }
-    .icicles-two {
-      position: absolute;
-      width: 700px;
-      max-width: 100%;
-      z-index: 3;
-      top: -90px;
-      left: -88px;
-    }
-    .icicles-four {
-      position: absolute;
-      width: 700px;
-      max-width: 100%;
-      z-index: 4;
-      top: -60px;
-      left: 382px;
-    }
-    .icicles-three {
-      position: absolute;
-      transform: scaleX(-1);
-      opacity: 0.5;
-      width: 560px;
-      max-width: 100%;
-      z-index: 2;
-      top: -50px;
-      right: 50%;
-    }
-    .icicles-five {
-      transform: scaleX(-1);
-      position: absolute;
-      width: 600px;
-      height: 200px;
-      max-width: 100%;
-      z-index: 5;
-      top: -40px;
-      left: -200px;
-    }
-  }
-
-  .left, .right{
-    display: flex;
-    justify-content: center;
-  }
-  #dear-santa-envelope {
+  background-color: #fff;
+  background-image: url(../img/snowy-town-gradient.jpg);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  .inner {
+    z-index: 1;
     width: 100%;
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  #dear-santa-text {
-    max-width: 380px;
+    position: relative;
+    background-image: url(../img/snowy-town.jpg);
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    min-height: 1024px;
     @include breakpoint(medium down) {
-      text-align: center;
+      min-height: 800px;
     }
-    h2, p {
+    .icicles-container {
+      width: 1200px;
+      @include h-align-absolute(1200px);
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      .icicles-one {
+        position: absolute;
+        width: 600px;
+        max-width: 100%;
+        z-index: 5;
+        top: -40px;
+        right: -96px;
+      }
+      .icicles-two {
+        position: absolute;
+        width: 700px;
+        max-width: 100%;
+        z-index: 3;
+        top: -110px;
+        left: -88px;
+      }
+      .icicles-four {
+        position: absolute;
+        width: 700px;
+        max-width: 100%;
+        z-index: 4;
+        top: -60px;
+        left: 382px;
+      }
+      .icicles-three {
+        position: absolute;
+        transform: scaleX(-1);
+        opacity: 0.5;
+        width: 560px;
+        max-width: 100%;
+        z-index: 2;
+        top: -70px;
+        right: 50%;
+      }
+      .icicles-five {
+        transform: scaleX(-1);
+        position: absolute;
+        width: 600px;
+        height: 200px;
+        max-width: 100%;
+        z-index: 5;
+        top: -40px;
+        left: -200px;
+      }
+    }
+
+    .left, .right{
+      display: flex;
+      justify-content: center;
+    }
+    #dear-santa-envelope {
+      @include breakpoint(medium down) {
+        margin-top: 180px;
+      }
+      width: 100%;
       opacity: 0;
-      transform: translateX(50px);
+      transform: translateY(-50px);
+      z-index: 1;
     }
-    h2 {
-      font-size: 4rem;
-    }
-    h2, p {
-      color: #02659b;
-      font-family: Mountains of Christmas;
+    #dear-santa-text {
+      max-width: 380px;
+      @include breakpoint(medium down) {
+        text-align: center;
+      }
+      h2, p {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      h2 {
+        font-size: 4rem;
+      }
+      h2, p {
+        color: #02659b;
+        font-family: Mountains of Christmas;
+      }
     }
   }
 }
+
+/* ==========================================================================
+north pole
+========================================================================== */
+
+#north-pole {
+  background-color: #154C59;
+  background-image: url(../img/north-pole-gradient.jpg);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 1024px 100%;
+  .inner {
+    z-index: 0;
+    width: 100%;
+    position: relative;
+    background-image: url(../img/north-pole.jpg);
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    min-height: 1024px;
+    @include breakpoint(medium down) {
+      min-height: 1200px;
+    }
+  }
+  .left, .right {
+    display: flex;
+    justify-content: center;
+  }
+  #north-pole-envelope {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(-750px);
+    position: relative;
+    z-index: 1;
+    @include breakpoint(medium down) {
+      //margin-top: 180px;
+    }
+  }
+  #north-pole-sign {
+    opacity: 0;
+    transform: translateX(-100px);
+    @include breakpoint(medium down) {
+      display: flex;
+      justify-content: center;
+      margin-top: -80px;
+      margin-bottom: 40px;
+    }
+  }
+}
+
 
 /* ==========================================================================
 about
