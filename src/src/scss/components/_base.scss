@@ -1072,6 +1072,9 @@ dear santa
   background-image: url(../img/snowy-town-gradient.jpg);
   background-repeat: repeat-x;
   background-position: left bottom;
+  @include breakpoint(medium down) {
+    background-image: none;
+  }
   .inner {
     z-index: 1;
     width: 100%;
@@ -1182,6 +1185,9 @@ north pole
   background-repeat: repeat-x;
   background-position: left bottom;
   background-size: 1024px 100%;
+  @include breakpoint(medium down) {
+    background-image: none;
+  }
   .inner {
     z-index: 0;
     width: 100%;
@@ -1191,35 +1197,47 @@ north pole
     background-position: center bottom;
     background-repeat: no-repeat;
     display: flex;
-    align-items: center;
+    // align-items: center;
     overflow: hidden;
     min-height: 1024px;
     @include breakpoint(medium down) {
       min-height: 1200px;
     }
   }
-  .left, .right {
-    display: flex;
-    justify-content: center;
+  .left {
+    position: relative;
   }
   #north-pole-envelope {
     width: 100%;
+    min-width: 500px;
     opacity: 0;
     transform: translateY(-750px);
     position: relative;
     z-index: 1;
     @include breakpoint(medium down) {
       //margin-top: 180px;
+      min-width: 0;
     }
+  }
+  #shooting-star {
+    opacity: 0;
+    position: absolute;
+    top: 80px;
+    left: -60px;
+    transform-origin: 100% 400px;
+    transform: rotate(-90deg);
   }
   #north-pole-sign {
     opacity: 0;
     transform: translateX(-100px);
+    top: 200px;
+    position: absolute;
+    max-width: 300px;
     @include breakpoint(medium down) {
       display: flex;
       justify-content: center;
-      margin-top: -80px;
-      margin-bottom: 40px;
+      top: 200px;
+      @include h-align-absolute(300px);
     }
   }
 }

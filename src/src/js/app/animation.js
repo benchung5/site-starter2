@@ -161,15 +161,18 @@ const animation = function() {
 
 	var tl_np = new TimelineMax();
 
-	tl_np.to('#north-pole-envelope', 4, {opacity: 1});
-	tl_np.to('#north-pole-envelope', 5, {y: 0}, "=-4");
+	tl_np.to('#north-pole-envelope', 2, {opacity: 1});
+	tl_np.to('#north-pole-envelope', 5, {y: 200}, "=-2");
 	tl_np.to('#north-pole-sign', 4, {x: 0, opacity: 1}, "=-4");
+	tl_np.to('#shooting-star', 1, {opacity: 1}, "=-3");
+	tl_np.to('#shooting-star', 4, {rotation: 40}, "=-4");
+	tl_np.to('#shooting-star', 1, {opacity: 0}, "=-1");
 
 	const scene_tl_np = new ScrollMagic.Scene({
 		triggerElement: '#north-pole',
 		triggerHook: "onCenter",
 		duration: "120%",
-		offset: -40
+		offset: -300
 	})
 	.setTween(tl_np)
 	.addTo(controller);

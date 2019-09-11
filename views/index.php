@@ -150,6 +150,7 @@ $this->insert('featured', $view_data );
             <div class="inner">
                 <div class="row expanded">
                     <div class="small-12 large-6 columns left">
+                        <img id="shooting-star" src="/assets/img/shooting-star.png"/>
                         <img id="north-pole-sign" src="/assets/img/north-pole-sign.svg"/>
                     </div>
                     <div class="small-12 large-6 columns right">
