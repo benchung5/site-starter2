@@ -1621,8 +1621,9 @@ var animation = function animation() {
 			tl_hiab.to('#it', 0.5, { opacity: 1 }, "=-0.3");
 			tl_hiab.to('#all', 0.5, { opacity: 1 }, "=-0.3");
 			tl_hiab.to('#began', 0.5, { opacity: 1 }, "=-0.3");
+
+			tl_hiab.to('#keep-scrolling', 0.5, { opacity: 1 });
 			tl_hiab.to('#keep-scrolling .arrow', 0.8, { y: 10, repeat: -1, yoyo: true, ease: Power1.easeInOut });
-			tl_hiab.to('#keep-scrolling', 1, { opacity: 1 });
 		}, 500);
 	});
 
@@ -1709,9 +1710,8 @@ var animation = function animation() {
 	tl_ic.to('.icicles-one', 5, { y: -30 });
 	tl_ic.to('.icicles-five', 5, { y: -30 }, "=-5");
 	tl_ic.to('.icicles-four', 5, { y: -30 }, "=-5");
-	tl_ic.to('.icicles-two', 5, { y: 30 }, "=-5");
-	tl_ic.to('.icicles-two', 5, { y: 30 }, "=-5");
-	tl_ic.to('.icicles-three', 5, { y: 30 }, "=-5");
+	tl_ic.to('.icicles-two', 5, { y: 50 }, "=-5");
+	tl_ic.to('.icicles-three', 5, { y: 80 }, "=-5");
 
 	var scene_tl_ic = new _ScrollMagic2.default.Scene({
 		triggerElement: '#dear-santa',

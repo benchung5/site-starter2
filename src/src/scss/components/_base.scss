@@ -858,6 +858,8 @@ how it began
   overflow: hidden;
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1;
   #thirty-five-yrs-svg {
     background: #000;
     position: relative;
@@ -906,7 +908,7 @@ how it began
       background-repeat: no-repeat;
       background-size: cover;
       height: 100%;
-      width: 100%;
+      width: 99.5%;
     }
   }
 }
@@ -1230,7 +1232,7 @@ north pole
   #north-pole-sign {
     opacity: 0;
     transform: translateX(-100px);
-    top: 200px;
+    top: 240px;
     position: absolute;
     max-width: 300px;
     @include breakpoint(medium down) {
