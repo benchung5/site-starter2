@@ -1244,6 +1244,65 @@ north pole
   }
 }
 
+/* ==========================================================================
+boat
+========================================================================== */
+
+#boat {
+  background-color: #fff;
+  background-image: url(../img/spruce-bg.jpg);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: cover;
+  .left {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    #boat-holder {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      overflow: visible;
+      img {
+        position: absolute;
+      }
+      #boat-base {
+        
+      }
+      #boat-sail-back {
+        width: 150px;
+        top: 200px;
+        left: 40px;
+      }
+      #boat-sail-front {
+        width: 250px;
+        top: 220px;
+        left: 100px;
+      }
+      #boat-flag {
+        width: 40px;
+        top: 20px;
+        left: 120px;
+      }
+    }
+  }
+  .right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 1024px;
+  }
+  #santa-approved-holder {
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 300px;
+    #santa-approved {
+      margin-bottom: 40px;
+    }
+  }
+}
 
 /* ==========================================================================
 about

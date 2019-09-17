@@ -159,6 +159,24 @@ $this->insert('featured', $view_data );
                 </div>
             </div>
         </section>
+        <section id="boat">
+            <div class="row expanded">
+                <div class="small-12 large-6 columns left">
+                    <div id="boat-holder">
+                        <img id="boat-base" src="/assets/img/boat-base.png"/>
+                        <img id="boat-sail-back" src="/assets/img/boat-sail-back.svg"/>
+                        <img id="boat-sail-front" src="/assets/img/boat-sail-front.svg"/>
+                        <img id="boat-flag" src="/assets/img/boat-flag.svg"/>
+                    </div>
+                </div>
+                <div class="small-12 large-6 columns right">
+                    <div id="santa-approved-holder">
+                        <img id="santa-approved" src="/assets/img/santa-approved.svg"/>
+                        <img id="ready-for-delivery" src="/assets/img/ready-for-delivery.svg"/>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 
