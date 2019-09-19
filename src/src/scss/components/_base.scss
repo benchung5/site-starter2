@@ -1070,7 +1070,7 @@ dear santa
 ========================================================================== */
 
 #dear-santa {
-  background-color: #fff;
+  background-color: #f5f5f5;
   background-image: url(../img/snowy-town-gradient.jpg);
   background-repeat: repeat-x;
   background-position: left bottom;
@@ -1145,8 +1145,8 @@ dear santa
     }
 
     .left, .right{
-      display: flex;
-      justify-content: center;
+      // display: flex;
+      // justify-content: center;
     }
     #dear-santa-envelope {
       @include breakpoint(medium down) {
@@ -1156,6 +1156,7 @@ dear santa
       opacity: 0;
       transform: translateY(-50px);
       z-index: 1;
+      position: relative;
     }
     #dear-santa-text {
       max-width: 380px;
@@ -1254,52 +1255,135 @@ boat
   background-repeat: repeat-x;
   background-position: left bottom;
   background-size: cover;
-  .left {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    #boat-holder {
-      position: relative;
-      width: 400px;
-      height: 400px;
-      overflow: visible;
-      img {
-        position: absolute;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  .inner {
+    background-image: url(../img/wood.svg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 2000px auto;
+    position: relative;
+    .left {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      @include breakpoint(large down) {
+        justify-content: center;
       }
-      #boat-base {
-        
-      }
-      #boat-sail-back {
-        width: 150px;
-        top: 200px;
-        left: 40px;
-      }
-      #boat-sail-front {
-        width: 250px;
-        top: 220px;
-        left: 100px;
-      }
-      #boat-flag {
-        width: 40px;
-        top: 20px;
-        left: 120px;
+      #boat-holder {
+        position: relative;
+        z-index: 1;
+        min-width: 595px;
+        height: 400px;
+        overflow: visible;
+        margin-bottom: 60px;
+        @include breakpoint(large down) {
+          min-height: 520px;
+          min-width: 345px;
+        }
+        img {
+          position: absolute;
+        }
+        #boat-base {
+          width: 595px;
+          bottom: 0;
+          right: 0;
+          @include breakpoint(large down) {
+            width: 350px;
+          }
+        }
+        #boat-sail-front {
+          width: 304px;
+          bottom: 155px;
+          right: 270px;
+          @include breakpoint(large down) {
+            width: 187px;
+            bottom: 92px;
+            right: 159px;
+          }
+        }
+        #boat-sail-back {
+          width: 273px;
+          bottom: 143px;
+          right: 24px;
+          @include breakpoint(large down) {
+            width: 167px;
+            bottom: 82px;
+            right: 13px;
+          }
+        }
+        #boat-flag {
+          width: 95px;
+          bottom: 635px;
+          right: 184px;
+          @include breakpoint(large down) {
+            width: 60px;
+            bottom: 389px;
+            right: 110px;
+          }
+        }
       }
     }
-  }
-  .right {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 1024px;
-  }
-  #santa-approved-holder {
-    margin-left: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 300px;
-    #santa-approved {
-      margin-bottom: 40px;
+    .right {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 1024px;
+      @include breakpoint(large down) {
+        justify-content: center;
+        min-height: 0;
+      }
+    }
+    #santa-approved-holder {
+      margin-left: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 300px;
+      @include breakpoint(large down) {
+        margin-bottom: 60px;
+        margin-left: 0;
+      }
+      #santa-approved {
+        margin-bottom: 40px;
+      }
+    }
+    #water, #water-outer, #water-blur {
+      width: 100%;
+      background: #3DABBF;
+      position: absolute;
+      bottom: 0;
+      @include breakpoint(large down) {
+        display: none;
+      }
+    }
+    #water {
+      height: 180px;
+      box-shadow: inset 0px 10px 60px -6px #287783;
+      width: 200%;
+    }
+    #water-outer {
+      height: 88px;
+      z-index: 2;
+    }
+    #splash {
+      background-image: url(../img/splash.svg);
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: cover;
+      bottom: -128px;
+      right: -32px;
+      width: 2008px;
+      @include breakpoint(large down) {
+        display: none;
+      }
+    }
+    #water-blur {
+      width: 200% !important;
+      box-shadow: 0 0 60px 60px #3DABBF;
+      height: 40px;
+      z-index: 2;
     }
   }
 }

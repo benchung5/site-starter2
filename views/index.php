@@ -160,27 +160,29 @@ $this->insert('featured', $view_data );
             </div>
         </section>
         <section id="boat">
-            <div class="row expanded">
-                <div class="small-12 large-6 columns left">
-                    <div id="boat-holder">
-                        <img id="boat-base" src="/assets/img/boat-base.png"/>
-                        <img id="boat-sail-back" src="/assets/img/boat-sail-back.svg"/>
-                        <img id="boat-sail-front" src="/assets/img/boat-sail-front.svg"/>
-                        <img id="boat-flag" src="/assets/img/boat-flag.svg"/>
+            <div class="inner">
+                <div class="row expanded">
+                    <div class="small-12 xlarge-6 columns left">
+                        <div id="boat-holder">
+                            <img id="boat-base" src="/assets/img/boat-base.png"/>
+                            <img id="boat-sail-back" src="/assets/img/boat-sail-back.svg"/>
+                            <img id="boat-sail-front" src="/assets/img/boat-sail-front.svg"/>
+                            <img id="boat-flag" src="/assets/img/boat-flag.svg"/>
+                            <img id="splash" src="/assets/img/splash.svg"/>
+                        </div>
+                    </div>
+                    <div class="small-12 xlarge-6 columns right">
+                        <div id="santa-approved-holder">
+                            <img id="santa-approved" src="/assets/img/santa-approved.svg"/>
+                            <img id="ready-for-delivery" src="/assets/img/ready-for-delivery.svg"/>
+                        </div>
                     </div>
                 </div>
-                <div class="small-12 large-6 columns right">
-                    <div id="santa-approved-holder">
-                        <img id="santa-approved" src="/assets/img/santa-approved.svg"/>
-                        <img id="ready-for-delivery" src="/assets/img/ready-for-delivery.svg"/>
-                    </div>
-                </div>
+                <div id="water"></div>
+                <div id="water-blur"></div>
+                <div id="water-outer"></div>
             </div>
         </section>
-
-
-
-
     </div><!-- /content wrapper -->
 
     <?php $this->insert('footer', $view_data ); ?>
