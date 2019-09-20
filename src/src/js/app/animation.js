@@ -177,6 +177,32 @@ const animation = function() {
 	.setTween(tl_np)
 	.addTo(controller);
 
+	/* ==========================================================================
+	boat
+	========================================================================== */
+
+	var tl_bt = new TimelineMax();
+
+	
+	tl_bt.to('#boat-sail-back', 1.5, {y: 0, opacity: 1});
+	tl_bt.to('#boat-sail-front', 1.5, {y: 0, opacity: 1}, "=-0.5");
+	tl_bt.to('#boat-flag', 1.5, {y: 0, opacity: 1}, "=-1");
+	tl_bt.to('#santa-approved', 4, {y: 0, opacity: 1}, 4);
+	tl_bt.to('#ready-for-delivery', 4, {y: 0, opacity: 1}, "=-2");
+	// tl_bt.to('#boat-base', 2, {y: 0, opacity: 1}, "=-1");
+	//tl_bt.to('#boat-holder', 1, 1, {y: 10, yoyo:true, ease: Power1.easeInOut});
+
+	const scene_tl_bt = new ScrollMagic.Scene({
+		triggerElement: '#boat',
+		triggerHook: "onCenter",
+		duration: "200%",
+		// offset: -300
+	})
+	.setTween(tl_bt)
+	.addTo(controller);
+
+
+
 }
 
 

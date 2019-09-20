@@ -1253,11 +1253,14 @@ boat
   background-color: #fff;
   background-image: url(../img/spruce-bg.jpg);
   background-repeat: repeat-x;
-  background-position: left bottom;
-  background-size: cover;
+  background-position: left top;
+  background-size: contain;
   overflow: hidden;
   position: relative;
   z-index: 1;
+  @include breakpoint(large down) {
+    background-size: cover;
+  }
   .inner {
     background-image: url(../img/wood.svg);
     background-repeat: no-repeat;
@@ -1266,7 +1269,7 @@ boat
     position: relative;
     .left {
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: flex-end;
       @include breakpoint(large down) {
         justify-content: center;
@@ -1274,29 +1277,35 @@ boat
       #boat-holder {
         position: relative;
         z-index: 1;
-        min-width: 595px;
-        height: 400px;
+        min-width: 346px;
+        height: 600px;
         overflow: visible;
-        margin-bottom: 60px;
+        margin-bottom: 87px;
+        // margin-left: 20px;
         @include breakpoint(large down) {
           min-height: 520px;
           min-width: 345px;
+          margin-left: 0;
         }
         img {
           position: absolute;
         }
         #boat-base {
-          width: 595px;
+          width: 350px;
           bottom: 0;
           right: 0;
+          // opacity: 0;
+          // transform: translateY(-100px);
           @include breakpoint(large down) {
             width: 350px;
           }
         }
         #boat-sail-front {
-          width: 304px;
-          bottom: 155px;
-          right: 270px;
+          opacity: 0;
+          width: 187px;
+          bottom: 92px;
+          right: 159px;
+          transform: translateY(-100px);
           @include breakpoint(large down) {
             width: 187px;
             bottom: 92px;
@@ -1304,9 +1313,11 @@ boat
           }
         }
         #boat-sail-back {
-          width: 273px;
-          bottom: 143px;
-          right: 24px;
+          opacity: 0;
+          width: 167px;
+          bottom: 82px;
+          right: 13px;
+          transform: translateY(-100px);
           @include breakpoint(large down) {
             width: 167px;
             bottom: 82px;
@@ -1314,9 +1325,11 @@ boat
           }
         }
         #boat-flag {
-          width: 95px;
-          bottom: 635px;
-          right: 184px;
+          opacity: 0;
+          width: 60px;
+          bottom: 389px;
+          right: 110px;
+          transform: translateY(-100px);
           @include breakpoint(large down) {
             width: 60px;
             bottom: 389px;
@@ -1327,26 +1340,35 @@ boat
     }
     .right {
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
-      min-height: 1024px;
+      min-height: 600px;
       @include breakpoint(large down) {
-        justify-content: center;
+        // justify-content: center;
         min-height: 0;
       }
     }
     #santa-approved-holder {
-      margin-left: 60px;
+      // margin-left: 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       max-width: 300px;
+      position: relative;
+      z-index: 3;
+      margin-bottom: 80px;
       @include breakpoint(large down) {
         margin-bottom: 60px;
         margin-left: 0;
       }
       #santa-approved {
+        transform: translateY(200px);
+        opacity: 0;
         margin-bottom: 40px;
+      }
+      #ready-for-delivery {
+        transform: translateY(200px);
+        opacity: 0;
       }
     }
     #water, #water-outer, #water-blur {
@@ -1354,27 +1376,27 @@ boat
       background: #3DABBF;
       position: absolute;
       bottom: 0;
-      @include breakpoint(large down) {
-        display: none;
-      }
     }
     #water {
-      height: 180px;
+      height: 806px;
       box-shadow: inset 0px 10px 60px -6px #287783;
       width: 200%;
     }
     #water-outer {
-      height: 88px;
+      height: 694px;
       z-index: 2;
+      @include breakpoint(large down) {
+        height: 664px;
+      }
     }
     #splash {
       background-image: url(../img/splash.svg);
-      background-repeat: no-repeat;
+      background-repeat: repeat-x;
       background-position: center bottom;
       background-size: cover;
-      bottom: -128px;
-      right: -32px;
-      width: 2008px;
+      bottom: -86px;
+      right: 0;
+      width: 512px;
       @include breakpoint(large down) {
         display: none;
       }
@@ -1382,7 +1404,7 @@ boat
     #water-blur {
       width: 200% !important;
       box-shadow: 0 0 60px 60px #3DABBF;
-      height: 40px;
+      height: 200px;
       z-index: 2;
     }
   }

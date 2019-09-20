@@ -162,7 +162,7 @@ $this->insert('featured', $view_data );
         <section id="boat">
             <div class="inner">
                 <div class="row expanded">
-                    <div class="small-12 xlarge-6 columns left">
+                    <div class="small-12 xlarge-12 columns left">
                         <div id="boat-holder">
                             <img id="boat-base" src="/assets/img/boat-base.png"/>
                             <img id="boat-sail-back" src="/assets/img/boat-sail-back.svg"/>
@@ -171,7 +171,7 @@ $this->insert('featured', $view_data );
                             <img id="splash" src="/assets/img/splash.svg"/>
                         </div>
                     </div>
-                    <div class="small-12 xlarge-6 columns right">
+                    <div class="small-12 xlarge-12 columns right">
                         <div id="santa-approved-holder">
                             <img id="santa-approved" src="/assets/img/santa-approved.svg"/>
                             <img id="ready-for-delivery" src="/assets/img/ready-for-delivery.svg"/>
