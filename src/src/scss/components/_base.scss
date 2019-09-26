@@ -1411,6 +1411,75 @@ boat
 }
 
 /* ==========================================================================
+book
+========================================================================== */
+
+#book {
+  background-color: #fff;
+  background-image: url(../img/white-spruce-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .inner {
+    z-index: 0;
+    width: 100%;
+    max-width: 1280px;
+    position: relative;
+    background-image: url(../img/book.png);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    // align-items: center;
+    overflow: hidden;
+    min-height: 900px;
+    @include breakpoint(large down) {
+      min-height: 1200px;
+      background-image: none;
+    }
+    .right, .left {
+      display: flex;
+      align-items: center;
+      padding-bottom: 90px;
+      @include breakpoint(large down) {
+        justify-content: center;
+      }
+    }
+    .right {
+      display: flex;
+      align-items: center;
+      .text {
+        max-width: 380px;
+        @include breakpoint(medium down) {
+          text-align: center;
+        }
+        h2, p {
+          // opacity: 0;
+          // transform: translateX(50px);
+        }
+        h2{
+          color: #fff;
+          font-family: Mountains of Christmas;
+          font-size: 4rem;
+          text-shadow: 2px 2px 6px #3d2201;
+        }
+        p {
+          color: #542101;
+        }
+      }
+    }
+    .left {
+      @include breakpoint(large down) {
+        align-items: flex-end;
+      }
+    }
+  }
+}
+
+
+/* ==========================================================================
 about
 ========================================================================== */
 

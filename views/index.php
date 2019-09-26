@@ -183,6 +183,26 @@ $this->insert('featured', $view_data );
                 <div id="water-outer"></div>
             </div>
         </section>
+        <section id="book">
+            <div class="inner">
+                <div class="row">
+                    <div class="small-12 xlarge-6 columns left">
+                        <div id="elf-holder">
+                            <img class="elf" src="/assets/img/drawing.png"/>
+<!--                             <img class="elf" src="/assets/img/elf1.png"/>
+                            <img class="elf" src="/assets/img/elf2.png"/> -->
+                        </div>
+                    </div>
+                    <div class="small-12 xlarge-6 columns right">
+                        <div class="text">
+                            <h2>Lorem ipsum</h2>
+                            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div><!-- /content wrapper -->
 
     <?php $this->insert('footer', $view_data ); ?>
