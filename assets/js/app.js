@@ -1759,6 +1759,28 @@ var animation = function animation() {
 		duration: "200%"
 		// offset: -300
 	}).setTween(tl_bt).addTo(controller);
+
+	/* ==========================================================================
+ book
+ ========================================================================== */
+
+	var tl_bk = new TimelineMax();
+
+	tl_bk.to('#drawing', 0.5, { opacity: 0 });
+	tl_bk.to('#book #inner-one', 0.5, { opacity: 0 }, "=-0.5");
+	tl_bk.to('#elf-one', 0.5, { opacity: 1 });
+	tl_bk.to('#book #inner-two', 0.5, { opacity: 1 }, "=-0.5");
+	tl_bk.to('#elf-one', 0.5, { opacity: 0 });
+	tl_bk.to('#book #inner-two', 0.5, { opacity: 0 }, "=-0.5");
+	tl_bk.to('#elf-two', 0.5, { opacity: 1 });
+	tl_bk.to('#book #inner-three', 0.5, { opacity: 1 }, "=-0.5");
+
+	var scene_tl_bk = new _ScrollMagic2.default.Scene({
+		triggerElement: '#book',
+		triggerHook: "onLeave",
+		duration: "100%"
+		// offset: -300
+	}).setPin("#book").setTween(tl_bk).addTo(controller);
 };
 
 exports.default = animation;
