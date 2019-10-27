@@ -1781,6 +1781,26 @@ var animation = function animation() {
 		duration: "100%"
 		// offset: -300
 	}).setPin("#book").setTween(tl_bk).addTo(controller);
+
+	/* ==========================================================================
+ video
+ ========================================================================== */
+
+	var tl_v = new TimelineMax();
+
+	tl_v.to('#trees-bg-far', 5, { y: 50 });
+	tl_v.to('#trees-bg-near', 5, { y: 125 }, "=-5");
+	// tl_ic.to('.icicles-five', 5, {y: -30}, "=-5");
+	// tl_ic.to('.icicles-four', 5, {y: -30}, "=-5");
+	// tl_ic.to('.icicles-two', 5, {y: 50}, "=-5");
+	// tl_ic.to('.icicles-three', 5, {y: 80}, "=-5");
+
+
+	var scene_tl_v = new _ScrollMagic2.default.Scene({
+		triggerElement: '#video',
+		triggerHook: "onEnter",
+		duration: "300%"
+	}).setTween(tl_v).addTo(controller);
 };
 
 exports.default = animation;

@@ -212,6 +212,20 @@ $this->insert('featured', $view_data );
                 </div>
             </div>
         </section>
+        <section id="video">
+            <img id="trees-bg-far" src="/assets/img/trees-bg-far.svg" />
+            <div id="trees-bg-near">
+                <img src="/assets/img/trees-bg-near.svg" />
+                <div id="bg-cover"></div>
+            </div>
+            
+            <div class="inner">
+                <div id="video-holder">
+                    <div id="video-screen">video screen here...</div>
+                    <div id="video-envelope"></div>
+                </div>
+            </div>
+        </section>
 
     </div><!-- /content wrapper -->
 
