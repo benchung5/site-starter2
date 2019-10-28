@@ -10,7 +10,8 @@ const animation = function() {
 	//   window.scrollTo(0, 0);
 	// }
 
-	const controller = new ScrollMagic.Controller({addIndicators: true});
+	//const controller = new ScrollMagic.Controller({addIndicators: true});
+	const controller = new ScrollMagic.Controller();
 
 	// // how it all began text
 	// var tl_hiab = new TimelineMax();

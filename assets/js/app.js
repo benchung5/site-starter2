@@ -1589,7 +1589,8 @@ var animation = function animation() {
 	//   window.scrollTo(0, 0);
 	// }
 
-	var controller = new _ScrollMagic2.default.Controller({ addIndicators: true });
+	//const controller = new ScrollMagic.Controller({addIndicators: true});
+	var controller = new _ScrollMagic2.default.Controller();
 
 	// // how it all began text
 	// var tl_hiab = new TimelineMax();

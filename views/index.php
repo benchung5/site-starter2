@@ -186,14 +186,14 @@ $this->insert('featured', $view_data );
         <section id="book">
             <div class="inner">
                 <div class="row expanded">
-                    <div class="small-12 xlarge-6 columns left">
+                    <div class="small-12 medium-6 columns left">
                         <div id="elf-holder">
                             <img id="drawing" class="elf" src="/assets/img/drawing.png"/>
                             <img id="elf-one" class="elf" src="/assets/img/elf1.png"/>
                             <img id="elf-two" class="elf" src="/assets/img/elf2.png"/>
                         </div>
                     </div>
-                    <div class="small-12 xlarge-6 columns right">
+                    <div class="small-12 medium-6 columns right">
                         <div class="text">
                             <div id="inner-one" class="inner">
                                 <h2>Lorem ipsum</h2>
@@ -229,7 +229,7 @@ $this->insert('featured', $view_data );
 
     </div><!-- /content wrapper -->
 
-    <?php $this->insert('footer', $view_data ); ?>
+    <?php //$this->insert('footer', $view_data ); ?>
 
 
 
