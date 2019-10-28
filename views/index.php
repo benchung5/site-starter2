@@ -221,8 +221,16 @@ $this->insert('featured', $view_data );
             
             <div class="inner">
                 <div id="video-holder">
-                    <div id="video-screen">video screen here...</div>
-                    <div id="video-envelope"></div>
+                    <div id="video-screen">
+                        <video data-src="/assets/media/storyboard.mp4" playsinline loop muted autoplay>
+                            <source data-src="/assets/media/storyboard.mp4" type="video/mp4"/>
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div id="video-envelope">
+                    </div>
+                    <div id="video-envelope-flap">
+                    </div>
                 </div>
             </div>
         </section>

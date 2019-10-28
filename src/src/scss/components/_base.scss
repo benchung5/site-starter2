@@ -1423,10 +1423,11 @@ book
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
   & > .inner {
     z-index: 0;
     width: 100%;
-    max-width: 1280px;
+    max-width: 1070px;
     position: relative;
     background-image: url(../img/book.png);
     background-size: contain;
@@ -1461,6 +1462,10 @@ book
         width: 300px;
         height: 400px;
         margin-left: 20px;
+        @media (max-width: 800px) {
+          width: 190px;
+          height: 310px;
+        }
         @include breakpoint(small down) {
           text-align: center;
           max-width: 100%;
@@ -1480,10 +1485,17 @@ book
             font-family: Mountains of Christmas;
             font-size: 2rem;
             text-shadow: 2px 1px 3px #3d2201;
+            @media (max-width: 800px) {
+              font-size: 90%;
+            }
           }
           p {
             color: #542101;
             line-height: unset;
+            @media (max-width: 800px) {
+              font-size: 69%;
+              line-height: 1.2rem;
+            }
           }
         }
         #inner-two, #inner-three {
@@ -1511,22 +1523,33 @@ book
           width: 100%;
         }
         #drawing {
-          @include v-align-absolute(292px);
+          width: 80%;
+          right: 0;
+          top: 150px;
           @include breakpoint(medium down) {
-            top: 40px;
-            margin-top: 15px;
+            top: 55px;
+          }
+          @include breakpoint(small down) {
+            @include h-align-absolute(269px);
+            top: 100px;
           }
         }
         #elf-one, #elf-two {
           opacity: 0;
           max-width: 200px;
-          @include h-align-absolute(200px);
+          right: 3.5rem;
           @include v-align-absolute(350px);
-          @include breakpoint(medium down) {
+          @media (max-width: 800px) {
+            right: 50px;
             width: 160px;
-            @include h-align-absolute(160px);
+            @include v-align-absolute(267px);
+          }
+          @include breakpoint(medium down) {
             top: 0;
             margin-top: 15px;
+          }
+          @include breakpoint(small down) {
+            @include h-align-absolute(160px);
           }
         }
       }
@@ -1550,8 +1573,9 @@ video
   padding-top: 300px;
   position: relative;
   overflow: hidden;
-  @include breakpoint(large down) {
-    padding-top: 200px;
+  @media (max-width: 650px) {
+    padding-top: 160px;
+    padding-bottom: 0;
   }
   #trees-bg-far {
     position: absolute;
@@ -1588,13 +1612,22 @@ video
     }
     #video-holder {
       position: relative;
-      width: 100%;
-      height: 586px;
+      width: 790px;
+      height: 607px;
+      transform: translateY(0);
       @include breakpoint(large down) {
-        height: 500px;
+        width: 640px;
+        height: 464px;
       }
       @include breakpoint(medium down) {
+        height: 500px;
+      }
+      @include breakpoint(small down) {
         height: 212px;
+      }
+      @media (max-width: 650px) {
+        width: 100%;
+        height: 300px;
       }
       #video-envelope {
         position: absolute;
@@ -1606,12 +1639,54 @@ video
         height: 100%;
         z-index: 2;
         bottom: 0;
+        transform: translateY(0);
+        @media (max-width: 650px) {
+          display: none;
+        }
+      }
+      #video-envelope-flap {
+        position: absolute;
+        background-image: url(../img/video-envelope-flap.png);
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 247px;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        top: 0;
+        transform: translateY(0);
+        @media (max-width: 650px) {
+          display: none;
+        }
       }
       #video-screen {
         position: absolute;
+        transform: translateY(0);
         z-index: 1;
-        left: 54px;
-        bottom: 706px;
+        bottom: 0;
+        width: 715px;
+        height: 525px;
+        left: 38px;
+        background: #D6D8D9;
+        @include breakpoint(large down) {
+          width: 580px;
+          height: 382px;
+          left: 30px;
+        }
+        @media (max-width: 650px) {
+          width: 100%;
+          background: #000;
+          left: 0;
+          height: 290px;
+        }
+        video {
+          width: 100%;
+          box-shadow: 0px 5px 10px #888888;
+          @media (max-width: 650px) {
+            box-shadow: none;
+          }
+        }
+
       }
     }
   }

@@ -1589,8 +1589,8 @@ var animation = function animation() {
 	//   window.scrollTo(0, 0);
 	// }
 
-	//const controller = new ScrollMagic.Controller({addIndicators: true});
 	var controller = new _ScrollMagic2.default.Controller();
+	//const controller = new ScrollMagic.Controller();
 
 	// // how it all began text
 	// var tl_hiab = new TimelineMax();
@@ -1627,6 +1627,31 @@ var animation = function animation() {
 			tl_hiab.to('#keep-scrolling .arrow', 0.8, { y: 10, repeat: -1, yoyo: true, ease: Power1.easeInOut });
 		}, 500);
 	});
+
+	//dynamic load video
+	function loadVideo() {
+		var $vid = $('video[data-src]:not([data-src=""])');
+		if ($vid[0]) {
+			if (!$vid[0].src) {
+				//if it doesn't already have a source...
+				//change source of actual video element
+				$vid.each(function () {
+					var pathTovidSrc = $vid.data('src') ? $vid.data('src') : $vid.attr('src');
+					//update the source
+					$vid.attr('src', pathTovidSrc);
+				});
+
+				//change source of the source elments within
+				$('source[data-src]:not([data-src=""])').each(function () {
+					var $vidSrc = $(this);
+
+					var pathTovidSrc = $vidSrc.data('src') ? $vidSrc.data('src') : $vidSrc.attr('src');
+					//update the source
+					$vidSrc.attr('src', pathTovidSrc);
+				});
+			}
+		}
+	}
 
 	// scroll powered body text
 	var tl_hiab_body = new TimelineMax();
@@ -1790,18 +1815,23 @@ var animation = function animation() {
 	var tl_v = new TimelineMax();
 
 	tl_v.to('#trees-bg-far', 5, { y: 50 });
-	tl_v.to('#trees-bg-near', 5, { y: 125 }, "=-5");
-	// tl_ic.to('.icicles-five', 5, {y: -30}, "=-5");
-	// tl_ic.to('.icicles-four', 5, {y: -30}, "=-5");
-	// tl_ic.to('.icicles-two', 5, {y: 50}, "=-5");
-	// tl_ic.to('.icicles-three', 5, {y: 80}, "=-5");
-
+	tl_v.to('#trees-bg-near', 5, { y: 75 }, "=-5");
+	tl_v.to('#video-envelope', 4, { y: 100 }, 4);
+	tl_v.to('#video-envelope-flap', 4, { y: 100 }, 4);
 
 	var scene_tl_v = new _ScrollMagic2.default.Scene({
 		triggerElement: '#video',
 		triggerHook: "onEnter",
-		duration: "300%"
-	}).setTween(tl_v).addTo(controller);
+		duration: "100%",
+		offset: 100
+	}).setTween(tl_v).addTo(controller).on('enter', function (e) {
+		loadVideo();
+	});
+	// .on('center', function(e){
+	// 	var tl_vid = new TimelineMax();
+	// 	tl_vid.to('#video-screen', 1.5, {y: -32, ease: Power1.easeInOut});
+	//    });
+
 };
 
 exports.default = animation;
