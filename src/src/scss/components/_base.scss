@@ -813,7 +813,17 @@ how it began
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
+    #title {
+      text-align: center;
+      opacity: 0.5;
+      span {
+        font-size: 5em;
+        line-height: 1.2em;
+      }
+    }
+
     #keep-scrolling {
       opacity: 0;
       position: absolute;
@@ -1188,17 +1198,23 @@ north pole
   background-repeat: repeat-x;
   background-position: left bottom;
   background-size: 1024px 100%;
+  position: relative;
   @include breakpoint(medium down) {
     background-image: none;
   }
-  .inner {
+  .bg {
     z-index: 0;
-    width: 100%;
-    position: relative;
     background-image: url(../img/north-pole.jpg);
     background-size: contain;
     background-position: center bottom;
     background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .inner {
+    width: 100%;
+    position: relative;
     display: flex;
     // align-items: center;
     overflow: hidden;
@@ -1263,15 +1279,26 @@ boat
     background-size: cover;
   }
   .inner {
-    background-image: url(../img/wood.svg);
+    // background-image: url(../img/wood.svg);
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 2000px auto;
     position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+
+    & > .row {
+      margin-bottom: 11vh;
+      //margin-bottom: 29vh;
+      @include breakpoint(medium down) {
+        margin-bottom: 0;
+      }
+    }
     .left {
       display: flex;
       justify-content: center;
-      align-items: flex-end;
+      align-items: center;
       @include breakpoint(large down) {
         justify-content: center;
       }
@@ -1279,14 +1306,19 @@ boat
         position: relative;
         z-index: 1;
         min-width: 346px;
-        height: 600px;
+        height: 450px;
         overflow: visible;
-        margin-bottom: 87px;
-        // margin-left: 20px;
         @include breakpoint(large down) {
           min-height: 520px;
           min-width: 345px;
           margin-left: 0;
+        }
+        @include breakpoint(medium down) {
+          margin-bottom: 20px;
+          min-width: 290px;
+        }
+        @include breakpoint(small down) {
+          margin-bottom: 0;
         }
         img {
           position: absolute;
@@ -1295,10 +1327,11 @@ boat
           width: 350px;
           bottom: 0;
           right: 0;
-          // opacity: 0;
-          // transform: translateY(-100px);
           @include breakpoint(large down) {
             width: 350px;
+          }
+          @include breakpoint(medium down) {
+            width: 285px;
           }
         }
         #boat-sail-front {
@@ -1312,6 +1345,11 @@ boat
             bottom: 92px;
             right: 159px;
           }
+          @include breakpoint(medium down) {
+            width: 156px;
+            right: 136px;
+            bottom: 76px;
+          }
         }
         #boat-sail-back {
           opacity: 0;
@@ -1323,6 +1361,10 @@ boat
             width: 167px;
             bottom: 82px;
             right: 13px;
+          }
+          @include breakpoint(medium down) {
+            width: 138px;
+            bottom: 68px;
           }
         }
         #boat-flag {
@@ -1336,6 +1378,22 @@ boat
             bottom: 389px;
             right: 110px;
           }
+          @include breakpoint(medium down) {
+            bottom: 318px;
+            left: 145px;
+          }
+        }
+        #splash {
+          background-image: url(../img/splash.svg);
+          background-repeat: repeat-x;
+          background-position: center bottom;
+          background-size: cover;
+          bottom: -86px;
+          right: 0;
+          width: 512px;
+          @include breakpoint(small down) {
+            bottom: -75px;
+          }
         }
       }
     }
@@ -1345,68 +1403,66 @@ boat
       align-items: center;
       min-height: 600px;
       @include breakpoint(large down) {
-        // justify-content: center;
         min-height: 0;
       }
     }
     #santa-approved-holder {
-      // margin-left: 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       max-width: 300px;
       position: relative;
       z-index: 3;
-      margin-bottom: 80px;
-      @include breakpoint(large down) {
-        margin-bottom: 60px;
-        margin-left: 0;
+      @include breakpoint(medium down) {
+        width: 40vw;
+        margin-bottom: 30px;
       }
       #santa-approved {
         transform: translateY(200px);
         opacity: 0;
         margin-bottom: 40px;
+        @include breakpoint(medium down) {
+          display: none;
+        }
       }
       #ready-for-delivery {
         transform: translateY(200px);
         opacity: 0;
+        @include breakpoint(medium down) {
+          margin-bottom: 50px;
+        }
       }
     }
-    #water, #water-outer, #water-blur {
+    #water-holder {
+      height: 43vh;
       width: 100%;
-      background: #3DABBF;
       position: absolute;
       bottom: 0;
-    }
-    #water {
-      height: 806px;
-      box-shadow: inset 0px 10px 60px -6px #287783;
-      width: 200%;
-    }
-    #water-outer {
-      height: 694px;
-      z-index: 2;
-      @include breakpoint(large down) {
-        height: 664px;
+      box-shadow: 0 0 10px 6px #287783;
+      #water, #water-blur {
+        width: 100%;
+        background: #3DABBF;
+        position: absolute;
+        bottom: 0;
+        height: 100%;
       }
-    }
-    #splash {
-      background-image: url(../img/splash.svg);
-      background-repeat: repeat-x;
-      background-position: center bottom;
-      background-size: cover;
-      bottom: -86px;
-      right: 0;
-      width: 512px;
-      @include breakpoint(large down) {
-        display: none;
+      #water {
+        box-shadow: inset 0px 10px 60px -6px #287783;
+        width: 200%;
       }
-    }
-    #water-blur {
-      width: 200% !important;
-      box-shadow: 0 0 60px 60px #3DABBF;
-      height: 200px;
-      z-index: 2;
+      #water-blur {
+        width: 200% !important;
+        box-shadow: 0 0 60px 60px #3DABBF;
+        //height: 30vh;
+        height: 14vh;
+        z-index: 2;
+        @include breakpoint(large down) {
+          height: 6vh;
+        }
+        @include breakpoint(small down) {
+          height: 19vh;
+        }
+      }
     }
   }
 }
@@ -1472,6 +1528,9 @@ book
           width: 90%;
           height: 200px;
         } 
+        .elf-text {
+          opacity: 0;
+        }
         .inner {
           position: absolute;
           width: 100%;
@@ -1483,8 +1542,9 @@ book
           h2 {
             color: #fff;
             font-family: Mountains of Christmas;
-            font-size: 2rem;
+            font-size: 1.5rem;
             text-shadow: 2px 1px 3px #3d2201;
+            margin-bottom: 0.7rem;
             @media (max-width: 800px) {
               font-size: 90%;
             }
@@ -1492,14 +1552,13 @@ book
           p {
             color: #542101;
             line-height: unset;
+            line-height: 1.5;
+            font-size: 0.7rem;
             @media (max-width: 800px) {
-              font-size: 69%;
-              line-height: 1.2rem;
+              // font-size: 69%;
+              // line-height: 1.2rem;
             }
           }
-        }
-        #inner-two, #inner-three {
-          opacity: 0;
         }
       }
     }
@@ -1528,13 +1587,14 @@ book
           top: 150px;
           @include breakpoint(medium down) {
             top: 55px;
+            width: 100%
           }
           @include breakpoint(small down) {
             @include h-align-absolute(269px);
             top: 100px;
           }
         }
-        #elf-one, #elf-two {
+        .elf {
           opacity: 0;
           max-width: 200px;
           right: 3.5rem;
@@ -1547,6 +1607,8 @@ book
           @include breakpoint(medium down) {
             top: 0;
             margin-top: 15px;
+            right: 0;
+            width: 100%;
           }
           @include breakpoint(small down) {
             @include h-align-absolute(160px);
@@ -1567,6 +1629,12 @@ video
 ========================================================================== */
 
 #video {
+  audio {
+    display: block;
+    position: absolute;
+    z-index: 6;
+    display: none;
+  }
   background-image: url(../img/forest-sky.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -1617,11 +1685,11 @@ video
     #video-holder {
       position: relative;
       width: 790px;
-      height: 607px;
+      height: 617px;
       transform: translateY(0);
       @include breakpoint(large down) {
         width: 640px;
-        height: 464px;
+        height: 500px;
       }
       @include breakpoint(medium down) {
         height: 500px;
@@ -1653,7 +1721,7 @@ video
         background-image: url(../img/video-envelope-flap.png);
         background-repeat: no-repeat;
         background-position: center top;
-        background-size: 247px;
+        background-size: 100%;
         width: 100%;
         height: 100%;
         z-index: 0;
@@ -1690,7 +1758,34 @@ video
             box-shadow: none;
           }
         }
-
+      }
+      #contact-info {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 200px;
+        z-index: 2;
+        height: 60px;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 20px 0 20px;
+        align-items: center;
+        img {
+          padding: 0 15px;
+        }
+        #contact-info1 {
+          width: 134px;
+          height: 39px;
+        }
+        #contact-info2 {
+          width: 246px;
+          height: 44px;
+          cursor: pointer;
+        }
+        #contact-info3 {
+          width: 134px;
+          height: 25px;
+        }
       }
     }
   }

@@ -46,6 +46,7 @@ const animation = function() {
 			
 			tl_hiab.to('#keep-scrolling', 0.5, {opacity: 1});
 			tl_hiab.to('#keep-scrolling .arrow', 0.8, {y: 10, repeat: -1, yoyo:true, ease: Power1.easeInOut});
+
 		}, 500);
 	});
 
@@ -213,17 +214,17 @@ const animation = function() {
 	tl_bt.to('#boat-sail-back', 1.5, {y: 0, opacity: 1});
 	tl_bt.to('#boat-sail-front', 1.5, {y: 0, opacity: 1}, "=-0.5");
 	tl_bt.to('#boat-flag', 1.5, {y: 0, opacity: 1}, "=-1");
-	tl_bt.to('#santa-approved', 4, {y: 0, opacity: 1}, 4);
+	tl_bt.to('#santa-approved', 4, {y: 0, opacity: 1});
 	tl_bt.to('#ready-for-delivery', 4, {y: 0, opacity: 1}, "=-2");
 	// tl_bt.to('#boat-base', 2, {y: 0, opacity: 1}, "=-1");
 	//tl_bt.to('#boat-holder', 1, 1, {y: 10, yoyo:true, ease: Power1.easeInOut});
 
 	const scene_tl_bt = new ScrollMagic.Scene({
 		triggerElement: '#boat',
-		triggerHook: "onCenter",
-		duration: "200%",
-		// offset: -300
+		triggerHook: "onLeave",
+		duration: "100%"
 	})
+	.setPin("#boat")
 	.setTween(tl_bt)
 	.addTo(controller);
 
@@ -233,14 +234,72 @@ const animation = function() {
 
 	var tl_bk = new TimelineMax();
 
+	// tl_bk.to('#drawing', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-one', 0.5, {opacity: 0}, "=-0.5");
+	// tl_bk.to('#elf-one', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-two', 0.5, {opacity: 1}, "=-0.5");
+	// tl_bk.to('#elf-one', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-two', 0.5, {opacity: 0}, "=-0.5");
+	// tl_bk.to('#elf-two', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-three', 0.5, {opacity: 1}, "=-0.5");
+
 	tl_bk.to('#drawing', 0.5, {opacity: 0});
 	tl_bk.to('#book #inner-one', 0.5, {opacity: 0}, "=-0.5");
+
 	tl_bk.to('#elf-one', 0.5, {opacity: 1});
 	tl_bk.to('#book #inner-two', 0.5, {opacity: 1}, "=-0.5");
+	
 	tl_bk.to('#elf-one', 0.5, {opacity: 0});
 	tl_bk.to('#book #inner-two', 0.5, {opacity: 0}, "=-0.5");
+	
 	tl_bk.to('#elf-two', 0.5, {opacity: 1});
 	tl_bk.to('#book #inner-three', 0.5, {opacity: 1}, "=-0.5");
+
+	tl_bk.to('#elf-two', 0.5, {opacity: 0});
+	tl_bk.to('#book #inner-three', 0.5, {opacity: 0}, "=-0.5");
+
+	tl_bk.to('#elf-three', 0.5, {opacity: 1});
+	tl_bk.to('#book #inner-four', 0.5, {opacity: 1}, "=-0.5");
+
+	tl_bk.to('#elf-three', 0.5, {opacity: 0});
+	tl_bk.to('#book #inner-four', 0.5, {opacity: 0}, "=-0.5");
+
+	tl_bk.to('#elf-four', 0.5, {opacity: 1});
+	tl_bk.to('#book #inner-five', 0.5, {opacity: 1}, "=-0.5");
+
+	tl_bk.to('#elf-four', 0.5, {opacity: 0});
+	tl_bk.to('#book #inner-five', 0.5, {opacity: 0}, "=-0.5");
+
+	tl_bk.to('#elf-five', 0.5, {opacity: 1});
+	tl_bk.to('#book #inner-six', 0.5, {opacity: 1}, "=-0.5");
+
+	tl_bk.to('#elf-five', 0.5, {opacity: 0});
+	tl_bk.to('#book #inner-six', 0.5, {opacity: 0}, "=-0.5");
+
+	tl_bk.to('#elf-six', 0.5, {opacity: 1});
+	tl_bk.to('#book #inner-seven', 0.5, {opacity: 1}, "=-0.5");
+	
+	tl_bk.to('#elf-six', 0.5, {opacity: 0});
+	tl_bk.to('#book #inner-seven', 0.5, {opacity: 0}, "=-0.5");
+
+	tl_bk.to('#elf-eight', 0.5, {opacity: 1});
+	tl_bk.to('#book #inner-nine', 0.5, {opacity: 1}, "=-0.5");
+	
+	tl_bk.to('#elf-eight', 0.5, {opacity: 0});
+	tl_bk.to('#book #inner-nine', 0.5, {opacity: 0}, "=-0.5");
+
+	tl_bk.to('#elf-nine', 0.5, {opacity: 1});
+	tl_bk.to('#book #inner-ten', 0.5, {opacity: 1}, "=-0.5");
+	
+	tl_bk.to('#elf-nine', 0.5, {opacity: 0});
+	tl_bk.to('#book #inner-ten', 0.5, {opacity: 0}, "=-0.5");
+
+	tl_bk.to('#elf-ten', 0.5, {opacity: 1});
+	tl_bk.to('#book #inner-eleven', 0.5, {opacity: 1}, "=-0.5");
+	
+	tl_bk.to('#elf-ten', 0.5, {opacity: 0});
+	tl_bk.to('#book #inner-eleven', 0.5, {opacity: 0}, "=-0.5");
+
 
 	const scene_tl_bk = new ScrollMagic.Scene({
 		triggerElement: '#book',
@@ -260,8 +319,8 @@ const animation = function() {
 	
 	tl_v.to('#trees-bg-far', 5, {y: 50});
 	tl_v.to('#trees-bg-near', 5, {y: 75}, "=-5");
-	tl_v.to('#video-envelope', 4, {y: 100}, 4);
-	tl_v.to('#video-envelope-flap', 4, {y: 100}, 4);
+	tl_v.from('#video-envelope', 4, {y: -100}, 4);
+	tl_v.from('#video-envelope-flap', 4, {y: -100}, 4);
 	
 	
 	const scene_tl_v = new ScrollMagic.Scene({

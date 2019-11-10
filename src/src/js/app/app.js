@@ -56,5 +56,17 @@ load foundation plugins - keep this
 	if (window.location.pathname === '/') {
 		animation();
 	}
+
+	//audio button
+	$( "#contact-info2" ).click(function() {
+	  var audio = document.getElementById("audio-track");
+	  
+	  if ($("#contact-info2").hasClass("play")) {
+	  	audio.pause();
+	  } else {
+	  	audio.play();
+	  }
+	  $("#contact-info2").toggleClass("play");
+	});
 	
 })();
