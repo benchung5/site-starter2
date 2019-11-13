@@ -201,7 +201,7 @@ $this->insert('featured', $view_data );
                             <img id="elf-seven" class="elf" src="/assets/img/elf7.png"/>
                             <img id="elf-eight" class="elf" src="/assets/img/elf8.png"/>
                             <img id="elf-nine" class="elf" src="/assets/img/elf9.png"/>
-                            <img id="elf-ten" class="elf" src="/assets/img/elf10.png"/>
+                            <img id="elf-wicked-snowking" class="" src="/assets/img/snow-king.png"/>
                         </div>
                     </div>
                     <div class="small-12 medium-6 columns right">

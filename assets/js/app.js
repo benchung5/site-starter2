@@ -1863,10 +1863,10 @@ var animation = function animation() {
 	tl_bk.to('#elf-nine', 0.5, { opacity: 0 });
 	tl_bk.to('#book #inner-ten', 0.5, { opacity: 0 }, "=-0.5");
 
-	tl_bk.to('#elf-ten', 0.5, { opacity: 1 });
+	tl_bk.to('#elf-wicked-snowking', 0.5, { opacity: 1 });
 	tl_bk.to('#book #inner-eleven', 0.5, { opacity: 1 }, "=-0.5");
 
-	tl_bk.to('#elf-ten', 0.5, { opacity: 0 });
+	tl_bk.to('#elf-wicked-snowking', 0.5, { opacity: 0 });
 	tl_bk.to('#book #inner-eleven', 0.5, { opacity: 0 }, "=-0.5");
 
 	var scene_tl_bk = new _ScrollMagic2.default.Scene({

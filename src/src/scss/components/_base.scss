@@ -1498,29 +1498,33 @@ book
       margin: 0;
       background-image: none;
     }
-    .right, .left {
+    .left {
       display: flex;
       align-items: center;
       padding-bottom: 90px;
-      @include breakpoint(medium down) {
-        justify-content: center;
-      }
       @include breakpoint(large down) {
         padding-bottom: 30px;
+        justify-content: center;
+      }
+      @include breakpoint(medium down) {
+        justify-content: flex-start;
       }
     }
     .right {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
+      padding-bottom: 90px;
       .text {
         max-width: 380px;
         position: relative;
-        width: 300px;
-        height: 400px;
+        width: 260px;
+        height: 285px;
         margin-left: 20px;
         @media (max-width: 800px) {
           width: 190px;
           height: 310px;
+          margin-left: 0;
         }
         @include breakpoint(small down) {
           text-align: center;
@@ -1561,6 +1565,9 @@ book
           }
         }
       }
+      @include breakpoint(small down) {
+        justify-content: center;
+      }
     }
     .left {
       justify-content: flex-end;
@@ -1590,14 +1597,14 @@ book
             width: 100%
           }
           @include breakpoint(small down) {
-            @include h-align-absolute(269px);
+            @include h-align-absolute(350px);
             top: 100px;
           }
         }
         .elf {
           opacity: 0;
           max-width: 200px;
-          right: 3.5rem;
+          right: 1.7rem;
           @include v-align-absolute(350px);
           @media (max-width: 800px) {
             right: 50px;
@@ -1611,7 +1618,22 @@ book
             width: 100%;
           }
           @include breakpoint(small down) {
-            @include h-align-absolute(160px);
+            @include h-align-absolute(200px);
+          }
+        }
+        #elf-wicked-snowking {
+          opacity: 0;
+          max-width: 200px;
+          right: 1.7rem;
+          max-width: 250px;
+          right: 0.5rem;
+          top: 80px;
+          @include breakpoint(medium down) {
+            top: 0;
+            width: 100%
+          }
+          @include breakpoint(small down) {
+            @include h-align-absolute(250px);
           }
         }
       }
