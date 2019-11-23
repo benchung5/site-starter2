@@ -13,24 +13,6 @@ const animation = function() {
 	const controller = new ScrollMagic.Controller();
 	//const controller = new ScrollMagic.Controller();
 
-	// // how it all began text
-	// var tl_hiab = new TimelineMax();
-	// // tl_hiab.to('#how', 0.5, {opacity: 1});
-	// // tl_hiab.to('#it', 0.5, {opacity: 1}, "=-0.3");
-	// // tl_hiab.to('#all', 0.5, {opacity: 1}, "=-0.3");
-	// // tl_hiab.to('#began', 0.5, {opacity: 1}, "=-0.3");
-	// //tl_hiab.to('#keep-scrolling .arrow', 0.8, {y: 10, repeat: -1, yoyo:true, ease: Power1.easeInOut});
-	// tl_hiab.to('#keep-scrolling', 1, {y: 10, ease: Power4.easeOut});
-
-	// const scene_tl_hiab = new ScrollMagic.Scene({
-	//   triggerElement: "#top-intro",
-	//   triggerHook: "onLeave",
-	//   duration: "100%"
-	// })
-	// // .setPin("#top-intro")
-	// .setTween(tl_hiab)
-	// .addTo(controller);
-
 	/* ==========================================================================
 	how it all began
 	========================================================================== */
@@ -52,7 +34,7 @@ const animation = function() {
 
 	//dynamic load video
 	function loadVideo() {
-	  var $vid = $('video[data-src]:not([data-src=""])');
+	  var $vid = $('#video video[data-src]:not([data-src=""])');
 	  if($vid[0]) {
 	    if (!$vid[0].src) {
 	        //if it doesn't already have a source...
@@ -210,13 +192,15 @@ const animation = function() {
 
 	var tl_bt = new TimelineMax();
 
-	
-	tl_bt.to('#boat-sail-back', 1.5, {y: 0, opacity: 1});
+
+	tl_bt.to('#boat-base', 2, {y: 0, opacity: 1});
+	tl_bt.to('#splash', 1.5, {y: 0, opacity: 1}, "=-0.5");
+	tl_bt.to('#splash', 1.5, {y: 20, opacity: 0});
+	tl_bt.to('#boat-sail-back', 1.5, {y: 0, opacity: 1}, "=-0.5");
 	tl_bt.to('#boat-sail-front', 1.5, {y: 0, opacity: 1}, "=-0.5");
 	tl_bt.to('#boat-flag', 1.5, {y: 0, opacity: 1}, "=-1");
 	tl_bt.to('#santa-approved', 4, {y: 0, opacity: 1});
 	tl_bt.to('#ready-for-delivery', 4, {y: 0, opacity: 1}, "=-2");
-	// tl_bt.to('#boat-base', 2, {y: 0, opacity: 1}, "=-1");
 	//tl_bt.to('#boat-holder', 1, 1, {y: 10, yoyo:true, ease: Power1.easeInOut});
 
 	const scene_tl_bt = new ScrollMagic.Scene({
@@ -233,15 +217,6 @@ const animation = function() {
 	========================================================================== */
 
 	var tl_bk = new TimelineMax();
-
-	// tl_bk.to('#drawing', 0.5, {opacity: 0});
-	// tl_bk.to('#book #inner-one', 0.5, {opacity: 0}, "=-0.5");
-	// tl_bk.to('#elf-one', 0.5, {opacity: 1});
-	// tl_bk.to('#book #inner-two', 0.5, {opacity: 1}, "=-0.5");
-	// tl_bk.to('#elf-one', 0.5, {opacity: 0});
-	// tl_bk.to('#book #inner-two', 0.5, {opacity: 0}, "=-0.5");
-	// tl_bk.to('#elf-two', 0.5, {opacity: 1});
-	// tl_bk.to('#book #inner-three', 0.5, {opacity: 1}, "=-0.5");
 
 	tl_bk.to('#drawing', 0.5, {opacity: 0});
 	tl_bk.to('#book #inner-one', 0.5, {opacity: 0}, "=-0.5");
@@ -296,9 +271,6 @@ const animation = function() {
 
 	tl_bk.to('#elf-wicked-snowking', 0.5, {opacity: 1});
 	tl_bk.to('#book #inner-eleven', 0.5, {opacity: 1}, "=-0.5");
-	
-	tl_bk.to('#elf-wicked-snowking', 0.5, {opacity: 0});
-	tl_bk.to('#book #inner-eleven', 0.5, {opacity: 0}, "=-0.5");
 
 
 	const scene_tl_bk = new ScrollMagic.Scene({
@@ -334,10 +306,46 @@ const animation = function() {
 	.on('enter', function(e){
 		loadVideo();
     });
-	// .on('center', function(e){
-	// 	var tl_vid = new TimelineMax();
-	// 	tl_vid.to('#video-screen', 1.5, {y: -32, ease: Power1.easeInOut});
- //    });
+
+    /* ==========================================================================
+    video envelope
+    ========================================================================== */
+
+    var tl_env = new TimelineMax();
+	tl_env.to('#video-envelope', 1, {autoAlpha: 0, ease: Power4.easeOut});
+	tl_env.to('#video-envelope-flap', 1, {autoAlpha: 0, zIndex: 0}, '=-1');
+	// tl_env.to('#video-envelope-flap', 0.1, {zIndex: 0});
+	
+	const scene_tl_env = new ScrollMagic.Scene({
+		triggerElement: '#video',
+		triggerHook: "onLeave",
+		offset: 70,
+		duration: "40%",
+	})
+	.setTween(tl_env)
+	.addTo(controller);
+
+	 /* ==========================================================================
+	 ebook
+	 ========================================================================== */
+
+	 var tl_ebook = new TimelineMax();
+	 //tl_ebook.to('#ebook #falling-snow', 5, {opacity: 1});
+	 tl_ebook.to('#ebook #title h2', 10, {x: 0, opacity: 1});
+	 tl_ebook.to('#ebook #title p', 10, {x: 0, opacity: 1}, '=-5');
+	 tl_ebook.to('#ebook #title #button-holder', 10, {x: 0, opacity: 1}, '=-5');
+	 tl_ebook.to('#ebook-cover', 10, {x: 0, opacity: 1}, '=-5');
+	 tl_ebook.to('#ebook address', 10, {autoAlpha: 1}, '=-10');
+	 
+	 
+	 const scene_tl_ebook = new ScrollMagic.Scene({
+	 	triggerElement: '#ebook',
+	 	triggerHook: "onLeave",
+	 	duration: "100%",
+	 })
+	 .setPin("#ebook")
+	 .setTween(tl_ebook)
+	 .addTo(controller);
 
 
 }

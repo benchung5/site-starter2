@@ -73,23 +73,14 @@ $this->insert('featured', $view_data );
                         </div>
                     </div>
                     <p>
-                    <span id="body1">On December 24 th , 1983, my children asked me to tell them a bedtime Christmas
-                    story; one they had never heard before. I thought for a moment, then began
-                    telling them the story about one of Santa&#39;s little elves. After about a minute, they interrupted me and asked me what his name was. Not knowing myself, I wasn’t sure what to tell them, so I ignored it and proceeded to tell them the story, while at the same time, trying to think of a name. Moments later they asked me again what his name was. Well I had to come up with something quick!</span>
+                    <span id="body1">On Christmas Eve 1983, my children wanted me to tell them a bedtime Christmas story; one they had never heard before. I thought for a moment, and wondered, where do I start? I then thought that the North Pole would be a good place to start. So, I began telling them a story about one of Santa’s little elves.</span>
                     </p>
                     <p> 
-                    <span id="body2">I paused and
-                    thought for a moment and glanced out the window. I noticed it was beginning to
-                    snow, so I responded and said… “Snowflake”. “His name is Snowflake”! They all giggled as they thought it was a cool name. They asked me why his name was
-                    Snowflake? Once again, I had to come up with something quick to address their
-                    curiosity. I told them that Santa had given him that name because Snowflake
-                    collected snowflake’s as a hobby, and he had the world’s largest collection of
-                    snowflakes. They just thought that was awesome!</span>
+                    <span id="body2">A couple of minutes into the story, one of my children asked me what his name was. I was caught off guard as I hadn’t thought of a name. I paused, glanced out the window and noticed that it was beginning to snow. I turned to my children and said, “Snowflake, his name is Snowflake”. They all giggled and thought that was the coolest name ever. When they asked me how he got his name, I told them that Santa named him Snowflake. They asked why did Santa name him Snowflake? When they asked me that, I remembered as a child, catching snowflakes on my mitten. I told them that Santa named him Snowflake because he loves catching snowflakes and collects them as a hobby and has the world’s largest collection of snowflakes.</span>
                     </p>
                     <p>
                     <span id="body3">
-                    It was that special and magical moment on Christmas Eve so many years ago, that
-                    the story of Snowflake’s Christmas was told for the very first time and when the Workshop Elves were born. Over the years the story has been read to tens of thousands of children and has become a Christmas tradition for families in many homes.</span>
+                    It was that special and memorable moment on Christmas Eve so many years ago, that the story of Snowflake’s Christmas was told for the very first time and Santa’s Workshop Elves were born. Over the years Snowflake’s Christmas has been read to thousands of children and has become a Christmas favourite in many homes.</span>
                     </p>
                 </div>
             </div>
@@ -288,10 +279,6 @@ $this->insert('featured', $view_data );
             </div>
         </section>
         <section id="video">
-            <audio id="audio-track" controls autoplay>
-              <source src="/assets/media/audio-track.mp3" type="audio/mpeg">
-            </audio>
-
             <img id="trees-bg-far" src="/assets/img/trees-bg-far.svg" />
             <div id="trees-bg-near">
                 <img src="/assets/img/trees-bg-near.svg" />
@@ -301,7 +288,7 @@ $this->insert('featured', $view_data );
             <div class="inner">
                 <div id="video-holder">
                     <div id="video-screen">
-                        <video data-src="/assets/media/storyboard.mp4" playsinline loop muted autoplay>
+                        <video data-src="/assets/media/storyboard.mp4" playsinline loop controls>
                             <source data-src="/assets/media/storyboard.mp4" type="video/mp4"/>
                             Your browser does not support the video tag.
                         </video>
@@ -318,6 +305,56 @@ $this->insert('featured', $view_data );
                 </div>
             </div>
         </section>
+
+        <section id="ebook">
+            <div class="sc-bg"></div>
+            <div class="row expanded">
+                <div class="small-12 medium-6 columns left">
+                    <div id="title">
+                        <h2>eBook & Hard Copy</h2>
+                        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div id="button-holder">
+                            <a id="preview-one" class="preview-button">Preview 1</a>
+                            <a id="preview-two" class="preview-button">Preview 2</a>
+                        </div>
+                        <p id="music-preview">
+                            Listen to music: <a id="like-a-star">Like a Star<span class="playing"></span></a> or <a id="on-christmas-eve">On Christmas Eve<span class="playing"></span></a><br>
+                            <audio id="audio-track" controls>
+                              <source src="/assets/media/audio-track.mp3" type="audio/mpeg">
+                            </audio>
+                            <audio id="audio-track2" controls>
+                              <source src="/assets/media/on-christmas-eve.mp3" type="audio/mpeg">
+                            </audio>
+                             <address>contact: <a href="mailto:dave@workshopelves.com">dave@workshopelves.com</a></address>
+                        </p>
+                    </div>
+                </div>
+                <div class="small-12 medium-6 columns right">
+                    <img id="ebook-cover" src="/assets/img/ebook-cover.jpg" />
+                </div>
+            </div>
+            <div class="blue-blur"></div>
+        </section>
+
+        <!-- ebook preview modals -->
+        <div id="modal-one" class="modal transition-opac" >
+            <div class="modal-inner">
+                <div class="close"></div>
+                <video src="/assets/media/preview-one.mp4" playsinline loop controls>
+                    <source src="/assets/media/preview-one.mp4" type="video/mp4"/>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <div id="modal-two" class="modal transition-opac" >
+            <div class="modal-inner">
+                <div class="close"></div>
+                <video src="/assets/media/preview-two.mp4" playsinline loop controls>
+                    <source src="/assets/media/preview-two.mp4" type="video/mp4"/>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
 
     </div><!-- /content wrapper -->
 

@@ -1206,16 +1206,59 @@ load foundation plugins - keep this
 		(0, _animation2.default)();
 	}
 
-	//audio button
-	(0, _jquery2.default)("#contact-info2").click(function () {
+	//audio buttons
+	(0, _jquery2.default)("#like-a-star").click(function () {
 		var audio = document.getElementById("audio-track");
 
-		if ((0, _jquery2.default)("#contact-info2").hasClass("play")) {
+		if ((0, _jquery2.default)("#like-a-star").hasClass("play")) {
 			audio.pause();
+			(0, _jquery2.default)("#like-a-star .playing").html("");
 		} else {
 			audio.play();
+			(0, _jquery2.default)("#like-a-star .playing").html(" (playing)");
 		}
-		(0, _jquery2.default)("#contact-info2").toggleClass("play");
+		(0, _jquery2.default)("#like-a-star").toggleClass("play");
+	});
+	(0, _jquery2.default)("#on-christmas-eve").click(function () {
+		var audio = document.getElementById("audio-track2");
+
+		if ((0, _jquery2.default)("#on-christmas-eve").hasClass("play")) {
+			audio.pause();
+			(0, _jquery2.default)("#on-christmas-eve .playing").html("");
+		} else {
+			audio.play();
+			(0, _jquery2.default)("#on-christmas-eve .playing").html(" (playing)");
+		}
+		(0, _jquery2.default)("#on-christmas-eve").toggleClass("play");
+	});
+
+	//preview buttons
+	(0, _jquery2.default)("#preview-one").click(function () {
+		(0, _jquery2.default)("#modal-one").toggleClass("on");
+	});
+
+	(0, _jquery2.default)("#preview-two").click(function () {
+		(0, _jquery2.default)("#modal-two").toggleClass("on");
+	});
+
+	//close buttons
+	(0, _jquery2.default)("#modal-one .close").click(function () {
+		//pause the video
+		var $vid = (0, _jquery2.default)('#modal-one video');
+		console.log($vid);
+		if ($vid[0]) {
+			$vid[0].pause();
+		}
+		(0, _jquery2.default)("#modal-one").toggleClass("on");
+	});
+
+	(0, _jquery2.default)("#modal-two .close").click(function () {
+		//stop the video
+		var $vid = (0, _jquery2.default)('#modal-two video');
+		if ($vid[0]) {
+			$vid[0].pause();
+		}
+		(0, _jquery2.default)("#modal-two").toggleClass("on");
 	});
 })();
 
@@ -1378,48 +1421,45 @@ exports.default = serviceWorker;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
 /* ==========================================================================
 // dynamic video loading
 ========================================================================== */
 
-var loadVideo = function loadVideo(selector, callback) {
-	if (document.querySelector(selector)) {
-		var $vid = $(selector);
+// const loadVideo = function(selector, callback) {
+// 	  if(document.querySelector(selector)) {
+// 	    var $vid = $(selector);
 
-		if (!$vid[0].src) {
-			//if it doesn't already have a source...
-			//change source of actual video element
-			$vid.each(function () {
-				var pathTovidSrc = $vid.data('src') ? $vid.data('src') : $vid.attr('src');
-				//update the source
-				$vid.attr('src', pathTovidSrc);
-			});
+// 	    if (!$vid[0].src) {
+// 	        //if it doesn't already have a source...
+// 	        //change source of actual video element
+// 	        $vid.each(function() {
+// 	          var pathTovidSrc = $vid.data('src') ? $vid.data('src') : $vid.attr('src');
+// 	          //update the source
+// 	          $vid.attr('src', pathTovidSrc);
+// 	        });
 
-			//change source of the source elments within
-			$('source[data-src]:not([data-src=""])').each(function () {
-				var $vidSrc = $(this);
+// 	        //change source of the source elments within
+// 	        $('source[data-src]:not([data-src=""])').each(function(){
+// 	          var $vidSrc = $(this);
 
-				var pathTovidSrc = $vidSrc.data('src') ? $vidSrc.data('src') : $vidSrc.attr('src');
-				//update the source
-				$vidSrc.attr('src', pathTovidSrc);
-			});
-		}
-		//play the video
-		$vid[0].play();
-	}
+// 	          var pathTovidSrc = $vidSrc.data('src') ? $vidSrc.data('src') : $vidSrc.attr('src');
+// 	          //update the source
+// 	          $vidSrc.attr('src', pathTovidSrc);
+// 	        });
+// 	    }
+// 	    //play the video
+// 	    $vid[0].play();
+// 	  }
 
-	//give a bit of time for src to async load
-	setTimeout(function () {
-		callback();
-	}, 100);
-};
+// 	  //give a bit of time for src to async load
+// 	  setTimeout(() => {
+// 	  	callback();
+// 	  }, 100)
 
-exports.default = loadVideo;
+// 	}
+
+// export default loadVideo;
+
 
 /***/ }),
 /* 10 */
@@ -1604,24 +1644,6 @@ var animation = function animation() {
 	var controller = new _ScrollMagic2.default.Controller();
 	//const controller = new ScrollMagic.Controller();
 
-	// // how it all began text
-	// var tl_hiab = new TimelineMax();
-	// // tl_hiab.to('#how', 0.5, {opacity: 1});
-	// // tl_hiab.to('#it', 0.5, {opacity: 1}, "=-0.3");
-	// // tl_hiab.to('#all', 0.5, {opacity: 1}, "=-0.3");
-	// // tl_hiab.to('#began', 0.5, {opacity: 1}, "=-0.3");
-	// //tl_hiab.to('#keep-scrolling .arrow', 0.8, {y: 10, repeat: -1, yoyo:true, ease: Power1.easeInOut});
-	// tl_hiab.to('#keep-scrolling', 1, {y: 10, ease: Power4.easeOut});
-
-	// const scene_tl_hiab = new ScrollMagic.Scene({
-	//   triggerElement: "#top-intro",
-	//   triggerHook: "onLeave",
-	//   duration: "100%"
-	// })
-	// // .setPin("#top-intro")
-	// .setTween(tl_hiab)
-	// .addTo(controller);
-
 	/* ==========================================================================
  how it all began
  ========================================================================== */
@@ -1642,7 +1664,7 @@ var animation = function animation() {
 
 	//dynamic load video
 	function loadVideo() {
-		var $vid = $('video[data-src]:not([data-src=""])');
+		var $vid = $('#video video[data-src]:not([data-src=""])');
 		if ($vid[0]) {
 			if (!$vid[0].src) {
 				//if it doesn't already have a source...
@@ -1783,12 +1805,14 @@ var animation = function animation() {
 
 	var tl_bt = new TimelineMax();
 
-	tl_bt.to('#boat-sail-back', 1.5, { y: 0, opacity: 1 });
+	tl_bt.to('#boat-base', 2, { y: 0, opacity: 1 });
+	tl_bt.to('#splash', 1.5, { y: 0, opacity: 1 }, "=-0.5");
+	tl_bt.to('#splash', 1.5, { y: 20, opacity: 0 });
+	tl_bt.to('#boat-sail-back', 1.5, { y: 0, opacity: 1 }, "=-0.5");
 	tl_bt.to('#boat-sail-front', 1.5, { y: 0, opacity: 1 }, "=-0.5");
 	tl_bt.to('#boat-flag', 1.5, { y: 0, opacity: 1 }, "=-1");
 	tl_bt.to('#santa-approved', 4, { y: 0, opacity: 1 });
 	tl_bt.to('#ready-for-delivery', 4, { y: 0, opacity: 1 }, "=-2");
-	// tl_bt.to('#boat-base', 2, {y: 0, opacity: 1}, "=-1");
 	//tl_bt.to('#boat-holder', 1, 1, {y: 10, yoyo:true, ease: Power1.easeInOut});
 
 	var scene_tl_bt = new _ScrollMagic2.default.Scene({
@@ -1802,15 +1826,6 @@ var animation = function animation() {
  ========================================================================== */
 
 	var tl_bk = new TimelineMax();
-
-	// tl_bk.to('#drawing', 0.5, {opacity: 0});
-	// tl_bk.to('#book #inner-one', 0.5, {opacity: 0}, "=-0.5");
-	// tl_bk.to('#elf-one', 0.5, {opacity: 1});
-	// tl_bk.to('#book #inner-two', 0.5, {opacity: 1}, "=-0.5");
-	// tl_bk.to('#elf-one', 0.5, {opacity: 0});
-	// tl_bk.to('#book #inner-two', 0.5, {opacity: 0}, "=-0.5");
-	// tl_bk.to('#elf-two', 0.5, {opacity: 1});
-	// tl_bk.to('#book #inner-three', 0.5, {opacity: 1}, "=-0.5");
 
 	tl_bk.to('#drawing', 0.5, { opacity: 0 });
 	tl_bk.to('#book #inner-one', 0.5, { opacity: 0 }, "=-0.5");
@@ -1866,9 +1881,6 @@ var animation = function animation() {
 	tl_bk.to('#elf-wicked-snowking', 0.5, { opacity: 1 });
 	tl_bk.to('#book #inner-eleven', 0.5, { opacity: 1 }, "=-0.5");
 
-	tl_bk.to('#elf-wicked-snowking', 0.5, { opacity: 0 });
-	tl_bk.to('#book #inner-eleven', 0.5, { opacity: 0 }, "=-0.5");
-
 	var scene_tl_bk = new _ScrollMagic2.default.Scene({
 		triggerElement: '#book',
 		triggerHook: "onLeave",
@@ -1895,11 +1907,40 @@ var animation = function animation() {
 	}).setTween(tl_v).addTo(controller).on('enter', function (e) {
 		loadVideo();
 	});
-	// .on('center', function(e){
-	// 	var tl_vid = new TimelineMax();
-	// 	tl_vid.to('#video-screen', 1.5, {y: -32, ease: Power1.easeInOut});
-	//    });
 
+	/* ==========================================================================
+ video envelope
+ ========================================================================== */
+
+	var tl_env = new TimelineMax();
+	tl_env.to('#video-envelope', 1, { autoAlpha: 0, ease: Power4.easeOut });
+	tl_env.to('#video-envelope-flap', 1, { autoAlpha: 0, zIndex: 0 }, '=-1');
+	// tl_env.to('#video-envelope-flap', 0.1, {zIndex: 0});
+
+	var scene_tl_env = new _ScrollMagic2.default.Scene({
+		triggerElement: '#video',
+		triggerHook: "onLeave",
+		offset: 70,
+		duration: "40%"
+	}).setTween(tl_env).addTo(controller);
+
+	/* ==========================================================================
+ ebook
+ ========================================================================== */
+
+	var tl_ebook = new TimelineMax();
+	//tl_ebook.to('#ebook #falling-snow', 5, {opacity: 1});
+	tl_ebook.to('#ebook #title h2', 10, { x: 0, opacity: 1 });
+	tl_ebook.to('#ebook #title p', 10, { x: 0, opacity: 1 }, '=-5');
+	tl_ebook.to('#ebook #title #button-holder', 10, { x: 0, opacity: 1 }, '=-5');
+	tl_ebook.to('#ebook-cover', 10, { x: 0, opacity: 1 }, '=-5');
+	tl_ebook.to('#ebook address', 10, { autoAlpha: 1 }, '=-10');
+
+	var scene_tl_ebook = new _ScrollMagic2.default.Scene({
+		triggerElement: '#ebook',
+		triggerHook: "onLeave",
+		duration: "100%"
+	}).setPin("#ebook").setTween(tl_ebook).addTo(controller);
 };
 
 exports.default = animation;

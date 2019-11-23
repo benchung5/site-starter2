@@ -57,16 +57,59 @@ load foundation plugins - keep this
 		animation();
 	}
 
-	//audio button
-	$( "#contact-info2" ).click(function() {
+	//audio buttons
+	$( "#like-a-star" ).click(function() {
 	  var audio = document.getElementById("audio-track");
 	  
-	  if ($("#contact-info2").hasClass("play")) {
+	  if ($("#like-a-star").hasClass("play")) {
 	  	audio.pause();
+	  	$( "#like-a-star .playing" ).html("");
 	  } else {
 	  	audio.play();
+	  	$( "#like-a-star .playing" ).html(" (playing)");
 	  }
-	  $("#contact-info2").toggleClass("play");
+	  $("#like-a-star").toggleClass("play");
+	});
+	$( "#on-christmas-eve" ).click(function() {
+	  var audio = document.getElementById("audio-track2");
+	  
+	  if ($("#on-christmas-eve").hasClass("play")) {
+	  	audio.pause();
+	  	$( "#on-christmas-eve .playing" ).html("");
+	  } else {
+	  	audio.play();
+	  	$( "#on-christmas-eve .playing" ).html(" (playing)");
+	  }
+	  $("#on-christmas-eve").toggleClass("play");
+	});
+
+	//preview buttons
+	$( "#preview-one" ).click(function() {	  
+	  $("#modal-one").toggleClass("on");
+	});
+
+	$( "#preview-two" ).click(function() {	  
+	  $("#modal-two").toggleClass("on");
+	});
+
+	//close buttons
+	$( "#modal-one .close" ).click(function() {	 
+		//pause the video
+		var $vid = $('#modal-one video');
+		console.log($vid);
+		if($vid[0]) {
+			$vid[0].pause();
+		  }
+	  $("#modal-one").toggleClass("on");
+	});
+
+	$( "#modal-two .close" ).click(function() {	  
+	  //stop the video
+	  var $vid = $('#modal-two video');
+	  if($vid[0]) {
+	  	   $vid[0].pause();
+	    }
+	  $("#modal-two").toggleClass("on");
 	});
 	
 })();
