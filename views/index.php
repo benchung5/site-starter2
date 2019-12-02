@@ -8,52 +8,52 @@ $this->insert('featured', $view_data );
 <script>
 // must put this above the html to redirect before rendering if needed
 (function() {
-    // //check if item is in local storage
-    // if (localStorage.getItem('token')) {
-    //     var token = localStorage.getItem('token');
+    //check if item is in local storage
+    if (localStorage.getItem('token')) {
+        var token = localStorage.getItem('token');
 
-    //     if (window.XMLHttpRequest) { xhttp = new XMLHttpRequest(); }
-    //     else { xhttp = new ActiveXObject("Microsoft.XMLHTTP"); }
+        if (window.XMLHttpRequest) { xhttp = new XMLHttpRequest(); }
+        else { xhttp = new ActiveXObject("Microsoft.XMLHTTP"); }
         
-    //     //listen for response
-    //     xhttp.onreadystatechange = function() {
-    //         if(xhttp.readyState == 4 && xhttp.status == 200) {
-    //             var resp = null;
-    //             try {
-    //                 resp = JSON.parse(this.response);
-    //             } catch(e) {
-    //                 console.log("can't parse response");
-    //             }
+        //listen for response
+        xhttp.onreadystatechange = function() {
+            if(xhttp.readyState == 4 && xhttp.status == 200) {
+                var resp = null;
+                try {
+                    resp = JSON.parse(this.response);
+                } catch(e) {
+                    console.log("can't parse response");
+                }
 
-    //             if(resp.id) {
-    //               // show page
-    //               //console.log('show page');
-    //             } else { 
-    //               accessDenied();
-    //             }
-    //         }
-    //     }
+                if(resp.id) {
+                  // show page
+                  //console.log('show page');
+                } else { 
+                  accessDenied();
+                }
+            }
+        }
 
-    //     //send ajax request
-    //     try {
-    //         xhttp.open("POST", "<?= Config::paths('ROOT_URL').'api/users/verify' ?>", true);
-    //         xhttp.setRequestHeader('Accept', 'application/json, text/plain, */*');
-    //         xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    //         xhttp.setRequestHeader('Authorization', 'Bearer '+token);
-    //         //turn params into json and send
-    //         xhttp.send();
-    //     } catch(e) {
-    //         console.log(e);
-    //     }
-    // } else {
-    //     accessDenied();
-    // }
+        //send ajax request
+        try {
+            xhttp.open("POST", "<?= Config::paths('ROOT_URL').'api/users/verify' ?>", true);
+            xhttp.setRequestHeader('Accept', 'application/json, text/plain, */*');
+            xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+            xhttp.setRequestHeader('Authorization', 'Bearer '+token);
+            //turn params into json and send
+            xhttp.send();
+        } catch(e) {
+            console.log(e);
+        }
+    } else {
+        accessDenied();
+    }
 
-    // function accessDenied() {
-    //     //redirect to access denied pager
-    //     var location = window.location.hostname;
-    //     window.location.assign('http://'+location+'/access_denied');
-    // }       
+    function accessDenied() {
+        //redirect to access denied pager
+        var location = window.location.hostname;
+        window.location.assign('http://'+location+'/access_denied');
+    }       
 })();
 </script>
 
@@ -181,23 +181,23 @@ $this->insert('featured', $view_data );
             <div class="inner">
                 <div class="row expanded">
                     <div class="small-12 medium-6 columns left">
-                        <div id="elf-holder">
-                            <img id="drawing" class="" src="/assets/img/drawing.png"/>
-                            <img id="elf-one" class="elf" src="/assets/img/elf1.png"/>
-                            <img id="elf-two" class="elf" src="/assets/img/elf2.png"/>
-                            <img id="elf-three" class="elf" src="/assets/img/elf3.png"/>
-                            <img id="elf-four" class="elf" src="/assets/img/elf4.png"/>
-                            <img id="elf-five" class="elf" src="/assets/img/elf5.png"/>
-                            <img id="elf-six" class="elf" src="/assets/img/elf6.png"/>
-                            <img id="elf-seven" class="elf" src="/assets/img/elf7.png"/>
-                            <img id="elf-eight" class="elf" src="/assets/img/elf8.png"/>
-                            <img id="elf-nine" class="elf" src="/assets/img/elf9.png"/>
-                            <img id="elf-wicked-snowking" class="" src="/assets/img/snow-king.png"/>
+                        <div id="elf-holder" class="fooslider">
+                            <img id="drawing" class="slide" src="/assets/img/drawing.png"/>
+                            <img id="elf-one" class="elf slide" src="/assets/img/elf1.png"/>
+                            <img id="elf-two" class="elf slide" src="/assets/img/elf2.png"/>
+                            <img id="elf-three" class="elf slide" src="/assets/img/elf3.png"/>
+                            <img id="elf-four" class="elf slide" src="/assets/img/elf4.png"/>
+                            <img id="elf-five" class="elf slide" src="/assets/img/elf5.png"/>
+                            <img id="elf-six" class="elf slide" src="/assets/img/elf6.png"/>
+                            <img id="elf-seven" class="elf slide" src="/assets/img/elf7.png"/>
+                            <img id="elf-eight" class="elf slide" src="/assets/img/elf8.png"/>
+                            <img id="elf-nine" class="elf slide" src="/assets/img/elf9.png"/>
+                            <img id="elf-wicked-snowking" class="slide" src="/assets/img/snow-king.png"/>
                         </div>
                     </div>
                     <div class="small-12 medium-6 columns right">
-                        <div class="text">
-                            <div id="inner-one" class="inner">
+                        <div class="text fooslider-secondary">
+                            <div id="inner-one" class="inner slide">
                                 <h2>
                                 Once upon a time…
                                 </h2>
@@ -211,63 +211,64 @@ $this->insert('featured', $view_data );
                                 MASTER ELF.
                                 </p>
                             </div>
-                            <div id="inner-two" class="inner elf-text">
+                            <div id="inner-two" class="inner elf-text slide">
                                 <h2>Snowflake</h2>
                                 <p>
                                     is the youngest elf and has a most unusual hobby…collecting snowflakes! Whenever it begins to snow, he runs out and catches pretty snowflakes to add to his collection. Because of his hobby, Santa attached a snowflake to the back of his hat. Snowflake’s other responsibility is taking care of Santa’s reindeer ‘Dasher’.
                                 </p>
 
                             </div>
-                            <div id="inner-three" class="inner elf-text">
+                            <div id="inner-three" class="inner elf-text slide">
                                 <h2>Angel</h2>
                                 <p>
                                     has been blessed with the gift of music and a beautiful singing voice. Her voice sounds like an angel from heaven. Santa is so impressed with her musical talents that he attached a small harp to the back of her hat. Angel is also responsible for Santa’s reindeer ‘Vixen’.
                                 </p>
 
                             </div>
-                            <div id="inner-four" class="inner elf-text">
+                            <div id="inner-four" class="inner elf-text slide">
                                 <h2>Jingles</h2>
                                 <p>
                                     is a very loveable and comical character. He’s the only one of the Workshop Elves who can’t talk. His voice was stolen by the Wicked SnowKing. Jingles communicates with the other Elves is by ringing the bell that Santa attached to the back of his hat. Jingles is also responsible for Santa’s reindeer Cupid.
                                 </p>
                             </div>
-                            <div id="inner-five" class="inner elf-text">
-                                <h2>Candy</h2>
-                                <p>
-                                    is a fast talking and energetic little elf with a very sweet tooth. Every year she makes candy canes for all the boys and girls around the world. She has the responsibility of making sure that no candy cane leaves the North Pole without their famous red, green and white stripes. Santa attached a candy cane to the back of her hat. Candy is also responsible for Santa’s reindeer ‘Blitzen’.
-                                </p>
-                            </div>
-                            <div id="inner-six" class="inner elf-text">
-                                <h2>Twinkles</h2>
-                                <p>
-                                    is the Astronomer of the Workshop Elves and it’s his responsibility to chart out Santa’s Christmas Eve voyage by the stars, so Santa knows exactly where he is going. He views and studies the stars through a large telescope pointing up to the sky. Because of his knowledge and responsibility, Santa attached a star to the back of Twinkles hat. Twinkles is also responsible for Santa’s reindeer ‘Comet’.
-                                </p>
-                            </div>
-                            <div id="inner-seven" class="inner elf-text">
+                            <div id="inner-five" class="inner elf-text slide">
                                 <h2>Holly</h2>
                                 <p>
                                     is a happy-go-lucky little elf, who is always in the Christmas Spirit. Her loving Christmas spirit prompted Santa to attach holly berries to the back of her hat, a symbol of the Spirit of Christmas. Holly is also responsible for Santa’s reindeer ‘Prancer’.
                                 </p>
                             </div>
-                            <div id="inner-eight" class="inner elf-text">
+                            <div id="inner-six" class="inner elf-text slide">
                                 <h2>Sparkles</h2>
                                 <p>
                                     is responble for decorating the workshop and the Christmas tree, and putting up all the colourful Christmas lights. Because of his love for Christmas decorations, Santa gave Sparkles a Christmas ball from the Christmas and attached it to the back of his hat. Sparkles is also responsible for Santa’s reindeer ‘Dancer’.
                                 </p>
                             </div>
-                            <div id="inner-nine" class="inner elf-text">
+                            <div id="inner-seven" class="inner elf-text slide">
                                 <h2>Crystal</h2>
                                 <p>
                                     enjoys carving ice sculptures, of animals and of the other elves. She enjoys outdoor sports like skiing, snowboarding and playing hockey. Because of her creative sculpturing talent and love for ice sports, Santa attached an ice crystal to the back of her hat. Crystal is also responsible for Santa’s reindeer ‘Donner’.
                                 </p>
+
                             </div>
-                            <div id="inner-ten" class="inner elf-text">
+                            <div id="inner-eight" class="inner elf-text slide">
+                                <h2>Twinkles</h2>
+                                <p>
+                                    is the Astronomer of the Workshop Elves and it’s his responsibility to chart out Santa’s Christmas Eve voyage by the stars, so Santa knows exactly where he is going. He views and studies the stars through a large telescope pointing up to the sky. Because of his knowledge and responsibility, Santa attached a star to the back of Twinkles hat. Twinkles is also responsible for Santa’s reindeer ‘Comet’.
+                                </p>
+                            </div>
+                            <div id="inner-nine" class="inner elf-text slide">
+                                <h2>Candy</h2>
+                                <p>
+                                    is a fast talking and energetic little elf with a very sweet tooth. Every year she makes candy canes for all the boys and girls around the world. She has the responsibility of making sure that no candy cane leaves the North Pole without their famous red, green and white stripes. Santa attached a candy cane to the back of her hat. Candy is also responsible for Santa’s reindeer ‘Blitzen’.
+                                </p>
+                            </div>
+                            <div id="inner-ten" class="inner elf-text slide">
                                 <h2>Master Elf</h2>
                                 <p>
                                    is the oldest of all the Workshop Elves and has the most experience in making toys. Santa put him in charge of the workshop and it’s his responsible for making sure that all the toys are of top quality and work properly, and that they are all ready in time for Santa’s Christmas Eve journey. Because of this, Santa gave him a small magnifying glass to inspect all the toys with. 
                                 </p>
                             </div>
-                            <div id="inner-eleven" class="inner elf-text">
+                            <div id="inner-eleven" class="inner elf-text slide">
                                 <h2>The Wicked SnowKing</h2>
                                 <p>
                                    lives in a cold dark Ice Palace on the other side of the glacier, which is guarded by his Ice Warriors. The Snow King is very cold hearted and evil and would like nothing more than to destroy Santa and the Workshop Elves, thus putting an end to Christmas forever! His relationship with Santa has been one of jealously and envy for many years. What the Workshop Elves don't know, is that the Wicked SnowKing is Santa’s brother. 
@@ -275,6 +276,18 @@ $this->insert('featured', $view_data );
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="fooslider-controls">
+                  <a class="fs-prev">
+                      <svg width="30px" height="30px" viewBox="0 0 13 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <polygon id="arrow" points="1.508 0.5 6.5 5.47087379 11.466 0.5 13 2.02750809 6.5 8.5 1.0658141e-14 2.02750809"></polygon>
+                      </svg>
+                  </a>
+                  <a class="fs-next">
+                      <svg width="30px" height="30px" viewBox="0 0 13 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <polygon id="arrow" points="1.508 0.5 6.5 5.47087379 11.466 0.5 13 2.02750809 6.5 8.5 1.0658141e-14 2.02750809"></polygon>
+                      </svg>
+                  </a>
                 </div>
             </div>
         </section>
@@ -292,6 +305,7 @@ $this->insert('featured', $view_data );
                             <source data-src="/assets/media/storyboard.mp4" type="video/mp4"/>
                             Your browser does not support the video tag.
                         </video>
+                        <h2>Christmas Dreams</h2>
                     </div>
                     <div id="video-envelope">
                     </div>
@@ -318,14 +332,14 @@ $this->insert('featured', $view_data );
                             <a id="preview-two" class="preview-button">Preview 2</a>
                         </div>
                         <p id="music-preview">
-                            Listen to music: <a id="like-a-star">Like a Star<span class="playing"></span></a> or <a id="on-christmas-eve">On Christmas Eve<span class="playing"></span></a><br>
+                            Listen to music: <a id="on-christmas-eve">On Christmas Eve<span class="playing"></span></a> or <a id="like-a-star">It’s Time for You to Believe<span class="playing"></span></a><br>
                             <audio id="audio-track" controls>
                               <source src="/assets/media/audio-track.mp3" type="audio/mpeg">
                             </audio>
                             <audio id="audio-track2" controls>
                               <source src="/assets/media/on-christmas-eve.mp3" type="audio/mpeg">
                             </audio>
-                             <address>contact: <a href="mailto:dave@workshopelves.com">dave@workshopelves.com</a></address>
+                             <address>contact: <a href="mailto:imaginethisproductions5@gmail.com">imaginethisproductions5@gmail.com</a></address>
                         </p>
                     </div>
                 </div>

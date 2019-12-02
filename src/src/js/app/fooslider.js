@@ -5,15 +5,6 @@
 const fooSlider = function() {
   var FooSlider = {
     animations: {
-      carousel: {
-        from: {},
-        to: {
-          transform: "translate(0, 0px)",
-          autoAlpha: 1,
-          ease: Power2.easeInOut,
-          // zIndex: 1,
-        }
-       },
        fadeIn: {
         from: {
           transform: "translate(0, 0px)"
@@ -47,18 +38,10 @@ const fooSlider = function() {
       //move boxes into correct position
       for (var i = 0; i < this.boxes.length; i++) {
         if(i < this.current) {
-          if(this.animStyle === 'carousel') { 
-            //move prev boxes to above
-            this.boxes[i].style.transform = "translate(0, " + (-this.moveAmount) + "px)"; 
-          }
           $(this.boxes[i]).removeClass('current');
         }
 
         if(i > this.current) {
-          if(this.animStyle === 'carousel') {
-            //move next boxs to below
-            this.boxes[i].style.transform = "translate(0, " + (this.moveAmount) + "px)"
-          };
           $(this.boxes[i]).removeClass('current');
         }
       }
@@ -87,7 +70,33 @@ const fooSlider = function() {
           //move next boxes to below
           this.animate(this.boxes[i], i, 'next');
         }
-      }   
+      }
+
+      this.setControls(); 
+    },
+
+    setControls: function() {
+      //hide prev or next button if at the start or end
+      //at the start
+      if (this.current === 0) {
+        for(var i = 0; i < this.prevControls.length; i++) {
+          this.prevControls[i].style.visibility = 'hidden';
+        }
+      } else {
+        for(var i = 0; i < this.prevControls.length; i++) {
+          this.prevControls[i].style.visibility = 'visible';
+        }
+      }
+      //at the end
+      if (this.current === (this.boxes.length - 1)) {
+        for(var i = 0; i < this.nextControls.length; i++) {
+          this.nextControls[i].style.visibility = 'hidden';
+        }
+      } else {
+        for(var i = 0; i < this.nextControls.length; i++) {
+          this.nextControls[i].style.visibility = 'visible';
+        }
+      }
     },
 
     goTo: function(position) {
@@ -138,7 +147,7 @@ const fooSlider = function() {
         this.canSlide = false;
 
         TweenLite.to(el, this.slideSpeed, { 
-            transform: "translate(0, " + moveAmount + "px)",
+            //transform: "translate(0, " + moveAmount + "px)",
             autoAlpha: 0,
             // zIndex: 0,
             ease: Power2.easeInOut,
@@ -162,22 +171,24 @@ const fooSlider = function() {
       if(this.onAnimComlete) {
         this.onAnimComlete();
       }
+
+      this.setPositions();
     },
 
     initControls: function() {
-      var prevControls = [].slice.call(document.querySelectorAll('.fs-prev'));
-      if(this.otherThanNull(prevControls)) {
-        for(var i = 0; i < prevControls.length; i++) {
-          prevControls[i].addEventListener('click', function(e) {
+      this.prevControls = [].slice.call(document.querySelectorAll('.fs-prev'));
+      if(this.otherThanNull(this.prevControls)) {
+        for(var i = 0; i < this.prevControls.length; i++) {
+          this.prevControls[i].addEventListener('click', function(e) {
             this.move('prev');
           }.bind(this));
         }
       }
 
-      var nextControls = [].slice.call(document.querySelectorAll('.fs-next'));
-      if(this.otherThanNull(nextControls)) {
-        for(var i = 0; i < nextControls.length; i++) {
-          nextControls[i].addEventListener('click', function(e) {
+      this.nextControls = [].slice.call(document.querySelectorAll('.fs-next'));
+      if(this.otherThanNull(this.nextControls)) {
+        for(var i = 0; i < this.nextControls.length; i++) {
+          this.nextControls[i].addEventListener('click', function(e) {
             this.move('next');
           }.bind(this));
         }
@@ -187,13 +198,15 @@ const fooSlider = function() {
     init: function(options) {
         var inst = Object.create(this);
         inst.slideSpeed = options.slideSpeed || 0.5;
-        inst.animStyle = options.animStyle || 'carousel';
+        inst.animStyle = options.animStyle || 'fadeIn';
         inst.onAnimComlete = options.onAnimComplete;
         inst.isLoopBack = options.isLoopBack;
         inst.current = 0;
         inst.canSlide = true;
-        inst.boxes = [].slice.call(document.querySelectorAll(".fooslider .slide"));
-        inst.container = document.querySelector('.fooslider');
+        //init with a different classname to have multiple foosliders
+        options.className = options.className || 'fooslider';
+        inst.boxes = [].slice.call(document.querySelectorAll("." + options.className + " .slide"));
+        inst.container = document.querySelector("." + options.className);
 
         if(inst.otherThanNull(inst.boxes)) {
           inst.moveAmount = 0;
@@ -203,6 +216,7 @@ const fooSlider = function() {
 
           inst.initPositions();
           inst.initControls();
+          inst.setControls();
         }//if bo
         else {
           //console.warn('there is no foo slider');
@@ -212,11 +226,20 @@ const fooSlider = function() {
   }
 
   var mySlider = FooSlider.init({
-    slideSpeed: 1,
+    className: 'fooslider',
+    slideSpeed: 0.5,
     animStyle: 'fadeIn',
     onAnimComplete: onSlideComplete,
-    isLoopBack: true
+    //isLoopBack: true
     //animStyle: 'carousel',
+  });
+
+  var mySecondSlider = FooSlider.init({
+    className: 'fooslider-secondary',
+    slideSpeed: 0.5,
+    animStyle: 'fadeIn',
+    onAnimComplete: onSlideComplete,
+    //isLoopBack: true
   });
 
   function onSlideComplete() {

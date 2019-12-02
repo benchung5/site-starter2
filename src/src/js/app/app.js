@@ -30,12 +30,12 @@ load foundation plugins - keep this
 
 (function() {
 	// turn on/off service worker
-	var canRegister = false;
-	if(!isAdminPage && canRegister) {
-		serviceWorker('register');
-	} else {
-		serviceWorker('unregister');
-	}
+	// var canRegister = false;
+	// if(!isAdminPage && canRegister) {
+	// 	serviceWorker('register');
+	// } else {
+	// 	serviceWorker('unregister');
+	// }
 
 	//check if online/offline and handle it
 	if(!isAdminPage) {
@@ -103,7 +103,7 @@ load foundation plugins - keep this
 	  $("#modal-one").toggleClass("on");
 	});
 
-	$( "#modal-two .close" ).click(function() {	  
+	$( "#modal-two .close" ).click(function() {
 	  //stop the video
 	  var $vid = $('#modal-two video');
 	  if($vid[0]) {

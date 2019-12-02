@@ -216,72 +216,78 @@ const animation = function() {
 	book
 	========================================================================== */
 
-	var tl_bk = new TimelineMax();
+	// var tl_bk = new TimelineMax();
 
-	tl_bk.to('#drawing', 0.5, {opacity: 0});
-	tl_bk.to('#book #inner-one', 0.5, {opacity: 0}, "=-0.5");
+	// tl_bk.to('#drawing', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-one', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-one', 0.5, {opacity: 1});
-	tl_bk.to('#book #inner-two', 0.5, {opacity: 1}, "=-0.5");
+	// tl_bk.to('#elf-one', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-two', 0.5, {opacity: 1}, "=-0.5");
 	
-	tl_bk.to('#elf-one', 0.5, {opacity: 0});
-	tl_bk.to('#book #inner-two', 0.5, {opacity: 0}, "=-0.5");
+	// tl_bk.to('#elf-one', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-two', 0.5, {opacity: 0}, "=-0.5");
 	
-	tl_bk.to('#elf-two', 0.5, {opacity: 1});
-	tl_bk.to('#book #inner-three', 0.5, {opacity: 1}, "=-0.5");
+	// tl_bk.to('#elf-two', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-three', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-two', 0.5, {opacity: 0});
-	tl_bk.to('#book #inner-three', 0.5, {opacity: 0}, "=-0.5");
+	// tl_bk.to('#elf-two', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-three', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-three', 0.5, {opacity: 1});
-	tl_bk.to('#book #inner-four', 0.5, {opacity: 1}, "=-0.5");
+	// tl_bk.to('#elf-three', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-four', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-three', 0.5, {opacity: 0});
-	tl_bk.to('#book #inner-four', 0.5, {opacity: 0}, "=-0.5");
+	// tl_bk.to('#elf-three', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-four', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-four', 0.5, {opacity: 1});
-	tl_bk.to('#book #inner-five', 0.5, {opacity: 1}, "=-0.5");
+	// tl_bk.to('#elf-four', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-five', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-four', 0.5, {opacity: 0});
-	tl_bk.to('#book #inner-five', 0.5, {opacity: 0}, "=-0.5");
+	// tl_bk.to('#elf-four', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-five', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-five', 0.5, {opacity: 1});
-	tl_bk.to('#book #inner-six', 0.5, {opacity: 1}, "=-0.5");
+	// tl_bk.to('#elf-five', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-six', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-five', 0.5, {opacity: 0});
-	tl_bk.to('#book #inner-six', 0.5, {opacity: 0}, "=-0.5");
+	// tl_bk.to('#elf-five', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-six', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-six', 0.5, {opacity: 1});
-	tl_bk.to('#book #inner-seven', 0.5, {opacity: 1}, "=-0.5");
+	// tl_bk.to('#elf-six', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-seven', 0.5, {opacity: 1}, "=-0.5");
 	
-	tl_bk.to('#elf-six', 0.5, {opacity: 0});
-	tl_bk.to('#book #inner-seven', 0.5, {opacity: 0}, "=-0.5");
+	// tl_bk.to('#elf-six', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-seven', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-eight', 0.5, {opacity: 1});
-	tl_bk.to('#book #inner-nine', 0.5, {opacity: 1}, "=-0.5");
+	// tl_bk.to('#elf-seven', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-eight', 0.5, {opacity: 1}, "=-0.5");
 	
-	tl_bk.to('#elf-eight', 0.5, {opacity: 0});
-	tl_bk.to('#book #inner-nine', 0.5, {opacity: 0}, "=-0.5");
+	// tl_bk.to('#elf-seven', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-eight', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-nine', 0.5, {opacity: 1});
-	tl_bk.to('#book #inner-ten', 0.5, {opacity: 1}, "=-0.5");
+	// tl_bk.to('#elf-eight', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-nine', 0.5, {opacity: 1}, "=-0.5");
 	
-	tl_bk.to('#elf-nine', 0.5, {opacity: 0});
-	tl_bk.to('#book #inner-ten', 0.5, {opacity: 0}, "=-0.5");
+	// tl_bk.to('#elf-eight', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-nine', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-wicked-snowking', 0.5, {opacity: 1});
-	tl_bk.to('#book #inner-eleven', 0.5, {opacity: 1}, "=-0.5");
+	// tl_bk.to('#elf-nine', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-ten', 0.5, {opacity: 1}, "=-0.5");
+	
+	// tl_bk.to('#elf-nine', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-ten', 0.5, {opacity: 0}, "=-0.5");
+
+	// tl_bk.to('#elf-wicked-snowking', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-eleven', 0.5, {opacity: 1}, "=-0.5");
 
 
-	const scene_tl_bk = new ScrollMagic.Scene({
-		triggerElement: '#book',
-		triggerHook: "onLeave",
-		duration: "100%",
-		// offset: -300
-	})
-	.setPin("#book")
-	.setTween(tl_bk)
-	.addTo(controller);
+	// const scene_tl_bk = new ScrollMagic.Scene({
+	// 	triggerElement: '#book',
+	// 	triggerHook: "onLeave",
+	// 	duration: "100%",
+	// 	// offset: -300
+	// })
+	// .setPin("#book")
+	// .setTween(tl_bk)
+	// .addTo(controller);
 
 	/* ==========================================================================
 	video
@@ -311,19 +317,20 @@ const animation = function() {
     video envelope
     ========================================================================== */
 
-    var tl_env = new TimelineMax();
-	tl_env.to('#video-envelope', 1, {autoAlpha: 0, ease: Power4.easeOut});
-	tl_env.to('#video-envelope-flap', 1, {autoAlpha: 0, zIndex: 0}, '=-1');
+
 	// tl_env.to('#video-envelope-flap', 0.1, {zIndex: 0});
 	
 	const scene_tl_env = new ScrollMagic.Scene({
 		triggerElement: '#video',
 		triggerHook: "onLeave",
 		offset: 70,
-		duration: "40%",
 	})
-	.setTween(tl_env)
-	.addTo(controller);
+	.addTo(controller)
+	.on('enter', function(e){
+	    var tl_env = new TimelineMax();
+		tl_env.to('#video-envelope', 1, {autoAlpha: 0, ease: Power4.easeOut});
+		tl_env.to('#video-envelope-flap', 1, {autoAlpha: 0, zIndex: 0}, '=-1');
+    });
 
 	 /* ==========================================================================
 	 ebook

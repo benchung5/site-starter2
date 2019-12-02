@@ -1179,12 +1179,12 @@ load foundation plugins - keep this
 
 (function () {
 	// turn on/off service worker
-	var canRegister = false;
-	if (!isAdminPage && canRegister) {
-		(0, _serviceWorker2.default)('register');
-	} else {
-		(0, _serviceWorker2.default)('unregister');
-	}
+	// var canRegister = false;
+	// if(!isAdminPage && canRegister) {
+	// 	serviceWorker('register');
+	// } else {
+	// 	serviceWorker('unregister');
+	// }
 
 	//check if online/offline and handle it
 	if (!isAdminPage) {
@@ -1825,68 +1825,78 @@ var animation = function animation() {
  book
  ========================================================================== */
 
-	var tl_bk = new TimelineMax();
+	// var tl_bk = new TimelineMax();
 
-	tl_bk.to('#drawing', 0.5, { opacity: 0 });
-	tl_bk.to('#book #inner-one', 0.5, { opacity: 0 }, "=-0.5");
+	// tl_bk.to('#drawing', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-one', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-one', 0.5, { opacity: 1 });
-	tl_bk.to('#book #inner-two', 0.5, { opacity: 1 }, "=-0.5");
+	// tl_bk.to('#elf-one', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-two', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-one', 0.5, { opacity: 0 });
-	tl_bk.to('#book #inner-two', 0.5, { opacity: 0 }, "=-0.5");
+	// tl_bk.to('#elf-one', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-two', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-two', 0.5, { opacity: 1 });
-	tl_bk.to('#book #inner-three', 0.5, { opacity: 1 }, "=-0.5");
+	// tl_bk.to('#elf-two', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-three', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-two', 0.5, { opacity: 0 });
-	tl_bk.to('#book #inner-three', 0.5, { opacity: 0 }, "=-0.5");
+	// tl_bk.to('#elf-two', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-three', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-three', 0.5, { opacity: 1 });
-	tl_bk.to('#book #inner-four', 0.5, { opacity: 1 }, "=-0.5");
+	// tl_bk.to('#elf-three', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-four', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-three', 0.5, { opacity: 0 });
-	tl_bk.to('#book #inner-four', 0.5, { opacity: 0 }, "=-0.5");
+	// tl_bk.to('#elf-three', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-four', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-four', 0.5, { opacity: 1 });
-	tl_bk.to('#book #inner-five', 0.5, { opacity: 1 }, "=-0.5");
+	// tl_bk.to('#elf-four', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-five', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-four', 0.5, { opacity: 0 });
-	tl_bk.to('#book #inner-five', 0.5, { opacity: 0 }, "=-0.5");
+	// tl_bk.to('#elf-four', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-five', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-five', 0.5, { opacity: 1 });
-	tl_bk.to('#book #inner-six', 0.5, { opacity: 1 }, "=-0.5");
+	// tl_bk.to('#elf-five', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-six', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-five', 0.5, { opacity: 0 });
-	tl_bk.to('#book #inner-six', 0.5, { opacity: 0 }, "=-0.5");
+	// tl_bk.to('#elf-five', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-six', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-six', 0.5, { opacity: 1 });
-	tl_bk.to('#book #inner-seven', 0.5, { opacity: 1 }, "=-0.5");
+	// tl_bk.to('#elf-six', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-seven', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-six', 0.5, { opacity: 0 });
-	tl_bk.to('#book #inner-seven', 0.5, { opacity: 0 }, "=-0.5");
+	// tl_bk.to('#elf-six', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-seven', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-eight', 0.5, { opacity: 1 });
-	tl_bk.to('#book #inner-nine', 0.5, { opacity: 1 }, "=-0.5");
+	// tl_bk.to('#elf-seven', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-eight', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-eight', 0.5, { opacity: 0 });
-	tl_bk.to('#book #inner-nine', 0.5, { opacity: 0 }, "=-0.5");
+	// tl_bk.to('#elf-seven', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-eight', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-nine', 0.5, { opacity: 1 });
-	tl_bk.to('#book #inner-ten', 0.5, { opacity: 1 }, "=-0.5");
+	// tl_bk.to('#elf-eight', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-nine', 0.5, {opacity: 1}, "=-0.5");
 
-	tl_bk.to('#elf-nine', 0.5, { opacity: 0 });
-	tl_bk.to('#book #inner-ten', 0.5, { opacity: 0 }, "=-0.5");
+	// tl_bk.to('#elf-eight', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-nine', 0.5, {opacity: 0}, "=-0.5");
 
-	tl_bk.to('#elf-wicked-snowking', 0.5, { opacity: 1 });
-	tl_bk.to('#book #inner-eleven', 0.5, { opacity: 1 }, "=-0.5");
+	// tl_bk.to('#elf-nine', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-ten', 0.5, {opacity: 1}, "=-0.5");
 
-	var scene_tl_bk = new _ScrollMagic2.default.Scene({
-		triggerElement: '#book',
-		triggerHook: "onLeave",
-		duration: "100%"
-		// offset: -300
-	}).setPin("#book").setTween(tl_bk).addTo(controller);
+	// tl_bk.to('#elf-nine', 0.5, {opacity: 0});
+	// tl_bk.to('#book #inner-ten', 0.5, {opacity: 0}, "=-0.5");
+
+	// tl_bk.to('#elf-wicked-snowking', 0.5, {opacity: 1});
+	// tl_bk.to('#book #inner-eleven', 0.5, {opacity: 1}, "=-0.5");
+
+
+	// const scene_tl_bk = new ScrollMagic.Scene({
+	// 	triggerElement: '#book',
+	// 	triggerHook: "onLeave",
+	// 	duration: "100%",
+	// 	// offset: -300
+	// })
+	// .setPin("#book")
+	// .setTween(tl_bk)
+	// .addTo(controller);
 
 	/* ==========================================================================
  video
@@ -1912,17 +1922,17 @@ var animation = function animation() {
  video envelope
  ========================================================================== */
 
-	var tl_env = new TimelineMax();
-	tl_env.to('#video-envelope', 1, { autoAlpha: 0, ease: Power4.easeOut });
-	tl_env.to('#video-envelope-flap', 1, { autoAlpha: 0, zIndex: 0 }, '=-1');
 	// tl_env.to('#video-envelope-flap', 0.1, {zIndex: 0});
 
 	var scene_tl_env = new _ScrollMagic2.default.Scene({
 		triggerElement: '#video',
 		triggerHook: "onLeave",
-		offset: 70,
-		duration: "40%"
-	}).setTween(tl_env).addTo(controller);
+		offset: 70
+	}).addTo(controller).on('enter', function (e) {
+		var tl_env = new TimelineMax();
+		tl_env.to('#video-envelope', 1, { autoAlpha: 0, ease: Power4.easeOut });
+		tl_env.to('#video-envelope-flap', 1, { autoAlpha: 0, zIndex: 0 }, '=-1');
+	});
 
 	/* ==========================================================================
  ebook
@@ -4841,15 +4851,6 @@ Object.defineProperty(exports, "__esModule", {
 var fooSlider = function fooSlider() {
   var FooSlider = {
     animations: {
-      carousel: {
-        from: {},
-        to: {
-          transform: "translate(0, 0px)",
-          autoAlpha: 1,
-          ease: Power2.easeInOut
-          // zIndex: 1,
-        }
-      },
       fadeIn: {
         from: {
           transform: "translate(0, 0px)"
@@ -4882,18 +4883,10 @@ var fooSlider = function fooSlider() {
       //move boxes into correct position
       for (var i = 0; i < this.boxes.length; i++) {
         if (i < this.current) {
-          if (this.animStyle === 'carousel') {
-            //move prev boxes to above
-            this.boxes[i].style.transform = "translate(0, " + -this.moveAmount + "px)";
-          }
           $(this.boxes[i]).removeClass('current');
         }
 
         if (i > this.current) {
-          if (this.animStyle === 'carousel') {
-            //move next boxs to below
-            this.boxes[i].style.transform = "translate(0, " + this.moveAmount + "px)";
-          };
           $(this.boxes[i]).removeClass('current');
         }
       }
@@ -4922,6 +4915,32 @@ var fooSlider = function fooSlider() {
               //move next boxes to below
               this.animate(this.boxes[i], i, 'next');
             }
+      }
+
+      this.setControls();
+    },
+
+    setControls: function setControls() {
+      //hide prev or next button if at the start or end
+      //at the start
+      if (this.current === 0) {
+        for (var i = 0; i < this.prevControls.length; i++) {
+          this.prevControls[i].style.visibility = 'hidden';
+        }
+      } else {
+        for (var i = 0; i < this.prevControls.length; i++) {
+          this.prevControls[i].style.visibility = 'visible';
+        }
+      }
+      //at the end
+      if (this.current === this.boxes.length - 1) {
+        for (var i = 0; i < this.nextControls.length; i++) {
+          this.nextControls[i].style.visibility = 'hidden';
+        }
+      } else {
+        for (var i = 0; i < this.nextControls.length; i++) {
+          this.nextControls[i].style.visibility = 'visible';
+        }
       }
     },
 
@@ -4972,7 +4991,7 @@ var fooSlider = function fooSlider() {
         this.canSlide = false;
 
         TweenLite.to(el, this.slideSpeed, {
-          transform: "translate(0, " + moveAmount + "px)",
+          //transform: "translate(0, " + moveAmount + "px)",
           autoAlpha: 0,
           // zIndex: 0,
           ease: Power2.easeInOut,
@@ -4995,22 +5014,24 @@ var fooSlider = function fooSlider() {
       if (this.onAnimComlete) {
         this.onAnimComlete();
       }
+
+      this.setPositions();
     },
 
     initControls: function initControls() {
-      var prevControls = [].slice.call(document.querySelectorAll('.fs-prev'));
-      if (this.otherThanNull(prevControls)) {
-        for (var i = 0; i < prevControls.length; i++) {
-          prevControls[i].addEventListener('click', function (e) {
+      this.prevControls = [].slice.call(document.querySelectorAll('.fs-prev'));
+      if (this.otherThanNull(this.prevControls)) {
+        for (var i = 0; i < this.prevControls.length; i++) {
+          this.prevControls[i].addEventListener('click', function (e) {
             this.move('prev');
           }.bind(this));
         }
       }
 
-      var nextControls = [].slice.call(document.querySelectorAll('.fs-next'));
-      if (this.otherThanNull(nextControls)) {
-        for (var i = 0; i < nextControls.length; i++) {
-          nextControls[i].addEventListener('click', function (e) {
+      this.nextControls = [].slice.call(document.querySelectorAll('.fs-next'));
+      if (this.otherThanNull(this.nextControls)) {
+        for (var i = 0; i < this.nextControls.length; i++) {
+          this.nextControls[i].addEventListener('click', function (e) {
             this.move('next');
           }.bind(this));
         }
@@ -5020,13 +5041,15 @@ var fooSlider = function fooSlider() {
     init: function init(options) {
       var inst = Object.create(this);
       inst.slideSpeed = options.slideSpeed || 0.5;
-      inst.animStyle = options.animStyle || 'carousel';
+      inst.animStyle = options.animStyle || 'fadeIn';
       inst.onAnimComlete = options.onAnimComplete;
       inst.isLoopBack = options.isLoopBack;
       inst.current = 0;
       inst.canSlide = true;
-      inst.boxes = [].slice.call(document.querySelectorAll(".fooslider .slide"));
-      inst.container = document.querySelector('.fooslider');
+      //init with a different classname to have multiple foosliders
+      options.className = options.className || 'fooslider';
+      inst.boxes = [].slice.call(document.querySelectorAll("." + options.className + " .slide"));
+      inst.container = document.querySelector("." + options.className);
 
       if (inst.otherThanNull(inst.boxes)) {
         inst.moveAmount = 0;
@@ -5036,6 +5059,7 @@ var fooSlider = function fooSlider() {
 
         inst.initPositions();
         inst.initControls();
+        inst.setControls();
       } //if bo
       else {
           //console.warn('there is no foo slider');
@@ -5045,11 +5069,20 @@ var fooSlider = function fooSlider() {
   };
 
   var mySlider = FooSlider.init({
-    slideSpeed: 1,
+    className: 'fooslider',
+    slideSpeed: 0.5,
     animStyle: 'fadeIn',
-    onAnimComplete: onSlideComplete,
-    isLoopBack: true
+    onAnimComplete: onSlideComplete
+    //isLoopBack: true
     //animStyle: 'carousel',
+  });
+
+  var mySecondSlider = FooSlider.init({
+    className: 'fooslider-secondary',
+    slideSpeed: 0.5,
+    animStyle: 'fadeIn',
+    onAnimComplete: onSlideComplete
+    //isLoopBack: true
   });
 
   function onSlideComplete() {}

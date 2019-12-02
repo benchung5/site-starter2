@@ -3,14 +3,10 @@ use Config\Config as Config;
 use Lib\Utils;
 ?>
 
-<?php $this->insert('header', $view_data ); ?>
-
 <div class="site-wrapper">
 	<div class="content-wrapper view">
 		<div class="row">
 			<div class="small-12 columns internal">
-
-				<h1 class="margin-bottom">Login:</h1>
 				<form id="loginform">
 					<div class="form-group ">
 						<label>User:</label>
@@ -35,9 +31,6 @@ use Lib\Utils;
 			</div>
 		</div>
 	</div><!-- /content wrapper -->
-
-	<?php $this->insert('footer', $view_data ); ?>
-
 
 	<script>
 

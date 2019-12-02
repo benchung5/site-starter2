@@ -456,10 +456,14 @@ page layout
 .content-wrapper {
   flex: 1;
   .internal {
+    color: #535353;
     margin-top: 4em;
     .sidebar {
       margin-top: 4em;
       margin-bottom: 4em;
+    }
+    p {
+      color: #535353;
     }
   }
 }
@@ -1371,6 +1375,7 @@ book
   align-items: center;
   justify-content: center;
   z-index: 1;
+  position: relative;
   & > .inner {
     z-index: 0;
     width: 100%;
@@ -1535,6 +1540,45 @@ book
       }
     }
   }
+
+  .fooslider-controls {
+    position: absolute;
+    z-index: 3;
+     bottom: 29%;
+    width: 105px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    // @include breakpoint(large down) {
+    //    bottom: 29%;
+    // }
+    // @media (min-width: 770px and max-width: 1221px) {
+    //   bottom: 29%;
+    // }
+    @include breakpoint(medium down) {
+      bottom: 20px;
+    }
+    @include h-align-absolute(105px);
+    .fs-prev, .fs-next {
+      display: block;
+      width: 30px;
+      height: 30px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .fs-prev svg, .fs-next svg {
+      fill: #674F36;
+      &:hover {
+        fill: #443122;
+      }
+    }
+    .fs-prev svg {
+      transform: rotate(90deg);
+    }
+    .fs-next svg {
+      transform: rotate(270deg);
+    }
+  }
 }
 
 /* ==========================================================================
@@ -1548,7 +1592,7 @@ video
     z-index: 6;
     display: none;
   }
-  background-image: url(../img/forest-sky.jpg);
+  background-image: url(../img/icons/forest-sky.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 300px;
@@ -1648,10 +1692,11 @@ video
         position: absolute;
         transform: translateY(0);
         z-index: 1;
-        bottom: 0;
+        top: 0;
         width: 715px;
         height: 525px;
         left: 38px;
+        text-align: center;
         //background: #D6D8D9;
         @include breakpoint(large down) {
           width: 580px;
@@ -1670,6 +1715,10 @@ video
           @media (max-width: 650px) {
             box-shadow: none;
           }
+        }
+        h2 {
+          color: #fff;
+          font-family: Mountains of Christmas;
         }
       }
       #contact-info {
@@ -1828,6 +1877,60 @@ ebook
       margin-top: 4rem;
     }
   }
+}
+
+/* ==========================================================================
+access denied - coming soon
+========================================================================== */
+.access-denied {
+  background-color: #49B587;
+  background-image: url(/assets/img/coming-soon.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#coming-soon {
+ width: 100%;
+ position: fixed;
+ background-color: #fff;
+ bottom: 0;
+ padding: 1em 0;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: #535353;
+ p, span {
+  color: #535353;
+ }
+ div {
+  @include breakpoint(medium down) {
+    text-align: center;
+    margin-left: 0;
+    font-family: arial;
+    font-size: 80%;
+  }
+ }
+ @include breakpoint(medium down) {
+   flex-direction: column;
+ }
+ #login {
+  margin-left: 40px;
+ }
+}
+
+/* ==========================================================================
+login page
+========================================================================== */
+
+#loginform {
+  .button {
+    margin-top: 2rem;
+  }
+  margin-bottom: 2rem;
+}
+
+#login-error {
+  margin-bottom: 2rem;
 }
 
 /* ==========================================================================
@@ -2817,18 +2920,3 @@ fooslider
 // .fs-next {
 //   right: 0;
 // }
-
-/* ==========================================================================
-login page
-========================================================================== */
-
-#loginform {
-  .button {
-    margin-top: 2rem;
-  }
-  margin-bottom: 2rem;
-}
-
-#login-error {
-  margin-bottom: 2rem;
-}
