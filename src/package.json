@@ -59,7 +59,7 @@
     "yargs": "^3.8.0"
   },
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.18.1",
     "es6-promise-promise": "^1.0.0",
     "foundation-sites": "^6.4.1",
     "gsap": "^2.1.3",
